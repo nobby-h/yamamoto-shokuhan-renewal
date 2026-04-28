@@ -11,7 +11,7 @@ export function registerNewsArchive(Alpine) {
     async init() {
       const { data, error } = await supabase
         .from('news')
-        .select('id, publish_date, category, title, body, external_url, is_published')
+        .select('id, publish_date, category, title, body, external_url, image_url, is_published')
         .eq('is_published', true)
         .order('publish_date', { ascending: false })
         .order('created_at', { ascending: false });

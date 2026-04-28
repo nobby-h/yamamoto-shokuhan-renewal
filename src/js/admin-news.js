@@ -20,6 +20,8 @@ export function registerAdminNews(Alpine) {
     editing: null, // id or null
     formError: null,
     deletingId: null,
+    uploading: false,
+    uploadProgress: '',
 
     labels: CATEGORY_LABELS,
 
@@ -86,6 +88,50 @@ export function registerAdminNews(Alpine) {
       this.formError = null;
     },
 
+    async uploadImage(event) {
+      const file = event.target.files?.[0];
+      if (!file) return;
+      if (!file.type.startsWith('image/')) { this.formError = '画像ファイルを選択してください'; return; }
+      if (file.size > 5 * 1024 * 1024) { this.formError = 'ファイルサイズは5MB以下にしてください'; return; }
+
+      this.uploading = true;
+      this.formError = null;
+      this.uploadProgress = 'アップロード中...';
+
+      const ext = file.name.split('.').pop()?.toLowerCase() || 'jpg';
+      const safeName = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
+
+      const { error: upErr } = await supabase.storage
+        .from('news-images')
+        .upload(safeName, file, { cacheControl: '3600', upsert: false, contentType: file.type });
+
+      if (upErr) {
+        this.formError = 'アップロード失敗: ' + upErr.message;
+        this.uploading = false;
+        this.uploadProgress = '';
+        event.target.value = '';
+        return;
+      }
+
+      const { data: urlData } = supabase.storage.from('news-images').getPublicUrl(safeName);
+      this.form.image_url = urlData.publicUrl;
+      this.uploading = false;
+      this.uploadProgress = '✓ アップロード完了';
+      event.target.value = '';
+      setTimeout(() => { this.uploadProgress = ''; }, 3000);
+    },
+
+    async removeImage() {
+      if (!this.form.image_url) return;
+      if (!confirm('画像を削除しますか？')) return;
+      // Try to delete from storage if it's our bucket
+      const match = this.form.image_url.match(/\/news-images\/(.+)$/);
+      if (match) {
+        await supabase.storage.from('news-images').remove([match[1]]);
+      }
+      this.form.image_url = '';
+    },
+
     async save() {
       this.formError = null;
       if (!this.form.title?.trim()) { this.formError = 'タイトルを入力してください'; return; }
@@ -98,6 +144,7 @@ export function registerAdminNews(Alpine) {
         title: this.form.title.trim(),
         body: (this.form.body || '').trim(),
         external_url: (this.form.external_url || '').trim() || null,
+        image_url: (this.form.image_url || '').trim() || null,
         is_published: !!this.form.is_published,
       };
 
@@ -143,6 +190,7 @@ function blankForm() {
     title: '',
     body: '',
     external_url: '',
+    image_url: '',
     is_published: true,
   };
 }

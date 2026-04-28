@@ -136,6 +136,22 @@
             <textarea x-model="form.body" placeholder="記事本文。空欄でも投稿可。"></textarea>
           </div>
           <div class="a-field">
+            <label>画像（任意・最大5MB / JPG/PNG/WebP/GIF）</label>
+            <input type="file" accept="image/*" @change="uploadImage($event)" :disabled="uploading">
+            <template x-if="uploadProgress">
+              <div style="margin-top:0.5rem; font-size:0.8rem; color:#2c7a3a;" x-text="uploadProgress"></div>
+            </template>
+            <template x-if="form.image_url">
+              <div style="margin-top:0.75rem; padding:0.75rem; background:#f7f7f5; border:1px solid #ddd; display:flex; gap:1rem; align-items:flex-start;">
+                <img :src="form.image_url" alt="プレビュー" style="width:120px; height:80px; object-fit:cover; flex-shrink:0;">
+                <div style="flex:1; min-width:0;">
+                  <div style="font-size:0.75rem; color:#666; word-break:break-all;" x-text="form.image_url"></div>
+                  <button type="button" class="a-btn a-btn--ghost a-btn--sm" @click="removeImage()" style="margin-top:0.5rem;">画像を削除</button>
+                </div>
+              </div>
+            </template>
+          </div>
+          <div class="a-field">
             <label>外部リンク（任意）</label>
             <input type="url" x-model="form.external_url" placeholder="https://... （指定するとクリックで外部ページを開きます）">
           </div>
@@ -186,13 +202,20 @@
                   <span class="a-cat" :class="'a-cat--' + item.category" x-text="labels[item.category]"></span>
                 </td>
                 <td>
-                  <strong x-text="item.title"></strong>
-                  <template x-if="item.body">
-                    <div style="font-size:0.78rem; color:#888; margin-top:0.25rem;" x-text="item.body.length > 80 ? item.body.slice(0, 80) + '...' : item.body"></div>
-                  </template>
-                  <template x-if="item.external_url">
-                    <div style="font-size:0.75rem; color:#1a4480; margin-top:0.25rem;">↗ <span x-text="item.external_url"></span></div>
-                  </template>
+                  <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+                    <template x-if="item.image_url">
+                      <img :src="item.image_url" alt="" style="width:60px; height:45px; object-fit:cover; flex-shrink:0; border:1px solid #ddd;">
+                    </template>
+                    <div style="flex:1; min-width:0;">
+                      <strong x-text="item.title"></strong>
+                      <template x-if="item.body">
+                        <div style="font-size:0.78rem; color:#888; margin-top:0.25rem;" x-text="item.body.length > 80 ? item.body.slice(0, 80) + '...' : item.body"></div>
+                      </template>
+                      <template x-if="item.external_url">
+                        <div style="font-size:0.75rem; color:#1a4480; margin-top:0.25rem;">↗ <span x-text="item.external_url"></span></div>
+                      </template>
+                    </div>
+                  </div>
                 </td>
                 <td>
                   <button @click="togglePublished(item)" :class="item.is_published ? 'a-status--on' : 'a-status--off'" style="background:none; border:none; cursor:pointer; font-size:0.85rem;" x-text="item.is_published ? '公開中' : '非公開'"></button>
