@@ -1,0 +1,106 @@
+// ==========================================================================
+// Contact — Refined contact section
+// ==========================================================================
+
+.p-contact {
+  padding: var(--section-gap) 0;
+  background: var(--color-off-white);
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__phone,
+  &__form-link {
+    background: var(--color-white);
+    padding: 3rem 2rem;
+    text-align: center;
+    border: 1px solid var(--color-border);
+    transition: border-color var(--transition-base);
+
+    &:hover {
+      border-color: var(--color-gold);
+    }
+  }
+
+  &__icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 1.5rem;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      stroke: var(--color-gold);
+      fill: none;
+    }
+  }
+
+  &__phone-label,
+  &__form-label {
+    font-size: var(--text-xs);
+    color: var(--color-text-light);
+    display: block;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  &__phone-number {
+    font-family: var(--font-heading-en);
+    font-size: var(--text-3xl);
+    font-weight: 400;
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.05em;
+
+    @media (max-width: 767px) {
+      pointer-events: auto;
+    }
+
+    @media (min-width: 768px) {
+      pointer-events: none;
+    }
+  }
+
+  &__hours,
+  &__form-note {
+    font-size: var(--text-xs);
+    color: var(--color-text-light);
+    letter-spacing: 0.05em;
+    margin-top: 0.75rem;
+  }
+
+  &__map {
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+  }
+
+  &__map-info {
+    background: var(--color-white);
+    padding: 1.25rem 1.5rem;
+    font-size: var(--text-sm);
+    letter-spacing: 0.02em;
+  }
+
+  &__map-embed {
+    position: relative;
+    padding-bottom: 35%;
+    height: 0;
+
+    iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

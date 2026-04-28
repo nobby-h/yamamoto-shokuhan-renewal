@@ -1,0 +1,54 @@
+// Section header — elegant, refined
+.p-section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+
+  &__en {
+    display: block;
+    font-family: var(--font-heading-en);
+    font-size: clamp(2rem, 1.5rem + 2.5vw, 3.5rem);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+
+  &__ja {
+    font-size: var(--text-lg);
+    font-weight: 500;
+    color: var(--color-text);
+    letter-spacing: 0.15em;
+  }
+
+  &__line {
+    width: 40px;
+    height: 1px;
+    background: var(--color-gold);
+    margin: 1.5rem auto 0;
+  }
+
+  &__desc {
+    margin-top: 1.5rem;
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    letter-spacing: 0.05em;
+  }
+
+  // Light variant (on dark backgrounds)
+  &--light {
+    .p-section-header__en {
+      color: var(--color-gold-light);
+    }
+    .p-section-header__ja {
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .p-section-header__line {
+      background: var(--color-gold-light);
+    }
+    .p-section-header__desc {
+      color: rgba(255, 255, 255, 0.9);
+    }
+  }
+}

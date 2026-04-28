@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ヤマモト食販 運送事業部 — 札幌・旭川に拠点を置き、全道主要地域を網羅した配送体制で食品物流を支えます。">
+  <meta name="format-detection" content="telephone=no">
+  <title>運送事業部 | ヤマモト食販株式会社</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Noto+Sans+JP:wght@200;300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="l-header" id="js-header">
+    <div class="l-header__inner l-inner">
+      <a href="/" class="l-header__logo">
+        <img src="/src/assets/images/logo/yamamoto.png" alt="ヤマモト食販株式会社" class="l-header__logo-img">
+      </a>
+      <nav class="l-header__nav" id="js-header-nav">
+        <a href="/about.html" class="l-header__nav-link">会社紹介</a>
+        <a href="/service.html" class="l-header__nav-link">事業案内</a>
+        <a href="/news.html" class="l-header__nav-link">お知らせ</a>
+        <a href="/recruit.html" class="l-header__nav-link">採用情報</a>
+        <a href="/about.html#access" class="l-header__nav-link">アクセス</a>
+        <a href="/contact.html" class="l-header__nav-link">お問い合わせ</a>
+      </nav>
+      <button class="p-menu-btn" id="js-menu-btn" aria-label="メニューを開く" aria-expanded="false">
+        <span class="p-menu-btn__line"></span>
+        <span class="p-menu-btn__line"></span>
+        <span class="p-menu-btn__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="p-drawer__overlay" id="js-drawer-overlay"></div>
+  <nav class="p-drawer" id="js-drawer">
+    <a href="/about.html" class="p-drawer__nav-link">会社紹介</a>
+    <a href="/service.html" class="p-drawer__nav-link">事業案内</a>
+    <a href="/news.html" class="p-drawer__nav-link">お知らせ</a>
+    <a href="/recruit.html" class="p-drawer__nav-link">採用情報</a>
+    <a href="/about.html#access" class="p-drawer__nav-link">アクセス</a>
+    <a href="/contact.html" class="p-drawer__nav-link">お問い合わせ</a>
+    <a href="tel:011-686-4283" class="p-drawer__phone">011-686-4283</a>
+    <a href="/contact.html" class="p-drawer__cta c-btn c-btn--gold">お問い合わせフォーム</a>
+  </nav>
+
+  <main class="l-main">
+
+    <!-- ========== 1. PAGE HERO ========== -->
+    <section class="p-page-hero">
+      <div class="p-page-hero__bg" style="background-image: url('/src/assets/images/about/demo_1.jpg');"></div>
+      <div class="p-page-hero__content" data-animate>
+        <span class="p-page-hero__en">Transport</span>
+        <h1 class="p-page-hero__title">運送事業部</h1>
+        <div class="p-page-hero__line"></div>
+      </div>
+    </section>
+
+    <!-- ========== 2. BREADCRUMB ========== -->
+    <nav class="p-breadcrumb" aria-label="パンくずリスト">
+      <ol class="p-breadcrumb__list">
+        <li class="p-breadcrumb__item"><a href="/">トップ</a></li>
+        <li class="p-breadcrumb__item"><a href="/service.html">事業案内</a></li>
+        <li class="p-breadcrumb__item">運送事業部</li>
+      </ol>
+    </nav>
+
+    <!-- ========== 3. LEAD ========== -->
+    <section class="p-page-section l-section">
+      <div class="l-inner">
+        <p class="p-service-detail__lead" data-lines>
+          <span style="display:block;">札幌・旭川に拠点を置き、全道主要地域を網羅した配送体制。</span>
+          <span style="display:block;">食品の物流を通して地域社会に大きく貢献できることを</span>
+          <span style="display:block;">第一の目的としてサービスを続けております。</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== 4. 配送ネットワーク ========== -->
+    <section class="p-page-section p-page-section--gray l-section">
+      <div class="l-inner">
+        <div class="p-service-detail__grid">
+          <div class="p-service-detail__image" data-slide="left">
+            <img src="/src/assets/images/photos/PhotoGrid_1570042818311.jpg" alt="運送事業部 — 業務用車両" loading="lazy" data-reveal>
+          </div>
+          <div class="p-service-detail__content" data-slide="right">
+            <div class="p-section-header" style="text-align: left;">
+              <span class="p-section-header__en" style="font-size: clamp(0.7rem, 0.6rem + 0.5vw, 0.85rem);">01</span>
+              <h2 class="p-section-header__ja" style="font-size: var(--text-lg);">配送ネットワーク</h2>
+              <div class="p-section-header__line" style="margin: 1rem 0 0;"></div>
+            </div>
+            <p style="margin-top: 1.5rem; line-height: 2;">
+              札幌市手稲区の本社と旭川市永山の営業所を拠点に、北海道全域をカバーする配送ネットワークを構築。毎日の定期便に加え、お客様のニーズに合わせたスポット配送にも柔軟に対応しています。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 5. PARALLAX BAND ========== -->
+    <section class="p-parallax-band">
+      <div class="p-parallax-band__bg" style="background-image: url('/src/assets/images/about/about_photo_8.jpg');"></div>
+      <div class="p-parallax-band__content">
+        <span class="p-parallax-band__text">Reliable Delivery Network</span>
+      </div>
+    </section>
+
+    <!-- ========== 6. 安全管理体制 ========== -->
+    <section class="p-page-section l-section">
+      <div class="l-inner">
+        <div class="p-service-detail__grid p-service-detail__grid--reverse">
+          <div class="p-service-detail__content" data-slide="left">
+            <div class="p-section-header" style="text-align: left;">
+              <span class="p-section-header__en" style="font-size: clamp(0.7rem, 0.6rem + 0.5vw, 0.85rem);">02</span>
+              <h2 class="p-section-header__ja" style="font-size: var(--text-lg);">安全管理体制</h2>
+              <div class="p-section-header__line" style="margin: 1rem 0 0;"></div>
+            </div>
+            <p style="margin-top: 1.5rem; line-height: 2;">
+              全車両にデジタルタコグラフ・ドライブレコーダーを装備。ドライバーの安全教育を定期的に実施し、事故ゼロを目指しています。車両の定期点検・整備はグループ企業の紺野自動車工業が担当。
+            </p>
+          </div>
+          <div class="p-service-detail__image" data-slide="right">
+            <img src="/src/assets/images/about/demo_1.jpg" alt="安全管理体制" loading="lazy" data-reveal>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 7. 3つの強み ========== -->
+    <section class="p-page-section p-page-section--gray l-section">
+      <div class="l-inner">
+        <div class="p-section-header" data-animate>
+          <span class="p-section-header__en">Strengths</span>
+          <h2 class="p-section-header__ja">3つの強み</h2>
+          <div class="p-section-header__line"></div>
+        </div>
+        <div class="p-sub-feature-cards" data-stagger>
+
+          <!-- Card 1 -->
+          <div class="p-sub-feature-card">
+            <div class="p-sub-feature-card__icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold, #b8963e)" stroke-width="1.2">
+                <path d="M12 9v4l2 2"/>
+                <path d="M3.34 17a10 10 0 1119.32 0"/>
+                <line x1="12" y1="1" x2="12" y2="3"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                <line x1="1" y1="12" x2="3" y2="12"/>
+              </svg>
+            </div>
+            <h3 class="p-sub-feature-card__title">温度管理の徹底</h3>
+            <p class="p-sub-feature-card__text">チルド・冷凍食品の温度管理を-25℃から+5℃まで精密にコントロール</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="p-sub-feature-card">
+            <div class="p-sub-feature-card__icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold, #b8963e)" stroke-width="1.2">
+                <circle cx="12" cy="10" r="3"/>
+                <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 10-16 0c0 3 2.7 7 8 11.7z"/>
+              </svg>
+            </div>
+            <h3 class="p-sub-feature-card__title">全道配送網</h3>
+            <p class="p-sub-feature-card__text">札幌圏・旭川圏を中心に道央・道北・道東の主要都市へ毎日配送</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="p-sub-feature-card">
+            <div class="p-sub-feature-card__icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold, #b8963e)" stroke-width="1.2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <polyline points="9 12 11 14 15 10"/>
+              </svg>
+            </div>
+            <h3 class="p-sub-feature-card__title">安全第一</h3>
+            <p class="p-sub-feature-card__text">全車両GPS管理、デジタコ・ドラレコ完備、定期安全講習の実施</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 8. NUMBERS ========== -->
+    <section class="p-page-section p-page-section--dark l-section">
+      <div class="l-inner">
+        <div class="p-sub-numbers" data-stagger>
+          <div class="p-sub-numbers__item">
+            <span class="p-sub-numbers__value" data-count-to="2">0</span>
+            <span class="p-sub-numbers__unit">拠点</span>
+            <span class="p-sub-numbers__label">札幌本社 + 旭川営業所</span>
+          </div>
+          <div class="p-sub-numbers__item">
+            <span class="p-sub-numbers__value p-sub-numbers__value--text">全道</span>
+            <span class="p-sub-numbers__unit">配送</span>
+            <span class="p-sub-numbers__label">北海道全域をカバー</span>
+          </div>
+          <div class="p-sub-numbers__item">
+            <span class="p-sub-numbers__value" data-count-to="53">0</span>
+            <span class="p-sub-numbers__unit">年の実績</span>
+            <span class="p-sub-numbers__label">昭和49年創業</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 9. 対応エリア ========== -->
+    <section class="p-page-section l-section">
+      <div class="l-inner">
+        <div class="p-section-header" data-animate>
+          <span class="p-section-header__en">Area</span>
+          <h2 class="p-section-header__ja">対応エリア</h2>
+          <div class="p-section-header__line"></div>
+        </div>
+        <div class="p-sub-area" data-animate>
+          <div class="p-sub-area__body" data-lines>
+            <p>札幌圏、旭川圏を中心に、道央・道北・道東の主要都市へ毎日配送。お客様のニーズに合わせた柔軟な配送スケジュールをご提案いたします。</p>
+            <p>定期便のほか、スポット配送にも対応。チルド・冷凍から常温まで、あらゆる温度帯の食品を安全・確実にお届けします。</p>
+          </div>
+          <div class="p-sub-area__map" data-animate>
+            <div class="p-sub-area__map-grid" data-stagger>
+              <div class="p-sub-area__map-item">
+                <span class="p-sub-area__map-region">道央</span>
+                <span class="p-sub-area__map-cities">札幌・小樽・千歳・苫小牧・室蘭</span>
+              </div>
+              <div class="p-sub-area__map-item">
+                <span class="p-sub-area__map-region">道北</span>
+                <span class="p-sub-area__map-cities">旭川・富良野・稚内・留萌</span>
+              </div>
+              <div class="p-sub-area__map-item">
+                <span class="p-sub-area__map-region">道東</span>
+                <span class="p-sub-area__map-cities">帯広・釧路・北見・網走</span>
+              </div>
+              <div class="p-sub-area__map-item">
+                <span class="p-sub-area__map-region">道南</span>
+                <span class="p-sub-area__map-cities">函館・八雲　ほかご相談ください</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 10. CTA ========== -->
+    <section class="p-parallax-band p-parallax-band--cta">
+      <div class="p-parallax-band__bg" style="background-image: url('/src/assets/images/about/about_photo_5.jpg');"></div>
+      <div class="p-parallax-band__content" style="padding: 6rem 0;">
+        <div class="l-inner" style="text-align: center;">
+          <div class="p-section-header p-section-header--light" data-animate>
+            <span class="p-section-header__en">Contact</span>
+            <h2 class="p-section-header__ja">お問い合わせ</h2>
+            <div class="p-section-header__line"></div>
+          </div>
+          <p style="color: rgba(255,255,255,1); line-height: 2; margin-bottom: 2.5rem; font-size: clamp(0.9rem, 0.8rem + 0.4vw, 1.1rem);" data-animate>
+            運送事業に関するご質問・ご相談はお気軽にお問い合わせください。
+          </p>
+          <div data-animate>
+            <a href="/contact.html" class="c-btn c-btn--gold c-btn--lg">お問い合わせフォーム</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="l-footer" id="footer">
+    <div class="p-footer-banners">
+      <div class="p-footer-banners__grid">
+        <a href="/recruit.html" class="p-footer-banner">
+          <div class="p-footer-banner__bg" style="background: url('/src/assets/images/img2/syotyou.jpg') center/cover;"></div>
+          <span>採用情報</span>
+        </a>
+        <a href="/service.html" class="p-footer-banner">
+          <div class="p-footer-banner__bg" style="background: url('/src/assets/images/img2/top_3service.png') center/cover;"></div>
+          <span>事業案内</span>
+        </a>
+        <a href="/about.html" class="p-footer-banner">
+          <div class="p-footer-banner__bg" style="background: url('/src/assets/images/about/about_photo_4.jpg') center/cover;"></div>
+          <span>ヤマモト食販株式会社</span>
+        </a>
+      </div>
+    </div>
+    <div class="l-footer__main">
+      <div class="l-inner">
+        <div class="l-footer__grid">
+          <div class="l-footer__col l-footer__col--info">
+            <div class="l-footer__logo">
+              <svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="0" y="30" font-family="'Noto Sans JP', sans-serif" font-weight="900" font-size="24" fill="white">ヤマモト食販</text>
+              </svg>
+            </div>
+            <address class="l-footer__address">
+              〒006-0835<br>
+              北海道札幌市手稲区曙5条4丁目2番1号<br>
+              TEL: <a href="tel:011-686-4283">011-686-4283</a>
+            </address>
+          </div>
+          <div class="l-footer__col">
+            <h3 class="l-footer__heading">Sitemap</h3>
+            <ul class="l-footer__nav">
+              <li><a href="/">トップ</a></li>
+              <li><a href="/about.html">会社紹介</a></li>
+              <li><a href="/service.html">事業案内</a></li>
+              <li><a href="/news.html">ニュース</a></li>
+              <li><a href="/recruit.html">採用情報</a></li>
+              <li><a href="/contact.html">お問い合わせ</a></li>
+            </ul>
+          </div>
+          <div class="l-footer__col">
+            <h3 class="l-footer__heading">Group</h3>
+            <ul class="l-footer__nav">
+              <li><a href="https://shakohjinsha.com/" target="_blank" rel="noopener">車好人舎（札幌市手稲区）</a></li>
+              <li><a href="https://www.konno-jikou.jp/" target="_blank" rel="noopener">紺野自動車工業株式会社（白石区菊水）</a></li>
+            </ul>
+            <h3 class="l-footer__heading" style="margin-top: 2rem;">Locations</h3>
+            <ul class="l-footer__nav">
+              <li>本社（札幌市手稲区）</li>
+              <li>旭川営業所（旭川市永山）</li>
+            </ul>
+          </div>
+          <div class="l-footer__col">
+            <h3 class="l-footer__heading">Contact</h3>
+            <a href="tel:011-686-4283" class="l-footer__phone">011-686-4283</a>
+            <p style="font-size: var(--text-xs); opacity: 0.8; margin-bottom: 1.5rem;">平日 9:00〜18:00</p>
+            <a href="/contact.html" class="c-btn c-btn--gold c-btn--sm">フォームはこちら</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="l-footer__copyright">
+      <small>&copy; ヤマモト食販株式会社 All Rights Reserved.</small>
+    </div>
+  </footer>
+
+  <button class="p-pagetop" id="js-pagetop" aria-label="ページトップへ戻る">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- ========== PAGE-SPECIFIC STYLES ========== -->
+  <style>
+    /* -------------------------------------------------------
+       Service Detail Sub-page — Shared Components
+    ------------------------------------------------------- */
+
+    /* Reversed grid */
+    .p-service-detail__grid--reverse {
+      direction: rtl;
+    }
+    .p-service-detail__grid--reverse > * {
+      direction: ltr;
+    }
+
+    /* Feature Cards */
+    .p-sub-feature-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 767px) {
+      .p-sub-feature-cards {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .p-sub-feature-card {
+      background: var(--color-white, #fff);
+      padding: 3rem 2rem;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(10, 22, 40, 0.06);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .p-sub-feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(10, 22, 40, 0.12);
+    }
+
+    .p-sub-feature-card__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      border: 1px solid rgba(184, 150, 62, 0.3);
+      border-radius: 50%;
+    }
+
+    .p-sub-feature-card__title {
+      font-size: clamp(1rem, 0.9rem + 0.4vw, 1.2rem);
+      font-weight: 700;
+      color: var(--color-primary, #0a1628);
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    .p-sub-feature-card__text {
+      font-size: var(--text-sm, 0.875rem);
+      color: var(--color-text-light, #5a6070);
+      line-height: 1.9;
+      letter-spacing: 0.03em;
+    }
+
+    /* Numbers Section */
+    .p-sub-numbers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    @media (max-width: 767px) {
+      .p-sub-numbers {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    .p-sub-numbers__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .p-sub-numbers__value {
+      font-family: var(--font-heading-en, 'Cormorant Garamond', serif);
+      font-size: clamp(3.5rem, 3rem + 2vw, 5rem);
+      font-weight: 300;
+      color: var(--color-gold, #b8963e);
+      line-height: 1;
+    }
+
+    .p-sub-numbers__value--text {
+      font-family: var(--font-heading-en, 'Cormorant Garamond', serif);
+      font-size: clamp(2.5rem, 2rem + 2vw, 3.5rem);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+    }
+
+    .p-sub-numbers__unit {
+      font-size: clamp(1rem, 0.9rem + 0.3vw, 1.25rem);
+      font-weight: 500;
+      color: rgba(255, 255, 255, 1);
+      letter-spacing: 0.1em;
+    }
+
+    .p-sub-numbers__label {
+      font-size: var(--text-xs, 0.75rem);
+      color: rgba(255, 255, 255, 0.45);
+      letter-spacing: 0.05em;
+    }
+
+    /* Area Section */
+    .p-sub-area {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+
+    @media (max-width: 767px) {
+      .p-sub-area {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .p-sub-area__body p {
+      font-size: var(--text-base, 1rem);
+      color: var(--color-text-light, #5a6070);
+      line-height: 2;
+      letter-spacing: 0.03em;
+      margin-bottom: 1rem;
+    }
+
+    .p-sub-area__map-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 480px) {
+      .p-sub-area__map-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .p-sub-area__map-item {
+      background: var(--color-bg-gray, #f7f8fa);
+      padding: 1.5rem;
+      border-left: 3px solid var(--color-gold, #b8963e);
+    }
+
+    .p-sub-area__map-region {
+      display: block;
+      font-size: clamp(1rem, 0.9rem + 0.3vw, 1.15rem);
+      font-weight: 700;
+      color: var(--color-primary, #0a1628);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    .p-sub-area__map-cities {
+      display: block;
+      font-size: var(--text-sm, 0.875rem);
+      color: var(--color-text-light, #5a6070);
+      line-height: 1.7;
+    }
+
+    /* CTA Parallax Band */
+    .p-parallax-band--cta {
+      position: relative;
+    }
+
+    .p-parallax-band--cta::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 22, 40, 0.75);
+      z-index: 1;
+    }
+
+    .p-parallax-band--cta .p-parallax-band__content {
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+
+  <a href="/" class="p-floating-logo" aria-label="ヤマモト食販株式会社 トップへ">
+    <img src="/src/assets/images/logo/footerlogo.png" alt="ヤマモト食販">
+  </a>
+
+</body>
+</html>

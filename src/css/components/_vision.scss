@@ -1,0 +1,128 @@
+// ==========================================================================
+// Vision — Dark cinematic parallax with prominent values
+// ==========================================================================
+
+.p-vision {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--section-gap) 0;
+
+  &__bg {
+    position: absolute;
+    inset: -50% 0;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+    z-index: 0;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(10, 22, 40, 0.85) 0%,
+        rgba(10, 22, 40, 0.75) 50%,
+        rgba(10, 22, 40, 0.9) 100%
+      );
+      z-index: 1;
+    }
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 1000px;
+  }
+
+  &__quote {
+    margin-bottom: 5rem;
+  }
+
+  &__lead {
+    font-size: var(--text-xl);
+    color: rgba(255, 255, 255, 1);
+    line-height: 2.4;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+  }
+
+  // Values grid — large, spacious, impactful
+  &__values {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 5rem;
+    max-width: 1000px;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+  }
+
+  &__value {
+    text-align: center;
+    padding: 3rem 2rem;
+    position: relative;
+
+    // Vertical divider between items on desktop
+    @media (min-width: 768px) {
+      padding: 3.5rem 2.5rem;
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 15%;
+        height: 70%;
+        width: 1px;
+        background: rgba(184, 146, 74, 0.2);
+      }
+
+      &:last-child::after {
+        display: none;
+      }
+    }
+
+    // Mobile: horizontal divider
+    @media (max-width: 767px) {
+      border-bottom: 1px solid rgba(184, 146, 74, 0.15);
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  &__value-num {
+    display: block;
+    font-family: var(--font-heading-en);
+    font-size: clamp(3rem, 2rem + 5vw, 5rem);
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.05em;
+    color: rgba(184, 146, 74, 0.5);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  &__value-title {
+    font-size: var(--text-xl);
+    font-weight: 500;
+    color: var(--color-white);
+    letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+  }
+
+  &__value-text {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 1);
+    line-height: 1.8;
+    letter-spacing: 0.03em;
+  }
+}

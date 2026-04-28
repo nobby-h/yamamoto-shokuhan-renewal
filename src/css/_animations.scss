@@ -1,0 +1,69 @@
+// Ken Burns effect for hero slides
+@keyframes kenBurns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.1); }
+}
+
+// Scroll indicator bounce
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50%      { transform: translateY(10px); opacity: 0.5; }
+}
+
+// Wheel spin for truck
+@keyframes wheelSpin {
+  to { transform: rotate(360deg); }
+}
+
+// Fade in up (used by GSAP batch but also as CSS fallback)
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Exhaust puff
+@keyframes puff {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.5) translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5) translateX(-30px);
+  }
+}
+
+// Cloud drift
+@keyframes cloudDrift {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50px); }
+}
+
+// Hamburger line to X
+@keyframes lineToX1 {
+  50%  { transform: translateY(0) rotate(0); }
+  100% { transform: translateY(8px) rotate(45deg); }
+}
+
+@keyframes lineToX3 {
+  50%  { transform: translateY(0) rotate(0); }
+  100% { transform: translateY(-8px) rotate(-45deg); }
+}
+
+// Reduce motion
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

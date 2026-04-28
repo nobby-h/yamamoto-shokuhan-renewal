@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ヤマモト食販株式会社 — 食品物流を通して地域社会に貢献。運送事業、人材派遣、鶏卵販売、自動車販売修理を展開。">
+  <meta name="format-detection" content="telephone=no">
+  <title>ヤマモト食販株式会社 | 食品物流で地域を支える</title>
+
+  <!-- Fonts — Luxury serif + clean JP -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Noto+Sans+JP:wght@200;300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="l-header" id="js-header">
+    <div class="l-header__inner l-inner">
+      <a href="/" class="l-header__logo">
+        <img src="/src/assets/images/logo/yamamoto.png" alt="ヤマモト食販株式会社" class="l-header__logo-img">
+      </a>
+      <nav class="l-header__nav" id="js-header-nav">
+        <a href="/about.html" class="l-header__nav-link">会社紹介</a>
+        <a href="/service.html" class="l-header__nav-link">事業案内</a>
+        <a href="/news.html" class="l-header__nav-link">お知らせ</a>
+        <a href="/recruit.html" class="l-header__nav-link">採用情報</a>
+        <a href="/about.html#access" class="l-header__nav-link">アクセス</a>
+        <a href="/contact.html" class="l-header__nav-link">お問い合わせ</a>
+      </nav>
+      <button class="p-menu-btn" id="js-menu-btn" aria-label="メニューを開く" aria-expanded="false">
+        <span class="p-menu-btn__line"></span>
+        <span class="p-menu-btn__line"></span>
+        <span class="p-menu-btn__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="p-drawer__overlay" id="js-drawer-overlay"></div>
+  <nav class="p-drawer" id="js-drawer">
+    <a href="/about.html" class="p-drawer__nav-link">会社紹介</a>
+    <a href="/service.html" class="p-drawer__nav-link">事業案内</a>
+    <a href="/news.html" class="p-drawer__nav-link">お知らせ</a>
+    <a href="/recruit.html" class="p-drawer__nav-link">採用情報</a>
+    <a href="/about.html#access" class="p-drawer__nav-link">アクセス</a>
+    <a href="/contact.html" class="p-drawer__nav-link">お問い合わせ</a>
+    <a href="tel:011-686-4283" class="p-drawer__phone">011-686-4283</a>
+    <a href="/contact.html" class="p-drawer__cta c-btn c-btn--gold">お問い合わせフォーム</a>
+  </nav>
+
+  <main class="l-main">
+
+    <!-- ========== 1. HERO — Cinematic fullscreen ========== -->
+    <section class="p-hero" id="hero">
+      <!-- Decorative grain overlay -->
+      <div class="p-hero__grain"></div>
+      <div class="swiper p-hero__slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide p-hero__slide">
+            <div class="p-hero__slide-bg" style="background: url('/src/assets/images/img2/事務所.jpg') center/cover;"></div>
+            <div class="p-hero__content">
+              <p class="p-hero__eyebrow"><span class="p-hero__eyebrow-line"></span> Est. 1974</p>
+              <h2 class="p-hero__catch">創業53年。<br>食品物流で<br>地域を支える。</h2>
+              <div class="p-hero__line"></div>
+              <p class="p-hero__sub">Over half a century of trusted food logistics</p>
+              <div class="p-hero__buttons">
+                <a href="/contact.html" class="c-btn c-btn--gold c-btn--lg">お問い合わせ</a>
+                <a href="/service.html" class="c-btn c-btn--outline-light c-btn--lg">事業案内</a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide p-hero__slide">
+            <div class="p-hero__slide-bg" style="background: url('/src/assets/images/img2/syugou.png') center/cover;"></div>
+            <div class="p-hero__content">
+              <p class="p-hero__eyebrow"><span class="p-hero__eyebrow-line"></span> Our Fleet</p>
+              <h2 class="p-hero__catch">全道を駆ける<br>確かな配送網</h2>
+              <div class="p-hero__line"></div>
+              <p class="p-hero__sub">Comprehensive delivery network across Hokkaido</p>
+              <div class="p-hero__buttons">
+                <a href="/service.html" class="c-btn c-btn--gold c-btn--lg">事業案内</a>
+                <a href="/recruit.html" class="c-btn c-btn--outline-light c-btn--lg">採用情報</a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide p-hero__slide">
+            <div class="p-hero__slide-bg" style="background: url('/src/assets/images/img2/kannon.jpg') center/cover;"></div>
+            <div class="p-hero__content">
+              <p class="p-hero__eyebrow"><span class="p-hero__eyebrow-line"></span> Reliability</p>
+              <h2 class="p-hero__catch">確かな積載と<br>安全な配送</h2>
+              <div class="p-hero__line"></div>
+              <p class="p-hero__sub">Carefully loaded, safely delivered</p>
+              <div class="p-hero__buttons">
+                <a href="/service/unsou.html" class="c-btn c-btn--gold c-btn--lg">運送事業を見る</a>
+                <a href="/contact.html" class="c-btn c-btn--outline-light c-btn--lg">お問い合わせ</a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide p-hero__slide">
+            <div class="p-hero__slide-bg" style="background: url('/src/assets/images/img2/u4.png') center/cover;"></div>
+            <div class="p-hero__content">
+              <p class="p-hero__eyebrow"><span class="p-hero__eyebrow-line"></span> 24 Hours</p>
+              <h2 class="p-hero__catch">夜を駆け抜ける<br>食のインフラ</h2>
+              <div class="p-hero__line"></div>
+              <p class="p-hero__sub">Around the clock — never stops</p>
+              <div class="p-hero__buttons">
+                <a href="/service.html" class="c-btn c-btn--gold c-btn--lg">事業案内</a>
+                <a href="/about.html" class="c-btn c-btn--outline-light c-btn--lg">会社紹介</a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide p-hero__slide">
+            <div class="p-hero__slide-bg" style="background: url('/src/assets/images/photos/車好人舎②.jpg') center/cover;"></div>
+            <div class="p-hero__content">
+              <p class="p-hero__eyebrow"><span class="p-hero__eyebrow-line"></span> Group Company</p>
+              <h2 class="p-hero__catch">車好人舎<br>カーライフを支える</h2>
+              <div class="p-hero__line"></div>
+              <p class="p-hero__sub">Shakohjinsha — Total car support in Sapporo</p>
+              <div class="p-hero__buttons">
+                <a href="/service/jidousha.html" class="c-btn c-btn--gold c-btn--lg">自動車事業を見る</a>
+                <a href="/about.html" class="c-btn c-btn--outline-light c-btn--lg">会社紹介</a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide p-hero__slide">
+            <div class="p-hero__slide-bg" style="background: url('/src/assets/images/photos/紺野自動車.jpg') center/cover;"></div>
+            <div class="p-hero__content">
+              <p class="p-hero__eyebrow"><span class="p-hero__eyebrow-line"></span> Group Company</p>
+              <h2 class="p-hero__catch">紺野自動車工業<br>確かな整備技術</h2>
+              <div class="p-hero__line"></div>
+              <p class="p-hero__sub">Konno — Certified repair &amp; maintenance</p>
+              <div class="p-hero__buttons">
+                <a href="/service/jidousha.html" class="c-btn c-btn--gold c-btn--lg">詳細を見る</a>
+                <a href="https://www.konno-jikou.jp/" class="c-btn c-btn--outline-light c-btn--lg" target="_blank" rel="noopener">公式サイト</a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide p-hero__slide">
+            <div class="p-hero__slide-bg" style="background: url('/src/assets/images/img2/top_3service.png') center/cover;"></div>
+            <div class="p-hero__content">
+              <p class="p-hero__eyebrow"><span class="p-hero__eyebrow-line"></span> Heavy Transport</p>
+              <h2 class="p-hero__catch">大型輸送に応える<br>3事業の総合力</h2>
+              <div class="p-hero__line"></div>
+              <p class="p-hero__sub">Transport · Staffing · Auto Service</p>
+              <div class="p-hero__buttons">
+                <a href="/service.html" class="c-btn c-btn--gold c-btn--lg">事業案内</a>
+                <a href="/contact.html" class="c-btn c-btn--outline-light c-btn--lg">お問い合わせ</a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide p-hero__slide">
+            <div class="p-hero__slide-bg" style="background: url('/src/assets/images/img2/shakun.png') center/cover;"></div>
+            <div class="p-hero__content">
+              <p class="p-hero__eyebrow"><span class="p-hero__eyebrow-line"></span> Our Spirit</p>
+              <h2 class="p-hero__catch">創意工夫の精神で<br>未来を切り拓く</h2>
+              <div class="p-hero__line"></div>
+              <p class="p-hero__sub">Souikufu — Innovation rooted in tradition</p>
+              <div class="p-hero__buttons">
+                <a href="/about.html" class="c-btn c-btn--gold c-btn--lg">企業理念を見る</a>
+                <a href="/recruit.html" class="c-btn c-btn--outline-light c-btn--lg">採用情報</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination p-hero__pagination"></div>
+      </div>
+      <!-- Side decoration -->
+      <div class="p-hero__side-text">Yamamoto Shokuhan Est. 1974</div>
+      <a href="#vision" class="p-hero__scroll-indicator" aria-label="下にスクロール">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- ========== 2. VISION — Cinematic parallax ========== -->
+    <section class="p-vision" id="vision">
+      <div class="p-vision__bg" style="background-image: url('/src/assets/images/hero/slide-02.png');"></div>
+      <div class="p-vision__inner l-inner">
+        <div class="p-section-header p-section-header--light">
+          <span class="p-section-header__en">Vision</span>
+          <h2 class="p-section-header__ja">企業理念</h2>
+          <div class="p-section-header__line"></div>
+        </div>
+        <blockquote class="p-vision__quote">
+          <p class="p-vision__lead">
+            食品の物流を通して<br>
+            地域社会に大きく貢献できることを<br>
+            第一の目的としてサービスを続けております。
+          </p>
+        </blockquote>
+        <div class="p-vision__values">
+          <div class="p-vision__value" data-animate>
+            <span class="p-vision__value-num">01</span>
+            <h3 class="p-vision__value-title">安全第一</h3>
+            <p class="p-vision__value-text">食の安全を守る徹底した品質管理体制</p>
+          </div>
+          <div class="p-vision__value" data-animate>
+            <span class="p-vision__value-num">02</span>
+            <h3 class="p-vision__value-title">地域貢献</h3>
+            <p class="p-vision__value-text">北海道の食を支えるインフラとしての責任</p>
+          </div>
+          <div class="p-vision__value" data-animate>
+            <span class="p-vision__value-num">03</span>
+            <h3 class="p-vision__value-title">人材育成</h3>
+            <p class="p-vision__value-text">社員一人ひとりの成長が会社の成長</p>
+          </div>
+        </div>
+        <a href="/about.html" class="c-btn c-btn--outline-light">会社紹介を見る</a>
+      </div>
+    </section>
+
+    <!-- ========== PARALLAX BAND 1 ========== -->
+    <div class="p-parallax-band">
+      <div class="p-parallax-band__bg" style="background-image: url('/src/assets/images/img2/top_3service.png'); background-size: cover; background-position: center;"></div>
+      <div class="p-parallax-band__content">
+        <span class="p-parallax-band__text">Transport</span>
+        <span class="p-parallax-band__divider"></span>
+        <span class="p-parallax-band__text">Staffing</span>
+        <span class="p-parallax-band__divider"></span>
+        <span class="p-parallax-band__text">Auto Service</span>
+      </div>
+    </div>
+
+    <!-- ========== 3. SERVICE — Elegant cards ========== -->
+    <section class="p-service l-section" id="service">
+      <div class="l-inner">
+        <div class="p-section-header" data-animate>
+          <span class="p-section-header__en">Service</span>
+          <h2 class="p-section-header__ja">事業案内</h2>
+          <div class="p-section-header__line"></div>
+          <p class="p-section-header__desc">ヤマモト食販株式会社が手がける3つの事業</p>
+        </div>
+        <div class="p-service__grid">
+          <article class="p-service-card p-service-card--transport">
+            <a href="/service/unsou.html">
+              <div class="p-service-card__front">
+                <div class="p-service-card__img">
+                  <img src="/src/assets/images/about/about_photo_7.jpg" alt="運送事業部" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="p-service-card__body">
+                  <h3 class="p-service-card__title">運送事業部</h3>
+                  <span class="p-service-card__en">Transport</span>
+                </div>
+              </div>
+              <div class="p-service-card__back" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/src/assets/images/img2/service 運送事業部の写真.png'); background-size: cover; background-position: center;">
+                <h3>運送事業部</h3>
+                <p>札幌・旭川を拠点に置き、全道主要地域を網羅した配送体制。食品の物流を通して地域社会に貢献しています。</p>
+                <span class="p-service-card__link">View More</span>
+              </div>
+            </a>
+          </article>
+          <article class="p-service-card p-service-card--staffing">
+            <a href="/service/jinzai.html">
+              <div class="p-service-card__front">
+                <div class="p-service-card__img">
+                  <img src="/src/assets/images/about/about_photo_1.jpg" alt="人材派遣事業部" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="p-service-card__body">
+                  <h3 class="p-service-card__title">人材派遣事業部</h3>
+                  <span class="p-service-card__en">Staffing</span>
+                </div>
+              </div>
+              <div class="p-service-card__back">
+                <h3>人材派遣事業部</h3>
+                <p>理想の仕事探しをお手伝いします。札幌市内及び近郊の企業様のニーズに応え、派遣事業を展開しております。</p>
+                <span class="p-service-card__link">View More</span>
+              </div>
+            </a>
+          </article>
+          <article class="p-service-card p-service-card--auto">
+            <a href="/service/jidousha.html">
+              <div class="p-service-card__front">
+                <div class="p-service-card__img">
+                  <img src="/src/assets/images/photos/88b9322b9dbc8a027536e8080d418a01-570x150.png" alt="自動車販売修理事業部" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="p-service-card__body">
+                  <h3 class="p-service-card__title">自動車販売修理事業部</h3>
+                  <span class="p-service-card__en">Auto Service</span>
+                </div>
+              </div>
+              <div class="p-service-card__back">
+                <h3>自動車販売修理事業部</h3>
+                <p>『車好人舎』による新車・中古車販売と、『紺野自動車工業』による車検・整備・板金塗装。2社体制でお車をトータルサポート。</p>
+                <span class="p-service-card__link">View More</span>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PARALLAX BAND 2 ========== -->
+    <div class="p-parallax-band p-parallax-band--tall">
+      <div class="p-parallax-band__bg" style="background-image: url('/src/assets/images/img2/53背景.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="p-parallax-band__content">
+        <span class="p-parallax-band__large">53</span>
+        <span class="p-parallax-band__sub">Years of Excellence</span>
+      </div>
+    </div>
+
+    <!-- ========== 4. NUMBERS ========== -->
+    <section class="p-numbers l-section" id="numbers">
+      <div class="p-numbers__bg-text" aria-hidden="true">53 YEARS</div>
+      <div class="l-inner">
+        <div class="p-section-header" data-animate>
+          <span class="p-section-header__en">Numbers</span>
+          <h2 class="p-section-header__ja">数字で見るヤマモト食販</h2>
+          <div class="p-section-header__line"></div>
+        </div>
+        <div class="p-numbers__grid">
+          <div class="p-numbers__item" data-animate>
+            <div class="p-numbers__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <span class="p-numbers__value" data-target="53">0</span>
+            <span class="p-numbers__unit">年</span>
+            <span class="p-numbers__label">創業（昭和49年〜）</span>
+          </div>
+          <div class="p-numbers__item" data-animate>
+            <div class="p-numbers__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <span class="p-numbers__value" data-target="203">0</span>
+            <span class="p-numbers__unit">名</span>
+            <span class="p-numbers__label">従業員数</span>
+          </div>
+          <div class="p-numbers__item" data-animate>
+            <div class="p-numbers__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <span class="p-numbers__value" data-target="2">0</span>
+            <span class="p-numbers__unit">拠点</span>
+            <span class="p-numbers__label">配送拠点（札幌・旭川）</span>
+          </div>
+          <div class="p-numbers__item" data-animate>
+            <div class="p-numbers__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <span class="p-numbers__value" data-target="3100">0</span>
+            <span class="p-numbers__unit">万円</span>
+            <span class="p-numbers__label">資本金</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 5. HISTORY TIMELINE ========== -->
+    <section class="p-history l-section" id="history">
+      <div class="l-inner">
+        <div class="p-section-header" data-animate>
+          <span class="p-section-header__en">History</span>
+          <h2 class="p-section-header__ja">沿革</h2>
+          <div class="p-section-header__line"></div>
+          <p class="p-section-header__desc">半世紀にわたる歩み</p>
+        </div>
+        <div class="p-history__timeline">
+          <div class="p-history__line" id="js-history-line"></div>
+          <div class="p-history__item" data-animate>
+            <span class="p-history__year">1974</span>
+            <div class="p-history__dot"></div>
+            <div class="p-history__content">
+              <h3>会社設立</h3>
+              <p>昭和49年5月、札幌市にてヤマモト食販株式会社を設立。食品物流事業をスタート。</p>
+            </div>
+          </div>
+          <div class="p-history__item" data-animate>
+            <span class="p-history__year">1985</span>
+            <div class="p-history__dot"></div>
+            <div class="p-history__content">
+              <h3>事業拡大</h3>
+              <p>人材派遣事業部を新設。運送事業とのシナジーで事業領域を拡大。</p>
+            </div>
+          </div>
+          <div class="p-history__item" data-animate>
+            <span class="p-history__year">1998</span>
+            <div class="p-history__dot"></div>
+            <div class="p-history__content">
+              <h3>旭川営業所開設</h3>
+              <p>道北エリアの配送需要に応え、旭川市永山に営業所を開設。全道配送網を確立。</p>
+            </div>
+          </div>
+          <div class="p-history__item" data-animate>
+            <span class="p-history__year">2005</span>
+            <div class="p-history__dot"></div>
+            <div class="p-history__content">
+              <h3>鶏卵販売事業開始</h3>
+              <p>十勝・中札内ブランドの鶏卵販売事業を開始。品質と美味しさを追求。</p>
+            </div>
+          </div>
+          <div class="p-history__item" data-animate>
+            <span class="p-history__year">2015</span>
+            <div class="p-history__dot"></div>
+            <div class="p-history__content">
+              <h3>グループ体制強化</h3>
+              <p>紺野自動車工業株式会社をグループに迎え、自動車販売修理事業を展開。</p>
+            </div>
+          </div>
+          <div class="p-history__item" data-animate>
+            <span class="p-history__year">現在</span>
+            <div class="p-history__dot p-history__dot--active"></div>
+            <div class="p-history__content">
+              <h3>さらなる挑戦</h3>
+              <p>従業員203名、4事業部体制で北海道の食と暮らしを支え続けています。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 7. PHOTO GALLERY BAND (NEW) ========== -->
+    <section class="p-gallery" id="gallery">
+      <div class="p-gallery__strip" id="js-gallery-strip">
+        <div class="p-gallery__item" style="background: url('/src/assets/images/img2/事務所.jpg') center/cover;">
+          <span class="p-gallery__label">事務所</span>
+        </div>
+        <div class="p-gallery__item" style="background: url('/src/assets/images/img2/ymark.png') center/cover;">
+          <span class="p-gallery__label">Yマーク</span>
+        </div>
+        <div class="p-gallery__item" style="background: url('/src/assets/images/img2/back.png') center/cover;">
+          <span class="p-gallery__label">配送現場</span>
+        </div>
+        <div class="p-gallery__item" style="background: url('/src/assets/images/img2/cars.png') center/cover;">
+          <span class="p-gallery__label">車両</span>
+        </div>
+        <div class="p-gallery__item" style="background: url('/src/assets/images/img2/top_3service.png') center/cover;">
+          <span class="p-gallery__label">3事業</span>
+        </div>
+        <div class="p-gallery__item" style="background: url('/src/assets/images/img2/shakun.png') center/cover;">
+          <span class="p-gallery__label">創意工夫</span>
+        </div>
+      </div>
+      <div class="p-gallery__overlay">
+        <p class="p-gallery__text">北海道の食と暮らしを、<br>確かな物流で支え続ける。</p>
+      </div>
+    </section>
+
+    <!-- ========== 8. NEWS ========== -->
+    <section class="p-news l-section" id="news" x-data="{ activeTab: 'all' }">
+      <div class="l-inner">
+        <div class="p-section-header" data-animate>
+          <span class="p-section-header__en">News</span>
+          <h2 class="p-section-header__ja">お知らせ</h2>
+          <div class="p-section-header__line"></div>
+        </div>
+        <div class="p-news__tabs">
+          <button class="p-news__tab" :class="{ 'is-active': activeTab === 'all' }" @click="activeTab = 'all'">すべて</button>
+          <button class="p-news__tab" :class="{ 'is-active': activeTab === 'info' }" @click="activeTab = 'info'">お知らせ</button>
+          <button class="p-news__tab" :class="{ 'is-active': activeTab === 'recruit' }" @click="activeTab = 'recruit'">採用情報</button>
+          <button class="p-news__tab" :class="{ 'is-active': activeTab === 'press' }" @click="activeTab = 'press'">プレスリリース</button>
+        </div>
+        <ul class="p-news__list">
+          <li class="p-news__item" x-show="activeTab === 'all' || activeTab === 'info'" x-transition>
+            <a href="/news/sample-1/"><time class="p-news__date" datetime="2026-04-01">2026.04.01</time><span class="p-news__cat p-news__cat--info">お知らせ</span><span class="p-news__title">ゴールデンウィーク休業のお知らせ</span></a>
+          </li>
+          <li class="p-news__item" x-show="activeTab === 'all' || activeTab === 'recruit'" x-transition>
+            <a href="/news/sample-2/"><time class="p-news__date" datetime="2026-03-15">2026.03.15</time><span class="p-news__cat p-news__cat--recruit">採用情報</span><span class="p-news__title">ドライバー・倉庫スタッフ募集中！</span></a>
+          </li>
+          <li class="p-news__item" x-show="activeTab === 'all' || activeTab === 'info'" x-transition>
+            <a href="/news/sample-3/"><time class="p-news__date" datetime="2026-03-01">2026.03.01</time><span class="p-news__cat p-news__cat--info">お知らせ</span><span class="p-news__title">年末年始の営業時間について</span></a>
+          </li>
+          <li class="p-news__item" x-show="activeTab === 'all' || activeTab === 'press'" x-transition>
+            <a href="/news/sample-4/"><time class="p-news__date" datetime="2026-02-20">2026.02.20</time><span class="p-news__cat p-news__cat--press">プレスリリース</span><span class="p-news__title">旭川営業所 新配送ルート開設のお知らせ</span></a>
+          </li>
+          <li class="p-news__item" x-show="activeTab === 'all' || activeTab === 'recruit'" x-transition>
+            <a href="/news/sample-5/"><time class="p-news__date" datetime="2026-02-10">2026.02.10</time><span class="p-news__cat p-news__cat--recruit">採用情報</span><span class="p-news__title">2026年度 新卒採用エントリー受付開始</span></a>
+          </li>
+        </ul>
+        <div class="p-news__more">
+          <a href="/news.html" class="c-btn c-btn--outline">ニュース一覧</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 9. RECRUIT CTA ========== -->
+    <section class="p-recruit-cta" id="recruit">
+      <div class="p-recruit-cta__bg" style="background-image: url('/src/assets/images/img2/u4.png');"></div>
+      <div class="p-recruit-cta__overlay"></div>
+      <div class="p-recruit-cta__inner l-inner">
+        <div class="p-section-header p-section-header--light">
+          <span class="p-section-header__en">Recruit</span>
+          <h2 class="p-section-header__ja">一緒に働きませんか？</h2>
+          <div class="p-section-header__line"></div>
+        </div>
+        <p class="p-recruit-cta__text">ヤマモト食販では、共に成長できる仲間を募集しています。<br>ドライバー、倉庫スタッフ、事務職など、さまざまな職種でお待ちしています。</p>
+        <div class="p-recruit-cta__jobs">
+          <div class="p-recruit-cta__job" data-animate>
+            <div class="p-recruit-cta__job-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <span>ドライバー</span>
+          </div>
+          <div class="p-recruit-cta__job" data-animate>
+            <div class="p-recruit-cta__job-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+            </div>
+            <span>倉庫スタッフ</span>
+          </div>
+          <div class="p-recruit-cta__job" data-animate>
+            <div class="p-recruit-cta__job-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <span>事務職</span>
+          </div>
+          <div class="p-recruit-cta__job" data-animate>
+            <div class="p-recruit-cta__job-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/><circle cx="17" cy="7" r="3"/><path d="M22 21v-1.5a3.5 3.5 0 00-2.5-3.35"/></svg>
+            </div>
+            <span>職種多数</span>
+          </div>
+        </div>
+        <div class="p-recruit-cta__buttons">
+          <a href="/recruit.html" class="c-btn c-btn--gold c-btn--lg">採用情報を見る</a>
+          <a href="#" class="c-btn c-btn--outline-light c-btn--lg" target="_blank" rel="noopener">外部求人サイト</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 10. GROUP COMPANIES (NEW) ========== -->
+    <section class="p-group l-section" id="group">
+      <div class="l-inner">
+        <div class="p-section-header" data-animate>
+          <span class="p-section-header__en">Group</span>
+          <h2 class="p-section-header__ja">グループ企業</h2>
+          <div class="p-section-header__line"></div>
+        </div>
+        <div class="p-group__grid" data-stagger>
+          <div class="p-group__card" data-animate>
+            <div class="p-group__card-visual" style="background: url('/src/assets/images/photos/車好人舎②.jpg') center/cover;">
+              <span class="p-group__card-badge">Group Company</span>
+            </div>
+            <div class="p-group__card-body">
+              <img src="/src/assets/images/img2/car_bumon.png" alt="車好人舎 ロゴ" class="p-group__card-logo" loading="lazy" style="max-width: 220px; height: auto; margin-bottom: 1.25rem;">
+              <h3 class="p-group__card-name">車好人舎</h3>
+              <p class="p-group__card-desc">札幌市手稲区を拠点に、新車・中古車販売から車検・整備・板金・買取り・損害保険代理店まで。お客様のカーライフをトータルにサポートいたします。</p>
+              <dl class="p-group__card-info">
+                <div>
+                  <dt>所在地</dt>
+                  <dd>〒006-0835 札幌市手稲区曙5条4丁目2-1</dd>
+                </div>
+                <div>
+                  <dt>電話番号</dt>
+                  <dd><a href="tel:011-686-7007">011-686-7007</a></dd>
+                </div>
+                <div>
+                  <dt>事業内容</dt>
+                  <dd>新車・中古車販売 / 車検 / 一般整備 / 修理 / 板金 / 買取り / 損害保険代理店</dd>
+                </div>
+              </dl>
+              <a href="https://shakohjinsha.com/" class="c-btn c-btn--outline" target="_blank" rel="noopener">公式サイトを見る</a>
+            </div>
+          </div>
+          <div class="p-group__card" data-animate>
+            <div class="p-group__card-visual" style="background: url('/src/assets/images/photos/紺野自動車１.jpg') center/cover;">
+              <span class="p-group__card-badge">Group Company</span>
+            </div>
+            <div class="p-group__card-body">
+              <img src="/src/assets/images/logo/konno.png" alt="紺野自動車工業 ロゴ" class="p-group__card-logo" loading="lazy" style="max-width: 220px; height: auto; margin-bottom: 1.25rem;">
+              <h3 class="p-group__card-name">紺野自動車工業株式会社</h3>
+              <p class="p-group__card-desc">北海道運輸局指定工場（指定番号 第1-143号）。板金塗装、新車・中古車販売を手がけ、確かな技術力でお客様のカーライフを支えています。</p>
+              <dl class="p-group__card-info">
+                <div>
+                  <dt>所在地</dt>
+                  <dd>北海道札幌市白石区菊水9条3丁目3番2号</dd>
+                </div>
+                <div>
+                  <dt>電話番号</dt>
+                  <dd><a href="tel:011-841-1558">011-841-1558</a></dd>
+                </div>
+              </dl>
+              <a href="https://www.konno-jikou.jp/" class="c-btn c-btn--outline" target="_blank" rel="noopener">公式サイトを見る</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 11. CONTACT ========== -->
+    <section class="p-contact l-section" id="contact">
+      <div class="l-inner">
+        <div class="p-section-header" data-animate>
+          <span class="p-section-header__en">Contact</span>
+          <h2 class="p-section-header__ja">お問い合わせ</h2>
+          <div class="p-section-header__line"></div>
+        </div>
+        <div class="p-contact__map p-contact__map--banner" data-animate>
+          <div class="p-contact__map-info">
+            <p>〒006-0835 北海道札幌市手稲区曙5条4丁目2番1号</p>
+          </div>
+          <div class="p-contact__map-embed">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2911.460924248662!2d141.2263431166104!3d43.136849479142455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b271c8cfcdf21%3A0x63ce15c052969848!2z44CSMDA2LTA4MzUg5YyX5rW36YGT5pyt5bmM5biC5omL56iy5Yy65puZ77yV5p2h77yU5LiB55uu77yS4oiS77yR!5e0!3m2!1sja!2sjp!4v1651833306745!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="ヤマモト食販 本社"></iframe>
+          </div>
+        </div>
+        <div class="p-contact__grid">
+          <div class="p-contact__phone" data-animate>
+            <div class="p-contact__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <span class="p-contact__phone-label">お電話でのお問い合わせ</span>
+            <a href="tel:011-686-4283" class="p-contact__phone-number">011-686-4283</a>
+            <span class="p-contact__hours">受付時間：平日 9:00〜18:00</span>
+          </div>
+          <div class="p-contact__form-link" data-animate>
+            <div class="p-contact__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <span class="p-contact__form-label">メールでのお問い合わせ</span>
+            <a href="/contact.html" class="c-btn c-btn--gold c-btn--lg">お問い合わせフォーム</a>
+            <span class="p-contact__form-note">24時間受付中</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="l-footer" id="footer">
+    <div class="p-footer-banners">
+      <div class="p-footer-banners__grid">
+        <a href="/recruit.html" class="p-footer-banner">
+          <div class="p-footer-banner__bg" style="background: url('/src/assets/images/img2/syotyou.jpg') center/cover;"></div>
+          <span>採用情報</span>
+        </a>
+        <a href="/service.html" class="p-footer-banner">
+          <div class="p-footer-banner__bg" style="background: url('/src/assets/images/img2/top_3service.png') center/cover;"></div>
+          <span>事業案内</span>
+        </a>
+        <a href="/about.html" class="p-footer-banner">
+          <div class="p-footer-banner__bg" style="background: url('/src/assets/images/about/about_photo_4.jpg') center/cover;"></div>
+          <span>ヤマモト食販株式会社</span>
+        </a>
+      </div>
+    </div>
+    <div class="l-footer__main">
+      <div class="l-inner">
+        <div class="l-footer__grid">
+          <div class="l-footer__col l-footer__col--info">
+            <div class="l-footer__logo">
+              <svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="0" y="30" font-family="'Noto Sans JP', sans-serif" font-weight="900" font-size="24" fill="white">ヤマモト食販</text>
+              </svg>
+            </div>
+            <address class="l-footer__address">
+              〒006-0835<br>
+              北海道札幌市手稲区曙5条4丁目2番1号<br>
+              TEL: <a href="tel:011-686-4283">011-686-4283</a>
+            </address>
+          </div>
+          <div class="l-footer__col">
+            <h3 class="l-footer__heading">Sitemap</h3>
+            <ul class="l-footer__nav">
+              <li><a href="/">トップ</a></li>
+              <li><a href="/about.html">会社紹介</a></li>
+              <li><a href="/service.html">事業案内</a></li>
+              <li><a href="/news.html">お知らせ</a></li>
+              <li><a href="/recruit.html">採用情報</a></li>
+              <li><a href="/contact.html">お問い合わせ</a></li>
+            </ul>
+          </div>
+          <div class="l-footer__col">
+            <h3 class="l-footer__heading">Group</h3>
+            <ul class="l-footer__nav">
+              <li><a href="https://shakohjinsha.com/" target="_blank" rel="noopener">車好人舎（札幌市手稲区）</a></li>
+              <li><a href="https://www.konno-jikou.jp/" target="_blank" rel="noopener">紺野自動車工業株式会社（白石区菊水）</a></li>
+            </ul>
+            <h3 class="l-footer__heading" style="margin-top: 2rem;">Locations</h3>
+            <ul class="l-footer__nav">
+              <li>本社（札幌市手稲区）</li>
+              <li>旭川営業所（旭川市永山）</li>
+            </ul>
+          </div>
+          <div class="l-footer__col">
+            <h3 class="l-footer__heading">Contact</h3>
+            <a href="tel:011-686-4283" class="l-footer__phone">011-686-4283</a>
+            <p style="font-size: var(--text-xs); opacity: 0.8; margin-bottom: 1.5rem;">平日 9:00〜18:00</p>
+            <a href="/contact.html" class="c-btn c-btn--gold c-btn--sm">フォームはこちら</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="l-footer__copyright">
+      <small>&copy; ヤマモト食販株式会社 All Rights Reserved.</small>
+    </div>
+  </footer>
+
+  <button class="p-pagetop" id="js-pagetop" aria-label="ページトップへ戻る">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <a href="/" class="p-floating-logo" aria-label="ヤマモト食販株式会社 トップへ">
+    <img src="/src/assets/images/logo/footerlogo.png" alt="ヤマモト食販">
+  </a>
+
+</body>
+</html>

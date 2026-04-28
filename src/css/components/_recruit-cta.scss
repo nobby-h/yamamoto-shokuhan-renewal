@@ -1,0 +1,97 @@
+// ==========================================================================
+// Recruit CTA — Premium full-width call to action
+// ==========================================================================
+
+.p-recruit-cta {
+  position: relative;
+  padding: var(--section-gap) 0;
+  overflow: hidden;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__bg {
+    position: absolute;
+    inset: -10%;
+    width: 120%;
+    height: 120%;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(10, 22, 40, 0.85) 0%,
+      rgba(10, 22, 40, 0.75) 50%,
+      rgba(10, 22, 40, 0.9) 100%
+    );
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 700px;
+  }
+
+  &__text {
+    color: rgba(255, 255, 255, 1);
+    font-size: var(--text-base);
+    margin-bottom: 3rem;
+    line-height: 2;
+    letter-spacing: 0.05em;
+    font-weight: 300;
+  }
+
+  // Job categories
+  &__jobs {
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  &__job {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 90px;
+  }
+
+  &__job-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+
+    svg {
+      width: 32px;
+      height: 32px;
+      stroke: var(--color-gold-light);
+      display: block;
+    }
+  }
+
+  &__job span {
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 1);
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

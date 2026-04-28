@@ -1,0 +1,65 @@
+:root {
+  // Primary — Deep navy for luxury feel
+  --color-primary: #0a1628;
+  --color-primary-light: #152238;
+  --color-primary-dark: #060e1a;
+
+  // Gold accent — Premium touch
+  --color-gold: #b8924a;
+  --color-gold-light: #d4af61;
+  --color-gold-dark: #9a7a3c;
+
+  // Secondary
+  --color-secondary: #1a6fb5;
+  --color-secondary-dark: #0e4a7a;
+
+  // Neutral
+  --color-white: #ffffff;
+  --color-off-white: #faf9f7;
+  --color-bg: #f5f4f0;
+  --color-bg-alt: #edecea;
+  --color-text: #1a1a1a;
+  --color-text-light: #333333;
+  --color-text-muted: #555555;
+  --color-border: #e0ddd8;
+
+  // Accent
+  --color-accent: #c0392b;
+  --color-accent-warm: #b8924a;
+
+  // Typography
+  --font-heading: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+  --font-heading-en: "Cormorant Garamond", "Montserrat", serif;
+  --font-body: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+
+  // Fluid type scale — larger for luxury
+  --text-xs: clamp(0.7rem, 0.65rem + 0.25vw, 0.8rem);
+  --text-sm: clamp(0.8rem, 0.75rem + 0.3vw, 0.9rem);
+  --text-base: clamp(0.9rem, 0.85rem + 0.35vw, 1rem);
+  --text-lg: clamp(1.1rem, 1rem + 0.5vw, 1.25rem);
+  --text-xl: clamp(1.4rem, 1.2rem + 1vw, 1.875rem);
+  --text-2xl: clamp(1.8rem, 1.4rem + 2vw, 2.75rem);
+  --text-3xl: clamp(2.2rem, 1.6rem + 3vw, 3.5rem);
+  --text-hero: clamp(2.8rem, 2rem + 4vw, 5rem);
+
+  // Layout — more generous spacing
+  --container-max: 1200px;
+  --container-padding: clamp(1.5rem, 4vw, 3rem);
+  --section-gap: clamp(6rem, 12vw, 12rem);
+
+  // Transitions — slower = more luxurious
+  --transition-fast: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Shadows — softer, more subtle
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.08);
+
+  // Z-index
+  --z-header: 1000;
+  --z-drawer: 1100;
+  --z-overlay: 1050;
+  --z-pagetop: 900;
+}

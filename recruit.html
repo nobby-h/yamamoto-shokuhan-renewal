@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ヤマモト食販株式会社の採用情報。ドライバー、倉庫スタッフ、事務職など、共に成長できる仲間を募集しています。充実の研修制度とキャリアアップ支援。">
+  <meta name="format-detection" content="telephone=no">
+  <title>採用情報 | ヤマモト食販株式会社</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Noto+Sans+JP:wght@200;300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <script type="module" src="/src/main.js"></script>
+
+  <style>
+    /* ======================================================
+       Recruit page — rich immersive styles
+       Base components (p-page-hero, p-breadcrumb, p-job-card,
+       l-header, l-footer, c-btn ...) loaded from main.js.
+    ====================================================== */
+
+    /* --- Message Section --- */
+    .p-recruit-message {
+      text-align: center;
+      padding: clamp(5rem, 10vw, 9rem) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .p-recruit-message::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(180deg, transparent, var(--color-gold));
+    }
+    .p-recruit-message__lead {
+      font-size: clamp(1.35rem, 1rem + 1.5vw, 2rem);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      line-height: 1.8;
+      color: var(--color-primary);
+      margin: 0 auto 2rem;
+      max-width: 800px;
+    }
+    .p-recruit-message__sub {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: clamp(0.9rem, 0.8rem + 0.4vw, 1.1rem);
+      font-weight: 300;
+      line-height: 2.2;
+      letter-spacing: 0.04em;
+      color: var(--color-text-light);
+    }
+
+    /* --- Why Join Us (Feature Cards) --- */
+    .p-why-join {
+      padding: var(--section-gap) 0;
+      background: var(--color-bg);
+    }
+    .p-why-join__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    @media (max-width: 1023px) {
+      .p-why-join__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 599px) {
+      .p-why-join__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .p-why-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      position: relative;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+    .p-why-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(10, 22, 40, 0.1);
+    }
+    .p-why-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 3px;
+      background: var(--color-gold);
+      transition: width 0.4s ease;
+    }
+    .p-why-card:hover::before {
+      width: 80px;
+    }
+    .p-why-card__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 1px solid var(--color-gold);
+      color: var(--color-gold);
+      margin: 0 auto 1.5rem;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .p-why-card:hover .p-why-card__icon {
+      background: var(--color-gold);
+      color: var(--color-white);
+    }
+    .p-why-card__title {
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: var(--color-primary);
+      letter-spacing: 0.08em;
+      margin: 0 0 1rem;
+    }
+    .p-why-card__text {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+      line-height: 1.9;
+      letter-spacing: 0.03em;
+      margin: 0;
+    }
+
+    /* --- Job Listing Section --- */
+    .p-recruit-jobs {
+      padding: var(--section-gap) 0;
+    }
+    .p-recruit-jobs__grid {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    /* --- Training Timeline (Desktop: horizontal, Mobile: vertical) --- */
+    .p-training {
+      padding: var(--section-gap) 0;
+      background: var(--color-bg);
+    }
+    .p-training__lead {
+      text-align: center;
+      font-size: var(--text-base);
+      color: var(--color-text-light);
+      line-height: 2;
+      max-width: 640px;
+      margin: -2rem auto 4rem;
+    }
+
+    /* Horizontal timeline (desktop) */
+    .p-training__timeline {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      padding-top: 4rem;
+    }
+    .p-training__timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 2rem;
+      right: 2rem;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-gold), var(--color-gold-dark, #967732));
+    }
+    .p-training__stage {
+      position: relative;
+      padding-top: 0;
+    }
+    .p-training__dot {
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--color-gold);
+      border: 3px solid var(--color-white);
+      box-shadow: 0 0 0 2px var(--color-gold);
+      transform: translate(-50%, -50%);
+    }
+    .p-training__year {
+      display: block;
+      font-family: var(--font-heading-en);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--color-gold-dark, #967732);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      text-align: center;
+    }
+    .p-training__content {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      padding: 1.5rem;
+    }
+    .p-training__content h4 {
+      font-size: var(--text-sm);
+      font-weight: 700;
+      color: var(--color-primary);
+      margin: 0 0 0.75rem;
+      text-align: center;
+    }
+    .p-training__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      justify-content: center;
+    }
+    .p-training__tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      color: var(--color-text-light);
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      padding: 0.25rem 0.7rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* Mobile: vertical timeline */
+    @media (max-width: 767px) {
+      .p-training__timeline {
+        grid-template-columns: 1fr;
+        padding-top: 0;
+        padding-left: 3rem;
+        gap: 0;
+      }
+      .p-training__timeline::before {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: auto;
+        width: 2px;
+        height: auto;
+      }
+      .p-training__stage {
+        padding-top: 0;
+        padding-bottom: 2.5rem;
+        padding-left: 1.5rem;
+      }
+      .p-training__stage:last-child {
+        padding-bottom: 0;
+      }
+      .p-training__dot {
+        top: 0.2rem;
+        left: -3rem;
+        transform: translateX(calc(-50% + 1px));
+      }
+      .p-training__year {
+        text-align: left;
+      }
+      .p-training__content h4 {
+        text-align: left;
+      }
+      .p-training__tags {
+        justify-content: flex-start;
+      }
+    }
+
+    /* --- Specialized Training Cards --- */
+    .p-specialized {
+      padding: var(--section-gap) 0;
+    }
+    .p-specialized__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    @media (max-width: 767px) {
+      .p-specialized__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .p-specialized__card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .p-specialized__card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(10, 22, 40, 0.08);
+    }
+    .p-specialized__card::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-gold), var(--color-gold-dark, #967732));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+    .p-specialized__card:hover::after {
+      transform: scaleX(1);
+    }
+    .p-specialized__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(184, 146, 74, 0.08);
+      color: var(--color-gold);
+      margin-bottom: 1.5rem;
+    }
+    .p-specialized__label {
+      display: inline-block;
+      font-family: var(--font-heading-en);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .p-specialized__title {
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: var(--color-primary);
+      letter-spacing: 0.06em;
+      margin: 0 0 1rem;
+    }
+    .p-specialized__text {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    /* --- Application Flow --- */
+    .p-flow {
+      padding: var(--section-gap) 0;
+      background: var(--color-bg);
+    }
+    .p-flow__steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .p-flow__step {
+      text-align: center;
+      padding: 0 1.5rem;
+      position: relative;
+    }
+    .p-flow__step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 28px;
+      right: -4px;
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 8px solid var(--color-gold);
+      z-index: 1;
+    }
+    .p-flow__number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: var(--color-gold);
+      font-family: var(--font-heading-en);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      margin: 0 auto 1.25rem;
+      position: relative;
+    }
+    .p-flow__label {
+      display: block;
+      font-family: var(--font-heading-en);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .p-flow__title {
+      font-size: var(--text-sm);
+      font-weight: 700;
+      color: var(--color-primary);
+      letter-spacing: 0.06em;
+      margin: 0;
+    }
+    @media (max-width: 767px) {
+      .p-flow__steps {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .p-flow__step {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        gap: 1.5rem;
+        padding: 0;
+      }
+      .p-flow__step:not(:last-child)::after {
+        top: auto;
+        bottom: -1.25rem;
+        right: auto;
+        left: 27px;
+        border-top: 8px solid var(--color-gold);
+        border-bottom: none;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        transform: translateX(-50%);
+      }
+      .p-flow__number {
+        flex-shrink: 0;
+        margin: 0;
+      }
+      .p-flow__info {
+        flex: 1;
+      }
+    }
+
+    /* --- CTA Band --- */
+    .p-recruit-cta {
+      position: relative;
+      padding: clamp(5rem, 10vw, 8rem) 0;
+      text-align: center;
+      overflow: hidden;
+    }
+    .p-recruit-cta__bg {
+      position: absolute;
+      inset: -20%;
+      background-size: cover;
+      background-position: center;
+    }
+    .p-recruit-cta__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(10, 22, 40, 0.92) 0%,
+        rgba(20, 40, 70, 0.88) 100%
+      );
+    }
+    .p-recruit-cta__inner {
+      position: relative;
+      z-index: 1;
+    }
+    .p-recruit-cta__text {
+      font-size: clamp(0.9rem, 0.8rem + 0.4vw, 1.1rem);
+      font-weight: 300;
+      color: rgba(255, 255, 255, 1);
+      margin: -1rem 0 2.5rem;
+      letter-spacing: 0.05em;
+      line-height: 2;
+    }
+    .p-recruit-cta__buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* --- Section header (reused pattern) --- */
+    .p-section-header {
+      text-align: center;
+      margin-bottom: clamp(3rem, 6vw, 5rem);
+    }
+    .p-section-header__en {
+      display: block;
+      font-family: var(--font-heading-en);
+      font-size: clamp(0.7rem, 0.6rem + 0.5vw, 0.85rem);
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 0.75rem;
+    }
+    .p-section-header__ja {
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--color-primary);
+      margin: 0;
+    }
+    .p-section-header__line {
+      width: 40px;
+      height: 1px;
+      background: var(--color-gold);
+      margin: 1.5rem auto 0;
+    }
+    .p-section-header--light .p-section-header__ja {
+      color: var(--color-white);
+    }
+    .p-section-header--light .p-section-header__en {
+      color: var(--color-gold-light, #d4b563);
+    }
+
+    /* --- Utility --- */
+    .u-pc-only {
+      display: none;
+    }
+    @media (min-width: 768px) {
+      .u-pc-only {
+        display: inline;
+      }
+    }
+
+    /* --- Responsive tweaks --- */
+    @media (max-width: 767px) {
+      .p-job-card {
+        padding: 1.5rem;
+      }
+      .p-job-card__table th {
+        width: 90px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="l-header" id="js-header">
+    <div class="l-header__inner l-inner">
+      <a href="/" class="l-header__logo">
+        <img src="/src/assets/images/logo/yamamoto.png" alt="ヤマモト食販株式会社" class="l-header__logo-img">
+      </a>
+      <nav class="l-header__nav" id="js-header-nav">
+        <a href="/about.html" class="l-header__nav-link">会社紹介</a>
+        <a href="/service.html" class="l-header__nav-link">事業案内</a>
+        <a href="/news.html" class="l-header__nav-link">お知らせ</a>
+        <a href="/recruit.html" class="l-header__nav-link">採用情報</a>
+        <a href="/about.html#access" class="l-header__nav-link">アクセス</a>
+        <a href="/contact.html" class="l-header__nav-link">お問い合わせ</a>
+      </nav>
+      <button class="p-menu-btn" id="js-menu-btn" aria-label="メニューを開く" aria-expanded="false">
+        <span class="p-menu-btn__line"></span>
+        <span class="p-menu-btn__line"></span>
+        <span class="p-menu-btn__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="p-drawer__overlay" id="js-drawer-overlay"></div>
+  <nav class="p-drawer" id="js-drawer">
+    <a href="/about.html" class="p-drawer__nav-link">会社紹介</a>
+    <a href="/service.html" class="p-drawer__nav-link">事業案内</a>
+    <a href="/news.html" class="p-drawer__nav-link">お知らせ</a>
+    <a href="/recruit.html" class="p-drawer__nav-link">採用情報</a>
+    <a href="/about.html#access" class="p-drawer__nav-link">アクセス</a>
+    <a href="/contact.html" class="p-drawer__nav-link">お問い合わせ</a>
+    <a href="tel:011-686-4283" class="p-drawer__phone">011-686-4283</a>
+    <a href="/contact.html" class="p-drawer__cta c-btn c-btn--gold">お問い合わせフォーム</a>
+  </nav>
+
+  <main class="l-main">
+
+    <!-- ========== 1. PAGE HERO ========== -->
+    <section class="p-page-hero">
+      <div class="p-page-hero__bg" style="background-image: url('/src/assets/images/img2/syotyou.jpg');"></div>
+      <div class="p-page-hero__content">
+        <span class="p-page-hero__en">Recruit</span>
+        <h1 class="p-page-hero__title">採用情報</h1>
+        <div class="p-page-hero__line"></div>
+      </div>
+    </section>
+
+    <!-- ========== 2. BREADCRUMB ========== -->
+    <nav class="p-breadcrumb" aria-label="パンくずリスト">
+      <ol class="p-breadcrumb__list">
+        <li class="p-breadcrumb__item"><a href="/">トップ</a></li>
+        <li class="p-breadcrumb__item">採用情報</li>
+      </ol>
+    </nav>
+
+    <!-- ========== 3. MESSAGE ========== -->
+    <section class="p-recruit-message l-section">
+      <div class="l-inner" data-animate>
+        <p class="p-recruit-message__lead" data-lines>
+          共に成長し、共に挑戦する仲間を求めています。
+        </p>
+        <p class="p-recruit-message__sub">
+          ヤマモト食販は、食品物流のプロフェッショナルとして半世紀以上にわたり北海道の食を支えてきました。<br class="u-pc-only">
+          あなたの力を、地域社会の未来のために活かしませんか。
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== 4. WHY JOIN US ========== -->
+    <section class="p-why-join l-section">
+      <div class="l-inner">
+        <div class="p-section-header" data-animate>
+          <span class="p-section-header__en">Why Join Us</span>
+          <h2 class="p-section-header__ja">ヤマモト食販で働く魅力</h2>
+          <div class="p-section-header__line"></div>
+        </div>
+
+        <div class="p-why-join__grid" data-stagger>
+
+          <!-- Card 1: Stability -->
+          <div class="p-why-card">
+            <div class="p-why-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <h3 class="p-why-card__title">安定した経営基盤</h3>
+            <p class="p-why-card__text">創業53年、北海道の食品物流を支え続ける安定企業</p>
+          </div>
+
+          <!-- Card 2: Training -->
+          <div class="p-why-card">
+            <div class="p-why-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/>
+                <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+              </svg>
+            </div>
+            <h3 class="p-why-card__title">充実の研修制度</h3>
+            <p class="p-why-card__text">入社時から段階的にスキルアップできる独自の研修プログラム</p>
+          </div>
+
+          <!-- Card 3: Benefits -->
+          <div class="p-why-card">
+            <div class="p-why-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+              </svg>
+            </div>
+            <h3 class="p-why-card__title">働きやすい環境</h3>
+            <p class="p-why-card__text">社会保険完備、賞与年2回、交通費支給、車通勤可</p>
+          </div>
+
+          <!-- Card 4: Career -->
+          <div class="p-why-card">
+            <div class="p-why-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                <polyline points="17 6 23 6 23 12"/>
+              </svg>
+            </div>
+            <h3 class="p-why-card__title">キャリアアップ</h3>
+            <p class="p-why-card__text">経験を積んでリーダー、管理職へとステップアップ</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 5. PARALLAX BAND 1 ========== -->
+    <div class="p-parallax-band">
+      <div class="p-parallax-band__bg" style="background-image: url('/src/assets/images/about/demo_1.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="p-parallax-band__content">
+        <span class="p-parallax-band__text">Join Our Team</span>
+      </div>
+    </div>
+
+    <!-- ========== 6. JOB LISTINGS ========== -->
+    <section class="p-recruit-jobs l-section" id="jobs">
+      <div class="l-inner">
+        <div class="p-section-header" data-animate>
+          <span class="p-section-header__en">Job Openings</span>
+          <h2 class="p-section-header__ja">募集職種</h2>
+          <div class="p-section-header__line"></div>
+        </div>
+
+        <div class="p-recruit-jobs__grid">
+
+          <!-- Driver -->
+          <div class="p-job-card" data-animate>
+            <h3 class="p-job-card__title">ドライバー（配送スタッフ）</h3>
+            <table class="p-job-card__table">
+              <tbody>
+                <tr>
+                  <th>勤務地</th>
+                  <td>札幌市手稲区 / 旭川市永山</td>
+                </tr>
+                <tr>
+                  <th>仕事内容</th>
+                  <td>食品配送業務（北海道内）、集荷・納品・検品作業</td>
+                </tr>
+                <tr>
+                  <th>勤務時間</th>
+                  <td>8:00〜17:00（シフトにより変動あり）</td>
+                </tr>
+                <tr>
+                  <th>給与</th>
+                  <td>月給 22万〜35万円（経験・能力による）</td>
+                </tr>
+                <tr>
+                  <th>待遇</th>
+                  <td>社会保険完備、賞与年2回、交通費支給、制服貸与、車通勤可、退職金制度</td>
+                </tr>
+                <tr>
+                  <th>資格</th>
+                  <td>普通自動車免許（中型・大型免許優遇）</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Warehouse -->
+          <div class="p-job-card" data-animate>
+            <h3 class="p-job-card__title">倉庫スタッフ</h3>
+            <table class="p-job-card__table">
+              <tbody>
+                <tr>
+                  <th>勤務地</th>
+                  <td>札幌市手稲区</td>
+                </tr>
+                <tr>
+                  <th>仕事内容</th>
+                  <td>食品の入出庫管理、仕分け、検品作業、在庫管理</td>
+                </tr>
+                <tr>
+                  <th>勤務時間</th>
+                  <td>8:30〜17:30</td>
+                </tr>
+                <tr>
+                  <th>給与</th>
+                  <td>時給 1,000〜1,300円</td>
+                </tr>
+                <tr>
+                  <th>待遇</th>
+                  <td>社会保険完備、交通費支給、車通勤可、制服貸与</td>
+                </tr>
+                <tr>
+                  <th>資格</th>
+                  <td>不問（フォークリフト資格者優遇）</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Office -->
+          <div class="p-job-card" data-animate>
+            <h3 class="p-job-card__title">事務職</h3>
+            <table class="p-job-card__table">
+              <tbody>
+                <tr>
+                  <th>勤務地</th>
+                  <td>札幌市手稲区（本社）</td>
+                </tr>
+                <tr>
+                  <th>仕事内容</th>
+                  <td>一般事務、経理補助、電話応対、データ入力</td>
+                </tr>
+                <tr>
+                  <th>勤務時間</th>
+                  <td>8:30〜17:30</td>
+                </tr>
+                <tr>
+                  <th>給与</th>
+                  <td>月給 18万〜25万円</td>
+                </tr>
+                <tr>
+                  <th>待遇</th>
+                  <td>社会保険完備、賞与年2回、交通費支給</td>
+                </tr>
+                <tr>
+                  <th>資格</th>
+                  <td>基本的なPC操作</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 7. PARALLAX BAND 2 — COUNTER ========== -->
+    <div class="p-parallax-band p-parallax-band--tall">
+      <div class="p-parallax-band__bg" style="background-image: url('/src/assets/images/about/about_photo_1.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="p-parallax-band__content">
+        <span class="p-parallax-band__large" data-count-to="203">0</span>
+        <span class="p-parallax-band__sub">Employees</span>
+      </div>
+    </div>
+
+    <!-- ========== 8. TRAINING TIMELINE ========== -->
+    <section class="p-training l-section" id="training">
+      <div class="l-inner">
+        <div class="p-section-header" data-animate>
+          <span class="p-section-header__en">Career Development</span>
+          <h2 class="p-section-header__ja">研修制度</h2>
+          <div class="p-section-header__line"></div>
+        </div>
+        <p class="p-training__lead" data-animate>入社年次に応じた段階的な研修プログラムで、<br>社員一人ひとりの成長をサポートします。</p>
+
+        <div class="p-training__timeline" data-stagger>
+
+          <!-- Year 1 -->
+          <div class="p-training__stage" data-animate>
+            <div class="p-training__dot"></div>
+            <span class="p-training__year">1st Year</span>
+            <div class="p-training__content">
+              <h4>入社1年目</h4>
+              <div class="p-training__tags">
+                <span class="p-training__tag">社会人基本マナー</span>
+                <span class="p-training__tag">報連相と業務指示</span>
+                <span class="p-training__tag">職場の安全</span>
+                <span class="p-training__tag">身だしなみと5S</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Year 2 -->
+          <div class="p-training__stage" data-animate>
+            <div class="p-training__dot"></div>
+            <span class="p-training__year">2nd Year</span>
+            <div class="p-training__content">
+              <h4>2年目</h4>
+              <div class="p-training__tags">
+                <span class="p-training__tag">スキルアップ研修</span>
+                <span class="p-training__tag">職場安全 II</span>
+                <span class="p-training__tag">健康・自己管理</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Year 3 -->
+          <div class="p-training__stage" data-animate>
+            <div class="p-training__dot"></div>
+            <span class="p-training__year">3rd Year</span>
+            <div class="p-training__content">
+              <h4>3年目</h4>
+              <div class="p-training__tags">
+                <span class="p-training__tag">ヘルスマネジメント</span>
+                <span class="p-training__tag">メンタルヘルス研修</span>
+                <span class="p-training__tag">5Sと意識改善</span>
+                <span class="p-training__tag">リーダー育成</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Year 4+ -->
+          <div class="p-training__stage" data-animate>
+            <div class="p-training__dot"></div>
+            <span class="p-training__year">4th Year +</span>
+            <div class="p-training__content">
+              <h4>4年目以上</h4>
+              <div class="p-training__tags">
+                <span class="p-training__tag">コンプライアンス研修</span>
+                <span class="p-training__tag">ハラスメント対策</span>
+                <span class="p-training__tag">リーダー育成 II・III</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 9. SPECIALIZED TRAINING ========== -->
+    <section class="p-specialized l-section">
+      <div class="l-inner">
+        <div class="p-section-header" data-animate>
+          <span class="p-section-header__en">Specialized Program</span>
+          <h2 class="p-section-header__ja">専門研修（8時間）</h2>
+          <div class="p-section-header__line"></div>
+        </div>
+
+        <div class="p-specialized__grid" data-stagger>
+
+          <!-- Driver training -->
+          <div class="p-specialized__card">
+            <div class="p-specialized__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13"/>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                <circle cx="5.5" cy="18.5" r="2.5"/>
+                <circle cx="18.5" cy="18.5" r="2.5"/>
+              </svg>
+            </div>
+            <span class="p-specialized__label">Driver</span>
+            <h3 class="p-specialized__title">配送・ドライバー編</h3>
+            <p class="p-specialized__text">ドライバー業務の基礎から応用</p>
+          </div>
+
+          <!-- Office training -->
+          <div class="p-specialized__card">
+            <div class="p-specialized__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <span class="p-specialized__label">Office</span>
+            <h3 class="p-specialized__title">事務・経理編</h3>
+            <p class="p-specialized__text">事務業務の基礎から経理実務</p>
+          </div>
+
+          <!-- Food manufacturing training -->
+          <div class="p-specialized__card">
+            <div class="p-specialized__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8h1a4 4 0 010 8h-1"/>
+                <path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
+                <line x1="6" y1="1" x2="6" y2="4"/>
+                <line x1="10" y1="1" x2="10" y2="4"/>
+                <line x1="14" y1="1" x2="14" y2="4"/>
+              </svg>
+            </div>
+            <span class="p-specialized__label">Manufacturing</span>
+            <h3 class="p-specialized__title">食品製造編</h3>
+            <p class="p-specialized__text">食品衛生と製造工程管理</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 10. APPLICATION FLOW ========== -->
+    <section class="p-flow l-section">
+      <div class="l-inner">
+        <div class="p-section-header" data-animate>
+          <span class="p-section-header__en">Application Flow</span>
+          <h2 class="p-section-header__ja">応募の流れ</h2>
+          <div class="p-section-header__line"></div>
+        </div>
+
+        <div class="p-flow__steps" data-stagger>
+
+          <div class="p-flow__step">
+            <div class="p-flow__number">01</div>
+            <div class="p-flow__info">
+              <span class="p-flow__label">Step 01</span>
+              <h3 class="p-flow__title">お問い合わせ・エントリー</h3>
+            </div>
+          </div>
+
+          <div class="p-flow__step">
+            <div class="p-flow__number">02</div>
+            <div class="p-flow__info">
+              <span class="p-flow__label">Step 02</span>
+              <h3 class="p-flow__title">書類選考</h3>
+            </div>
+          </div>
+
+          <div class="p-flow__step">
+            <div class="p-flow__number">03</div>
+            <div class="p-flow__info">
+              <span class="p-flow__label">Step 03</span>
+              <h3 class="p-flow__title">面接（1〜2回）</h3>
+            </div>
+          </div>
+
+          <div class="p-flow__step">
+            <div class="p-flow__number">04</div>
+            <div class="p-flow__info">
+              <span class="p-flow__label">Step 04</span>
+              <h3 class="p-flow__title">内定・入社</h3>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 11. CTA ========== -->
+    <section class="p-recruit-cta">
+      <div class="p-recruit-cta__bg" data-parallax-bg style="background-image: url('/src/assets/images/about/demo_3.jpg');"></div>
+      <div class="p-recruit-cta__overlay"></div>
+      <div class="p-recruit-cta__inner l-inner">
+        <div class="p-section-header p-section-header--light" data-animate>
+          <span class="p-section-header__en">Contact</span>
+          <h2 class="p-section-header__ja">応募・お問い合わせ</h2>
+          <div class="p-section-header__line"></div>
+        </div>
+        <p class="p-recruit-cta__text">
+          ご応募・ご質問など、お気軽にお問い合わせください。<br class="u-pc-only">
+          お電話またはフォームよりお待ちしております。
+        </p>
+        <div class="p-recruit-cta__buttons">
+          <a href="/contact.html" class="c-btn c-btn--gold c-btn--lg">お問い合わせフォームへ</a>
+          <a href="https://www.hellowork.mhlw.go.jp/" target="_blank" rel="noopener" class="c-btn c-btn--outline-light c-btn--lg">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            求人サイトで応募
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="l-footer" id="footer">
+    <div class="p-footer-banners">
+      <div class="p-footer-banners__grid">
+        <a href="/recruit.html" class="p-footer-banner">
+          <div class="p-footer-banner__bg" style="background: url('/src/assets/images/img2/syotyou.jpg') center/cover;"></div>
+          <span>採用情報</span>
+        </a>
+        <a href="/service.html" class="p-footer-banner">
+          <div class="p-footer-banner__bg" style="background: url('/src/assets/images/img2/top_3service.png') center/cover;"></div>
+          <span>事業案内</span>
+        </a>
+        <a href="/about.html" class="p-footer-banner">
+          <div class="p-footer-banner__bg" style="background: url('/src/assets/images/about/about_photo_4.jpg') center/cover;"></div>
+          <span>ヤマモト食販株式会社</span>
+        </a>
+      </div>
+    </div>
+    <div class="l-footer__main">
+      <div class="l-inner">
+        <div class="l-footer__grid">
+          <div class="l-footer__col l-footer__col--info">
+            <div class="l-footer__logo">
+              <svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="0" y="30" font-family="'Noto Sans JP', sans-serif" font-weight="900" font-size="24" fill="white">ヤマモト食販</text>
+              </svg>
+            </div>
+            <address class="l-footer__address">
+              〒006-0835<br>
+              北海道札幌市手稲区曙5条4丁目2番1号<br>
+              TEL: <a href="tel:011-686-4283">011-686-4283</a>
+            </address>
+          </div>
+          <div class="l-footer__col">
+            <h3 class="l-footer__heading">Sitemap</h3>
+            <ul class="l-footer__nav">
+              <li><a href="/">トップ</a></li>
+              <li><a href="/about.html">会社紹介</a></li>
+              <li><a href="/service.html">事業案内</a></li>
+              <li><a href="/news.html">お知らせ</a></li>
+              <li><a href="/recruit.html">採用情報</a></li>
+              <li><a href="/contact.html">お問い合わせ</a></li>
+            </ul>
+          </div>
+          <div class="l-footer__col">
+            <h3 class="l-footer__heading">Group</h3>
+            <ul class="l-footer__nav">
+              <li><a href="https://shakohjinsha.com/" target="_blank" rel="noopener">車好人舎（札幌市手稲区）</a></li>
+              <li><a href="https://www.konno-jikou.jp/" target="_blank" rel="noopener">紺野自動車工業株式会社（白石区菊水）</a></li>
+            </ul>
+            <h3 class="l-footer__heading" style="margin-top: 2rem;">Locations</h3>
+            <ul class="l-footer__nav">
+              <li>本社（札幌市手稲区）</li>
+              <li>旭川営業所（旭川市永山）</li>
+            </ul>
+          </div>
+          <div class="l-footer__col">
+            <h3 class="l-footer__heading">Contact</h3>
+            <a href="tel:011-686-4283" class="l-footer__phone">011-686-4283</a>
+            <p style="font-size: var(--text-xs); opacity: 0.8; margin-bottom: 1.5rem;">平日 9:00〜18:00</p>
+            <a href="/contact.html" class="c-btn c-btn--gold c-btn--sm">フォームはこちら</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="l-footer__copyright">
+      <small>&copy; ヤマモト食販株式会社 All Rights Reserved.</small>
+    </div>
+  </footer>
+
+  <button class="p-pagetop" id="js-pagetop" aria-label="ページトップへ戻る">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <a href="/" class="p-floating-logo" aria-label="ヤマモト食販株式会社 トップへ">
+    <img src="/src/assets/images/logo/footerlogo.png" alt="ヤマモト食販">
+  </a>
+
+</body>
+</html>

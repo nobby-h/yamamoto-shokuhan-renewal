@@ -1,0 +1,87 @@
+// ==========================================================================
+// Parallax Band — Full-width cinematic dividers between sections
+// ==========================================================================
+
+.p-parallax-band {
+  position: relative;
+  height: 40vh;
+  min-height: 280px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--tall {
+    height: 60vh;
+    min-height: 420px;
+  }
+
+  &__bg {
+    position: absolute;
+    inset: -60% 0;
+    width: 100%;
+    height: 220%;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 22, 40, 0.55);
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 0 var(--container-padding);
+  }
+
+  // Horizontal keyword display
+  &__text {
+    font-family: var(--font-heading-en);
+    font-size: clamp(1.2rem, 1rem + 1.5vw, 2rem);
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 1);
+  }
+
+  &__divider {
+    width: 40px;
+    height: 1px;
+    background: var(--color-gold);
+    opacity: 0.4;
+  }
+
+  // Large number display (for "53 years" band)
+  &__large {
+    font-family: var(--font-heading-en);
+    font-size: clamp(6rem, 4rem + 10vw, 14rem);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 0 0 80px rgba(184, 146, 74, 0.3);
+    line-height: 1;
+    display: block;
+  }
+
+  &__sub {
+    font-family: var(--font-heading-en);
+    font-size: clamp(0.85rem, 0.6rem + 1vw, 1.2rem);
+    font-weight: 400;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 22%;
+  }
+}

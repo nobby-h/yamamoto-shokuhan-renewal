@@ -1,0 +1,147 @@
+// ==========================================================================
+// History — Elegant vertical timeline with gold accents
+// ==========================================================================
+
+.p-history {
+  padding: var(--section-gap) 0;
+  background: var(--color-white);
+  overflow: hidden;
+
+  &__timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 3rem;
+
+    @media (min-width: 768px) {
+      padding-left: 0;
+    }
+  }
+
+  // Gold connecting line (grows with scroll via JS)
+  &__line {
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    width: 1px;
+    height: 0;
+    background: var(--color-gold);
+    transition: none;
+
+    @media (min-width: 768px) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  // Timeline item
+  &__item {
+    position: relative;
+    padding-bottom: 4rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 40px 1fr;
+      gap: 2rem;
+
+      // Alternate sides
+      &:nth-child(odd) {
+        .p-history__content {
+          grid-column: 1;
+          grid-row: 1;
+          text-align: right;
+        }
+        .p-history__dot {
+          grid-column: 2;
+          grid-row: 1;
+        }
+        .p-history__year {
+          grid-column: 3;
+          grid-row: 1;
+          text-align: left;
+        }
+      }
+
+      &:nth-child(even) {
+        .p-history__year {
+          grid-column: 1;
+          grid-row: 1;
+          text-align: right;
+        }
+        .p-history__dot {
+          grid-column: 2;
+          grid-row: 1;
+        }
+        .p-history__content {
+          grid-column: 3;
+          grid-row: 1;
+          text-align: left;
+        }
+      }
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  // Year label
+  &__year {
+    font-family: var(--font-heading-en);
+    font-size: var(--text-2xl);
+    font-weight: 300;
+    color: var(--color-gold);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+
+    @media (min-width: 768px) {
+      margin-bottom: 0;
+      display: flex;
+      align-items: flex-start;
+      padding-top: 0.25rem;
+    }
+  }
+
+  // Dot on the line
+  &__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--color-gold);
+    background: var(--color-white);
+    position: absolute;
+    left: calc(1rem - 5px);
+    top: 0.5rem;
+    z-index: 1;
+
+    @media (min-width: 768px) {
+      position: relative;
+      left: auto;
+      top: auto;
+      margin: 0.5rem auto 0;
+    }
+
+    &--active {
+      background: var(--color-gold);
+      box-shadow: 0 0 0 4px rgba(184, 146, 74, 0.2);
+    }
+  }
+
+  // Content block
+  &__content {
+    h3 {
+      font-size: var(--text-base);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    p {
+      font-size: var(--text-sm);
+      color: var(--color-text);
+      line-height: 1.8;
+    }
+  }
+}

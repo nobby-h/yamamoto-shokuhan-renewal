@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.vite/
+
+# Local env vars (never commit)
+.env
+.env.local
+.env.*.local
+
+# Netlify state (project-specific, not for repo)
+.netlify/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+
+# Claude local settings (keeps personal preferences out of repo)
+.claude/settings.local.json

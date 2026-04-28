@@ -1,0 +1,281 @@
+// ==========================================================================
+// Footer — Premium dark footer
+// ==========================================================================
+
+.l-footer {
+  background: var(--color-primary);
+  color: rgba(255, 255, 255, 1);
+
+  &__main {
+    padding: 5rem 0 4rem;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    }
+  }
+
+  &__logo {
+    max-width: 180px;
+    margin-bottom: 2rem;
+  }
+
+  &__address {
+    font-style: normal;
+    font-size: var(--text-sm);
+    line-height: 2;
+    margin-bottom: 1.5rem;
+    opacity: 0.85;
+
+    a {
+      opacity: 1;
+    }
+  }
+
+  &__heading {
+    font-size: var(--text-xs);
+    font-weight: 500;
+    color: var(--color-gold);
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  &__nav {
+    list-style: none;
+
+    li {
+      margin-bottom: 0.625rem;
+      font-size: var(--text-sm);
+      opacity: 0.8;
+    }
+
+    a {
+      font-size: var(--text-sm);
+      transition: opacity var(--transition-fast);
+      opacity: 0.8;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__phone {
+    font-family: var(--font-heading-en);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--color-gold-light);
+    display: block;
+    margin-bottom: 1rem;
+    letter-spacing: 0.08em;
+  }
+
+  &__copyright {
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: var(--text-xs);
+    opacity: 0.7;
+    letter-spacing: 0.05em;
+  }
+}
+
+// ==========================================================================
+// Footer banners
+// ==========================================================================
+
+.p-footer-banners {
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.p-footer-banner {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform var(--transition-slow);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+    transition: transform var(--transition-slow);
+  }
+
+  &:hover img,
+  &:hover .p-footer-banner__bg {
+    transform: scale(1.03);
+  }
+
+  span {
+    position: relative;
+    z-index: 1;
+    color: var(--color-white);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 22, 40, 0.5);
+    transition: background var(--transition-base);
+  }
+
+  &:hover::after {
+    background: rgba(10, 22, 40, 0.3);
+  }
+}
+
+// ==========================================================================
+// Page top button
+// ==========================================================================
+
+.p-pagetop {
+  position: fixed;
+  bottom: 12rem;
+  right: 2rem;
+  z-index: var(--z-pagetop);
+
+  @media (min-width: 768px) {
+    bottom: 15rem;
+  }
+
+  @media (min-width: 1280px) {
+    bottom: 17rem;
+  }
+  width: 44px;
+  height: 44px;
+  background: var(--color-gold);
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all var(--transition-base);
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    background: var(--color-gold-dark);
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+// ==========================================================================
+// Floating site logo (always visible bottom-right)
+// ==========================================================================
+
+.p-floating-logo {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: var(--z-pagetop);
+  width: 140px;
+  height: auto;
+  display: block;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+  pointer-events: auto;
+
+  @media (min-width: 768px) {
+    width: 180px;
+    bottom: 2rem;
+    right: 2rem;
+  }
+
+  @media (min-width: 1280px) {
+    width: 220px;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.25));
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+  }
+}
+
+// ==========================================================================
+// Social navigation
+// ==========================================================================
+
+.p-social-nav {
+  display: flex;
+  gap: 0.75rem;
+
+  a {
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 1);
+    transition: all var(--transition-fast);
+
+    &:hover {
+      border-color: var(--color-gold);
+      color: var(--color-gold);
+    }
+
+    svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+  }
+}
