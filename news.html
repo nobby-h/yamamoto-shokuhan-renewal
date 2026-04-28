@@ -298,10 +298,7 @@
         <ul class="p-news-archive" role="list" data-animate x-show="!loading && visible.length > 0">
           <template x-for="item in visible" :key="item.id">
             <li class="p-news-archive__item" x-transition.opacity.duration.300ms>
-              <a :href="item.external_url || '#'" :target="item.external_url ? '_blank' : null" :rel="item.external_url ? 'noopener' : null" style="display:flex; align-items:center; gap:1rem;">
-                <template x-if="item.image_url">
-                  <img :src="item.image_url" alt="" loading="lazy" style="width:90px; height:64px; object-fit:cover; flex-shrink:0; border:1px solid var(--color-border);">
-                </template>
+              <a :href="item.external_url || ('/news/detail.html?id=' + item.id)" :target="item.external_url ? '_blank' : null" :rel="item.external_url ? 'noopener' : null">
                 <time class="p-news-archive__date" :datetime="item.publish_date" x-text="formatDate(item.publish_date)"></time>
                 <span class="p-news-archive__cat" :class="'p-news-archive__cat--' + item.category" x-text="labels[item.category]"></span>
                 <span class="p-news-archive__title" x-text="item.title"></span>

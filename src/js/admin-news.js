@@ -15,9 +15,9 @@ export function registerAdminNews(Alpine) {
     saving: false,
     listError: null,
 
-    // Form (for new or edit)
+    // Form
     form: blankForm(),
-    editing: null, // id or null
+    editing: null,
     formError: null,
     deletingId: null,
     uploading: false,
@@ -43,11 +43,8 @@ export function registerAdminNews(Alpine) {
         password: this.password,
       });
       this.authLoading = false;
-      if (error) {
-        this.authError = error.message;
-      } else {
-        this.password = '';
-      }
+      if (error) this.authError = error.message;
+      else this.password = '';
     },
 
     async logout() {
@@ -66,7 +63,7 @@ export function registerAdminNews(Alpine) {
         .order('created_at', { ascending: false });
       this.loading = false;
       if (error) this.listError = error.message;
-      else this.items = data || [];
+      else this.items = (data || []).map(it => ({ ...it, images: it.images || [] }));
     },
 
     startNew() {
@@ -77,7 +74,7 @@ export function registerAdminNews(Alpine) {
 
     startEdit(item) {
       this.editing = item.id;
-      this.form = { ...item };
+      this.form = { ...item, images: [...(item.images || [])] };
       this.formError = null;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     },
@@ -88,48 +85,60 @@ export function registerAdminNews(Alpine) {
       this.formError = null;
     },
 
-    async uploadImage(event) {
-      const file = event.target.files?.[0];
-      if (!file) return;
-      if (!file.type.startsWith('image/')) { this.formError = '画像ファイルを選択してください'; return; }
-      if (file.size > 5 * 1024 * 1024) { this.formError = 'ファイルサイズは5MB以下にしてください'; return; }
-
-      this.uploading = true;
+    async uploadImages(event) {
+      const files = Array.from(event.target.files || []);
+      if (files.length === 0) return;
       this.formError = null;
-      this.uploadProgress = 'アップロード中...';
+      this.uploading = true;
 
-      const ext = file.name.split('.').pop()?.toLowerCase() || 'jpg';
-      const safeName = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
-
-      const { error: upErr } = await supabase.storage
-        .from('news-images')
-        .upload(safeName, file, { cacheControl: '3600', upsert: false, contentType: file.type });
-
-      if (upErr) {
-        this.formError = 'アップロード失敗: ' + upErr.message;
-        this.uploading = false;
-        this.uploadProgress = '';
-        event.target.value = '';
-        return;
+      const uploaded = [];
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        if (!file.type.startsWith('image/')) {
+          this.formError = `${file.name} は画像ではありません`;
+          continue;
+        }
+        if (file.size > 5 * 1024 * 1024) {
+          this.formError = `${file.name} は5MBを超えています`;
+          continue;
+        }
+        this.uploadProgress = `アップロード中 (${i + 1}/${files.length}): ${file.name}`;
+        const ext = file.name.split('.').pop()?.toLowerCase() || 'jpg';
+        const safeName = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
+        const { error: upErr } = await supabase.storage
+          .from('news-images')
+          .upload(safeName, file, { cacheControl: '3600', upsert: false, contentType: file.type });
+        if (upErr) {
+          this.formError = `${file.name} アップロード失敗: ${upErr.message}`;
+          continue;
+        }
+        const { data: urlData } = supabase.storage.from('news-images').getPublicUrl(safeName);
+        uploaded.push(urlData.publicUrl);
       }
 
-      const { data: urlData } = supabase.storage.from('news-images').getPublicUrl(safeName);
-      this.form.image_url = urlData.publicUrl;
+      this.form.images = [...(this.form.images || []), ...uploaded];
       this.uploading = false;
-      this.uploadProgress = '✓ アップロード完了';
+      this.uploadProgress = uploaded.length > 0 ? `✓ ${uploaded.length}件アップロード完了` : '';
       event.target.value = '';
       setTimeout(() => { this.uploadProgress = ''; }, 3000);
     },
 
-    async removeImage() {
-      if (!this.form.image_url) return;
-      if (!confirm('画像を削除しますか？')) return;
-      // Try to delete from storage if it's our bucket
-      const match = this.form.image_url.match(/\/news-images\/(.+)$/);
+    async removeImageAt(index) {
+      const url = this.form.images[index];
+      if (!url) return;
+      if (!confirm('この画像を削除しますか？')) return;
+      const match = url.match(/\/news-images\/(.+)$/);
       if (match) {
         await supabase.storage.from('news-images').remove([match[1]]);
       }
-      this.form.image_url = '';
+      this.form.images.splice(index, 1);
+    },
+
+    moveImage(index, dir) {
+      const target = index + dir;
+      if (target < 0 || target >= this.form.images.length) return;
+      const arr = this.form.images;
+      [arr[index], arr[target]] = [arr[target], arr[index]];
     },
 
     async save() {
@@ -144,7 +153,7 @@ export function registerAdminNews(Alpine) {
         title: this.form.title.trim(),
         body: (this.form.body || '').trim(),
         external_url: (this.form.external_url || '').trim() || null,
-        image_url: (this.form.image_url || '').trim() || null,
+        images: this.form.images || [],
         is_published: !!this.form.is_published,
       };
 
@@ -155,12 +164,8 @@ export function registerAdminNews(Alpine) {
         ({ error } = await supabase.from('news').insert(payload));
       }
       this.saving = false;
-      if (error) {
-        this.formError = error.message;
-      } else {
-        this.resetForm();
-        await this.refresh();
-      }
+      if (error) this.formError = error.message;
+      else { this.resetForm(); await this.refresh(); }
     },
 
     async togglePublished(item) {
@@ -190,7 +195,7 @@ function blankForm() {
     title: '',
     body: '',
     external_url: '',
-    image_url: '',
+    images: [],
     is_published: true,
   };
 }

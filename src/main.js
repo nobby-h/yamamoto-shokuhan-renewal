@@ -14,9 +14,11 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 // Alpine.js
 import Alpine from 'alpinejs';
 import { registerNewsArchive } from './js/news-archive.js';
+import { registerNewsDetail } from './js/news-detail.js';
 import { registerAdminNews } from './js/admin-news.js';
 window.Alpine = Alpine;
 registerNewsArchive(Alpine);
+registerNewsDetail(Alpine);
 registerAdminNews(Alpine);
 Alpine.start();
 
