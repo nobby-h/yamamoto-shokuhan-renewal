@@ -17,6 +17,7 @@ export default defineConfig({
         recruit: resolve(__dirname, 'recruit.html'),
         news: resolve(__dirname, 'news.html'),
         contact: resolve(__dirname, 'contact.html'),
+        admin: resolve(__dirname, 'admin/index.html'),
       },
     },
   },

@@ -246,11 +246,7 @@
     </section>
 
     <!-- ========== 4. NEWS ARCHIVE ========== -->
-    <section class="p-page-section p-page-section--gray l-section"
-             x-data="{
-               activeTab: 'all',
-               counts: { all: 12, info: 5, recruit: 4, press: 3 }
-             }">
+    <section class="p-page-section p-page-section--gray l-section" x-data="newsArchive">
       <div class="l-inner">
 
         <!-- Tab Filter -->
@@ -289,189 +285,30 @@
           </button>
         </div>
 
-        <!-- News List -->
-        <ul class="p-news-archive" role="list" data-animate>
-
-          <!-- 2026.04.01 / お知らせ -->
-          <li class="p-news-archive__item"
-              x-show="activeTab === 'all' || activeTab === 'info'"
-              x-transition.opacity.duration.300ms>
-            <a href="/news/gw-holiday-2026/">
-              <time class="p-news-archive__date" datetime="2026-04-01">2026.04.01</time>
-              <span class="p-news-archive__cat p-news-archive__cat--info">お知らせ</span>
-              <span class="p-news-archive__title">ゴールデンウィーク休業のお知らせ</span>
-              <span class="p-news-archive__arrow">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-              </span>
-            </a>
-          </li>
-
-          <!-- 2026.03.15 / 採用情報 -->
-          <li class="p-news-archive__item"
-              x-show="activeTab === 'all' || activeTab === 'recruit'"
-              x-transition.opacity.duration.300ms>
-            <a href="/news/driver-warehouse-recruit/">
-              <time class="p-news-archive__date" datetime="2026-03-15">2026.03.15</time>
-              <span class="p-news-archive__cat p-news-archive__cat--recruit">採用情報</span>
-              <span class="p-news-archive__title">ドライバー・倉庫スタッフ募集中！</span>
-              <span class="p-news-archive__arrow">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-              </span>
-            </a>
-          </li>
-
-          <!-- 2026.03.01 / お知らせ -->
-          <li class="p-news-archive__item"
-              x-show="activeTab === 'all' || activeTab === 'info'"
-              x-transition.opacity.duration.300ms>
-            <a href="/news/year-end-hours/">
-              <time class="p-news-archive__date" datetime="2026-03-01">2026.03.01</time>
-              <span class="p-news-archive__cat p-news-archive__cat--info">お知らせ</span>
-              <span class="p-news-archive__title">年末年始の営業時間について</span>
-              <span class="p-news-archive__arrow">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-              </span>
-            </a>
-          </li>
-
-          <!-- 2026.02.20 / プレスリリース -->
-          <li class="p-news-archive__item"
-              x-show="activeTab === 'all' || activeTab === 'press'"
-              x-transition.opacity.duration.300ms>
-            <a href="/news/asahikawa-new-route/">
-              <time class="p-news-archive__date" datetime="2026-02-20">2026.02.20</time>
-              <span class="p-news-archive__cat p-news-archive__cat--press">プレスリリース</span>
-              <span class="p-news-archive__title">旭川営業所 新配送ルート開設のお知らせ</span>
-              <span class="p-news-archive__arrow">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-              </span>
-            </a>
-          </li>
-
-          <!-- 2026.02.10 / 採用情報 -->
-          <li class="p-news-archive__item"
-              x-show="activeTab === 'all' || activeTab === 'recruit'"
-              x-transition.opacity.duration.300ms>
-            <a href="/news/2026-new-grad/">
-              <time class="p-news-archive__date" datetime="2026-02-10">2026.02.10</time>
-              <span class="p-news-archive__cat p-news-archive__cat--recruit">採用情報</span>
-              <span class="p-news-archive__title">2026年度 新卒採用エントリー受付開始</span>
-              <span class="p-news-archive__arrow">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-              </span>
-            </a>
-          </li>
-
-          <!-- 2026.01.15 / お知らせ -->
-          <li class="p-news-archive__item"
-              x-show="activeTab === 'all' || activeTab === 'info'"
-              x-transition.opacity.duration.300ms>
-            <a href="/news/website-renewal/">
-              <time class="p-news-archive__date" datetime="2026-01-15">2026.01.15</time>
-              <span class="p-news-archive__cat p-news-archive__cat--info">お知らせ</span>
-              <span class="p-news-archive__title">ホームページリニューアルのお知らせ</span>
-              <span class="p-news-archive__arrow">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-              </span>
-            </a>
-          </li>
-
-          <!-- 2025.12.20 / お知らせ -->
-          <li class="p-news-archive__item"
-              x-show="activeTab === 'all' || activeTab === 'info'"
-              x-transition.opacity.duration.300ms>
-            <a href="/news/winter-delivery-schedule/">
-              <time class="p-news-archive__date" datetime="2025-12-20">2025.12.20</time>
-              <span class="p-news-archive__cat p-news-archive__cat--info">お知らせ</span>
-              <span class="p-news-archive__title">冬季期間の配送スケジュールについて</span>
-              <span class="p-news-archive__arrow">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-              </span>
-            </a>
-          </li>
-
-          <!-- 2025.12.01 / プレスリリース -->
-          <li class="p-news-archive__item"
-              x-show="activeTab === 'all' || activeTab === 'press'"
-              x-transition.opacity.duration.300ms>
-            <a href="/news/safety-award/">
-              <time class="p-news-archive__date" datetime="2025-12-01">2025.12.01</time>
-              <span class="p-news-archive__cat p-news-archive__cat--press">プレスリリース</span>
-              <span class="p-news-archive__title">安全運転優良事業所 表彰受賞のお知らせ</span>
-              <span class="p-news-archive__arrow">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-              </span>
-            </a>
-          </li>
-
-          <!-- 2025.11.15 / 採用情報 -->
-          <li class="p-news-archive__item"
-              x-show="activeTab === 'all' || activeTab === 'recruit'"
-              x-transition.opacity.duration.300ms>
-            <a href="/news/part-time-office-staff/">
-              <time class="p-news-archive__date" datetime="2025-11-15">2025.11.15</time>
-              <span class="p-news-archive__cat p-news-archive__cat--recruit">採用情報</span>
-              <span class="p-news-archive__title">事務スタッフ（パート）募集のお知らせ</span>
-              <span class="p-news-archive__arrow">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-              </span>
-            </a>
-          </li>
-
-          <!-- 2025.11.01 / お知らせ -->
-          <li class="p-news-archive__item"
-              x-show="activeTab === 'all' || activeTab === 'info'"
-              x-transition.opacity.duration.300ms>
-            <a href="/news/51st-anniversary/">
-              <time class="p-news-archive__date" datetime="2025-11-01">2025.11.01</time>
-              <span class="p-news-archive__cat p-news-archive__cat--info">お知らせ</span>
-              <span class="p-news-archive__title">創業51周年を迎えました</span>
-              <span class="p-news-archive__arrow">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-              </span>
-            </a>
-          </li>
-
-          <!-- 2025.10.15 / プレスリリース -->
-          <li class="p-news-archive__item"
-              x-show="activeTab === 'all' || activeTab === 'press'"
-              x-transition.opacity.duration.300ms>
-            <a href="/news/sdgs-initiative/">
-              <time class="p-news-archive__date" datetime="2025-10-15">2025.10.15</time>
-              <span class="p-news-archive__cat p-news-archive__cat--press">プレスリリース</span>
-              <span class="p-news-archive__title">SDGs取り組み開始のお知らせ</span>
-              <span class="p-news-archive__arrow">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-              </span>
-            </a>
-          </li>
-
-          <!-- 2025.10.01 / 採用情報 -->
-          <li class="p-news-archive__item"
-              x-show="activeTab === 'all' || activeTab === 'recruit'"
-              x-transition.opacity.duration.300ms>
-            <a href="/news/winter-driver-recruit/">
-              <time class="p-news-archive__date" datetime="2025-10-01">2025.10.01</time>
-              <span class="p-news-archive__cat p-news-archive__cat--recruit">採用情報</span>
-              <span class="p-news-archive__title">冬季限定ドライバー募集</span>
-              <span class="p-news-archive__arrow">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-              </span>
-            </a>
-          </li>
-
+        <!-- News List (dynamic from Supabase) -->
+        <template x-if="loading">
+          <p style="text-align:center; padding:3rem 0; color:var(--color-text-light); letter-spacing:0.05em;">読み込み中...</p>
+        </template>
+        <template x-if="error">
+          <p style="text-align:center; padding:3rem 0; color:#c33;" x-text="'読み込みエラー: ' + error"></p>
+        </template>
+        <template x-if="!loading && !error && visible.length === 0">
+          <p style="text-align:center; padding:3rem 0; color:var(--color-text-light);">該当する記事はありません。</p>
+        </template>
+        <ul class="p-news-archive" role="list" data-animate x-show="!loading && visible.length > 0">
+          <template x-for="item in visible" :key="item.id">
+            <li class="p-news-archive__item" x-transition.opacity.duration.300ms>
+              <a :href="item.external_url || '#'" :target="item.external_url ? '_blank' : null" :rel="item.external_url ? 'noopener' : null">
+                <time class="p-news-archive__date" :datetime="item.publish_date" x-text="formatDate(item.publish_date)"></time>
+                <span class="p-news-archive__cat" :class="'p-news-archive__cat--' + item.category" x-text="labels[item.category]"></span>
+                <span class="p-news-archive__title" x-text="item.title"></span>
+                <span class="p-news-archive__arrow">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                </span>
+              </a>
+            </li>
+          </template>
         </ul>
-
-        <!-- Pagination -->
-        <nav class="p-pagination" aria-label="ページナビゲーション" data-animate>
-          <span class="p-pagination__item is-current" aria-current="page">1</span>
-          <a href="/news/page/2/" class="p-pagination__item">2</a>
-          <a href="/news/page/3/" class="p-pagination__item">3</a>
-          <a href="/news/page/2/" class="p-pagination__item p-pagination__item--next" aria-label="次のページ">
-            次へ
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-          </a>
-        </nav>
 
       </div>
     </section>

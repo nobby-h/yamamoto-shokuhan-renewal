@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>お知らせ管理 | ヤマモト食販</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <script type="module" src="/src/main.js"></script>
+
+  <style>
+    body { font-family: 'Noto Sans JP', sans-serif; background: #f7f7f5; color: #1a1a1a; margin: 0; }
+    .a-shell { max-width: 1100px; margin: 0 auto; padding: 2rem 1.25rem 6rem; }
+    .a-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #ddd; }
+    .a-header h1 { font-size: 1.4rem; margin: 0; letter-spacing: 0.05em; }
+    .a-header__user { display: flex; align-items: center; gap: 1rem; font-size: 0.85rem; color: #666; }
+    .a-btn { background: #b8924a; color: #fff; border: none; padding: 0.6rem 1.2rem; cursor: pointer; font-size: 0.9rem; letter-spacing: 0.05em; transition: background 0.2s; }
+    .a-btn:hover { background: #967732; }
+    .a-btn--ghost { background: transparent; color: #666; border: 1px solid #ccc; }
+    .a-btn--ghost:hover { background: #efefef; color: #1a1a1a; }
+    .a-btn--danger { background: #c0392b; }
+    .a-btn--danger:hover { background: #a83224; }
+    .a-btn--sm { padding: 0.35rem 0.75rem; font-size: 0.8rem; }
+    .a-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .a-login { max-width: 380px; margin: 6rem auto; background: #fff; padding: 2.5rem 2rem; border: 1px solid #ddd; }
+    .a-login h1 { text-align: center; margin: 0 0 1.5rem; font-size: 1.2rem; letter-spacing: 0.1em; }
+    .a-field { margin-bottom: 1rem; }
+    .a-field label { display: block; font-size: 0.8rem; font-weight: 500; margin-bottom: 0.4rem; letter-spacing: 0.05em; }
+    .a-field input, .a-field select, .a-field textarea {
+      width: 100%; padding: 0.65rem 0.75rem; border: 1px solid #ccc; background: #fff; font-size: 0.95rem; font-family: inherit; box-sizing: border-box;
+    }
+    .a-field textarea { min-height: 120px; resize: vertical; }
+    .a-field--check { display: flex; align-items: center; gap: 0.5rem; }
+    .a-field--check input { width: auto; }
+    .a-error { background: #fee; color: #c0392b; padding: 0.6rem 1rem; margin-bottom: 1rem; font-size: 0.85rem; border-left: 3px solid #c0392b; }
+
+    .a-card { background: #fff; border: 1px solid #ddd; padding: 1.75rem; margin-bottom: 2rem; }
+    .a-card__head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; }
+    .a-card__head h2 { font-size: 1.05rem; margin: 0; letter-spacing: 0.05em; }
+
+    .a-table { width: 100%; border-collapse: collapse; background: #fff; }
+    .a-table th, .a-table td { padding: 0.75rem 0.85rem; text-align: left; border-bottom: 1px solid #eee; font-size: 0.85rem; vertical-align: top; }
+    .a-table th { background: #f0eee8; font-weight: 500; letter-spacing: 0.05em; }
+    .a-cat { display: inline-block; padding: 0.15rem 0.55rem; font-size: 0.7rem; letter-spacing: 0.05em; }
+    .a-cat--info { background: #d6e4f5; color: #1a4480; }
+    .a-cat--recruit { background: #e0f0d8; color: #2c5d1f; }
+    .a-cat--press { background: #f5d6c7; color: #803020; }
+    .a-status--on { color: #2c7a3a; font-weight: 500; }
+    .a-status--off { color: #999; }
+
+    .a-actions { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+    .a-loading { text-align: center; padding: 2rem; color: #999; }
+    .a-empty { text-align: center; padding: 2rem; color: #999; font-size: 0.9rem; }
+  </style>
+</head>
+<body x-data="adminNews">
+
+  <!-- ===== ログイン画面 ===== -->
+  <template x-if="!session">
+    <div class="a-login">
+      <h1>お知らせ管理</h1>
+      <form @submit.prevent="login()">
+        <template x-if="authError">
+          <div class="a-error" x-text="authError"></div>
+        </template>
+        <div class="a-field">
+          <label for="login-email">メールアドレス</label>
+          <input id="login-email" type="email" x-model="email" required autocomplete="username">
+        </div>
+        <div class="a-field">
+          <label for="login-pw">パスワード</label>
+          <input id="login-pw" type="password" x-model="password" required autocomplete="current-password">
+        </div>
+        <button type="submit" class="a-btn" style="width:100%;" :disabled="authLoading">
+          <span x-show="!authLoading">ログイン</span>
+          <span x-show="authLoading">確認中...</span>
+        </button>
+      </form>
+    </div>
+  </template>
+
+  <!-- ===== 管理画面 ===== -->
+  <template x-if="session">
+    <div class="a-shell">
+
+      <header class="a-header">
+        <h1>お知らせ管理</h1>
+        <div class="a-header__user">
+          <span x-text="session?.user?.email"></span>
+          <button class="a-btn a-btn--ghost a-btn--sm" @click="logout()">ログアウト</button>
+        </div>
+      </header>
+
+      <!-- 投稿フォーム -->
+      <section class="a-card">
+        <div class="a-card__head">
+          <h2 x-text="editing ? '記事を編集' : '新規投稿'"></h2>
+          <button class="a-btn a-btn--ghost a-btn--sm" x-show="editing" @click="resetForm()">キャンセル</button>
+        </div>
+
+        <template x-if="formError">
+          <div class="a-error" x-text="formError"></div>
+        </template>
+
+        <form @submit.prevent="save()">
+          <div style="display:grid; grid-template-columns: 180px 200px 1fr; gap:1rem;">
+            <div class="a-field">
+              <label>公開日</label>
+              <input type="date" x-model="form.publish_date" required>
+            </div>
+            <div class="a-field">
+              <label>カテゴリ</label>
+              <select x-model="form.category">
+                <option value="info">お知らせ</option>
+                <option value="recruit">採用情報</option>
+                <option value="press">プレスリリース</option>
+              </select>
+            </div>
+            <div class="a-field a-field--check" style="align-self:end; padding-bottom:0.7rem;">
+              <input id="f-pub" type="checkbox" x-model="form.is_published">
+              <label for="f-pub" style="margin:0;">公開する</label>
+            </div>
+          </div>
+          <div class="a-field">
+            <label>タイトル</label>
+            <input type="text" x-model="form.title" required maxlength="200">
+          </div>
+          <div class="a-field">
+            <label>本文（任意）</label>
+            <textarea x-model="form.body" placeholder="記事本文。空欄でも投稿可。"></textarea>
+          </div>
+          <div class="a-field">
+            <label>外部リンク（任意）</label>
+            <input type="url" x-model="form.external_url" placeholder="https://... （指定するとクリックで外部ページを開きます）">
+          </div>
+          <button type="submit" class="a-btn" :disabled="saving">
+            <span x-show="!saving" x-text="editing ? '更新' : '投稿'"></span>
+            <span x-show="saving">保存中...</span>
+          </button>
+        </form>
+      </section>
+
+      <!-- 一覧 -->
+      <section class="a-card">
+        <div class="a-card__head">
+          <h2>投稿一覧 <span style="color:#999; font-weight:300; margin-left:0.5rem;" x-text="'(' + items.length + '件)'"></span></h2>
+          <button class="a-btn a-btn--ghost a-btn--sm" @click="refresh()" :disabled="loading">
+            <span x-show="!loading">再読み込み</span>
+            <span x-show="loading">読み込み中...</span>
+          </button>
+        </div>
+
+        <template x-if="listError">
+          <div class="a-error" x-text="listError"></div>
+        </template>
+
+        <template x-if="loading && items.length === 0">
+          <div class="a-loading">読み込み中...</div>
+        </template>
+
+        <template x-if="!loading && items.length === 0">
+          <div class="a-empty">まだ投稿がありません。上のフォームから追加してください。</div>
+        </template>
+
+        <table class="a-table" x-show="items.length > 0">
+          <thead>
+            <tr>
+              <th style="width: 110px;">公開日</th>
+              <th style="width: 120px;">カテゴリ</th>
+              <th>タイトル</th>
+              <th style="width: 90px;">公開</th>
+              <th style="width: 220px;">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <template x-for="item in items" :key="item.id">
+              <tr>
+                <td x-text="item.publish_date"></td>
+                <td>
+                  <span class="a-cat" :class="'a-cat--' + item.category" x-text="labels[item.category]"></span>
+                </td>
+                <td>
+                  <strong x-text="item.title"></strong>
+                  <template x-if="item.body">
+                    <div style="font-size:0.78rem; color:#888; margin-top:0.25rem;" x-text="item.body.length > 80 ? item.body.slice(0, 80) + '...' : item.body"></div>
+                  </template>
+                  <template x-if="item.external_url">
+                    <div style="font-size:0.75rem; color:#1a4480; margin-top:0.25rem;">↗ <span x-text="item.external_url"></span></div>
+                  </template>
+                </td>
+                <td>
+                  <button @click="togglePublished(item)" :class="item.is_published ? 'a-status--on' : 'a-status--off'" style="background:none; border:none; cursor:pointer; font-size:0.85rem;" x-text="item.is_published ? '公開中' : '非公開'"></button>
+                </td>
+                <td>
+                  <div class="a-actions">
+                    <button class="a-btn a-btn--ghost a-btn--sm" @click="startEdit(item)">編集</button>
+                    <button class="a-btn a-btn--danger a-btn--sm" @click="remove(item)" :disabled="deletingId === item.id">
+                      <span x-show="deletingId !== item.id">削除</span>
+                      <span x-show="deletingId === item.id">削除中...</span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </section>
+
+    </div>
+  </template>
+
+</body>
+</html>
