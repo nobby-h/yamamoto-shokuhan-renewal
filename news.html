@@ -295,7 +295,7 @@
         <template x-if="!loading && !error && visible.length === 0">
           <p style="text-align:center; padding:3rem 0; color:var(--color-text-light);">該当する記事はありません。</p>
         </template>
-        <ul class="p-news-archive" role="list" data-animate x-show="!loading && visible.length > 0">
+        <ul class="p-news-archive" role="list" x-show="!loading && visible.length > 0">
           <template x-for="item in visible" :key="item.id">
             <li class="p-news-archive__item" x-transition.opacity.duration.300ms>
               <a :href="item.external_url || ('/news/detail.html?id=' + item.id)" :target="item.external_url ? '_blank' : null" :rel="item.external_url ? 'noopener' : null">
