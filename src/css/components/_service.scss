@@ -15,8 +15,8 @@
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (min-width: 1024px) {
-      grid-template-columns: repeat(3, 1fr);
+    @media (min-width: 1280px) {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 }
@@ -130,4 +130,5 @@
   &--staffing .p-service-card__back  { background: #2a5c4a; }
   &--egg .p-service-card__back       { background: #6b5a3a; }
   &--auto .p-service-card__back      { background: #5c3a3a; }
+  &--snow .p-service-card__back      { background: #2c4a6b; }
 }

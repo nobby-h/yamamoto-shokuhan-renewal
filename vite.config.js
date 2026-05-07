@@ -14,6 +14,7 @@ export default defineConfig({
         serviceUnsou: resolve(__dirname, 'service/unsou.html'),
         serviceJinzai: resolve(__dirname, 'service/jinzai.html'),
         serviceJidousha: resolve(__dirname, 'service/jidousha.html'),
+        serviceJyosetsu: resolve(__dirname, 'service/jyosetsu.html'),
         recruit: resolve(__dirname, 'recruit.html'),
         news: resolve(__dirname, 'news.html'),
         newsDetail: resolve(__dirname, 'news/detail.html'),
