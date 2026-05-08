@@ -1,3 +1,28 @@
+// ==========================================================================
+// Japanese typography — control line-breaks for headings & lead copy
+// ==========================================================================
+// Prevent awkward mid-phrase wrapping of Japanese text.
+// auto-phrase: breaks at natural phrase boundaries (Chrome 119+).
+// keep-all   : never break inside CJK words (cross-browser fallback).
+// line-break: strict — keeps punctuation from starting a new line.
+// text-wrap: balance — evenly distributes lines for short headings.
+h1, h2, h3, h4, h5, h6,
+.p-section-header__ja,
+.p-section-header__desc,
+.p-vision__lead,
+.p-hero__sub,
+.p-service-card__title,
+.p-numbers__label,
+.p-history__title,
+.p-gallery__label,
+.p-group__card-name {
+  word-break: keep-all;
+  word-break: auto-phrase;
+  line-break: strict;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
 // Section header — elegant, refined
 .p-section-header {
   text-align: center;
