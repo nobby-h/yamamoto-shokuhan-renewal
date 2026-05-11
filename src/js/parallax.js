@@ -246,7 +246,7 @@ const footerBanners = document.querySelectorAll('.p-footer-banner');
 if (footerBanners.length) {
   gsap.from(footerBanners, {
     y: 40,
-    scale: 0.95,
+    opacity: 0,
     duration: 0.6,
     stagger: 0.1,
     ease: 'power2.out',

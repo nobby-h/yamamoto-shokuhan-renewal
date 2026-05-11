@@ -24,7 +24,15 @@
       </a>
       <nav class="l-header__nav" id="js-header-nav">
         <a href="/about.html" class="l-header__nav-link">会社紹介</a>
-        <a href="/service.html" class="l-header__nav-link">事業案内</a>
+        <div class="l-header__nav-item l-header__nav-item--has-sub">
+          <a href="/service.html" class="l-header__nav-link">事業案内</a>
+          <ul class="l-header__submenu">
+            <li><a href="/service/unsou.html">運送事業部</a></li>
+            <li><a href="/service/jinzai.html">人材派遣事業部</a></li>
+            <li><a href="/service/jidousha.html">自動車販売修理事業部</a></li>
+            <li><a href="/service/jyosetsu.html">除排雪事業部</a></li>
+          </ul>
+        </div>
         <a href="/news.html" class="l-header__nav-link">お知らせ</a>
         <a href="/recruit.html" class="l-header__nav-link">採用情報</a>
         <a href="/about.html#access" class="l-header__nav-link">アクセス</a>
@@ -43,6 +51,10 @@
   <nav class="p-drawer" id="js-drawer">
     <a href="/about.html" class="p-drawer__nav-link">会社紹介</a>
     <a href="/service.html" class="p-drawer__nav-link">事業案内</a>
+    <a href="/service/unsou.html" class="p-drawer__nav-link p-drawer__nav-link--sub">運送事業部</a>
+    <a href="/service/jinzai.html" class="p-drawer__nav-link p-drawer__nav-link--sub">人材派遣事業部</a>
+    <a href="/service/jidousha.html" class="p-drawer__nav-link p-drawer__nav-link--sub">自動車販売修理事業部</a>
+    <a href="/service/jyosetsu.html" class="p-drawer__nav-link p-drawer__nav-link--sub">除排雪事業部</a>
     <a href="/news.html" class="p-drawer__nav-link">お知らせ</a>
     <a href="/recruit.html" class="p-drawer__nav-link">採用情報</a>
     <a href="/about.html#access" class="p-drawer__nav-link">アクセス</a>
@@ -85,6 +97,8 @@
               <p>私たちヤマモト食販株式会社は1974（昭和49）年に創業以来、今日まで札幌・旭川を拠点におき、当社ならではの提案力・社員一同の不断の努力と幅広い対応力で、お客様の多様化するニーズに迅速にお応えしてまいりました。</p>
               <p>現在は運送事業・人材派遣事業・自動車販売修理事業を展開しております。</p>
               <p>今日の基盤をつくることができましたことは、お客様のあたたかいご支援とご協力の賜物と深く感謝を申し上げます。</p>
+              <p>当社は数ある企業の中から当社に仕事の依頼を頂いたことに感謝し、全社員一人ひとりが潜在能力を全力投球し『創意工夫』し真心をもって業務を安全に遂行いたします。</p>
+              <p>これからもお客様に喜ばれ感謝される企業として邁進してまいりますので、ご愛顧並びにご指導を賜りますようお願い申し上げます。</p>
               <div class="p-greeting__name">
                 <span>代表取締役社長</span>
                 <strong>苗村 和也</strong>
@@ -351,7 +365,7 @@
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2911.460924248662!2d141.2263431166104!3d43.136849479142455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b271c8cfcdf21%3A0x63ce15c052969848!2z44CSMDA2LTA4MzUg5YyX5rW36YGT5pyt5bmM5biC5omL56iy5Yy65puZ77yV5p2h77yU5LiB55uu77yS4oiS77yR!5e0!3m2!1sja!2sjp!4v1651833306745!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="ヤマモト食販 本社"></iframe>
             </div>
             <div class="p-branch-card__body">
-              <h3 class="p-branch-card__name">本社</h3>
+              <h3 class="p-branch-card__name">本社（運送事業部・人材派遣事業部）</h3>
               <dl class="p-branch-card__info">
                 <div>
                   <dt>所在地</dt>
@@ -360,6 +374,10 @@
                 <div>
                   <dt>電話番号</dt>
                   <dd><a href="tel:011-686-4283">011-686-4283</a></dd>
+                </div>
+                <div>
+                  <dt>事業内容</dt>
+                  <dd>運送事業部 / 人材派遣事業部</dd>
                 </div>
               </dl>
             </div>
@@ -434,6 +452,10 @@
                   <dd>指定工場（第1-143号）</dd>
                 </div>
                 <div>
+                  <dt>事業内容</dt>
+                  <dd>新車・中古車販売 / 車検 / 一般整備 / 修理 / 板金・塗装 / 買取り / 損害保険代理店</dd>
+                </div>
+                <div>
                   <dt>公式サイト</dt>
                   <dd><a href="https://www.konno-jikou.jp/" target="_blank" rel="noopener">https://www.konno-jikou.jp/</a></dd>
                 </div>
@@ -447,7 +469,7 @@
 
     <!-- ========== 11. CTA ========== -->
     <section class="p-parallax-band p-parallax-band--tall" style="display: flex; align-items: center; justify-content: center;">
-      <div class="p-parallax-band__bg" style="background-image: url('/src/assets/images/img2/ymark.png');"></div>
+      <div class="p-parallax-band__bg" style="background-image: url('/src/assets/images/img2/ymark.png'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: var(--color-primary); inset: 0; height: 100%;"></div>
       <div style="position: relative; z-index: 1; text-align: center; padding: 0 var(--container-padding);">
         <div class="p-section-header p-section-header--light" data-animate>
           <span class="p-section-header__en">Contact</span>

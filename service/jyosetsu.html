@@ -24,7 +24,15 @@
       </a>
       <nav class="l-header__nav" id="js-header-nav">
         <a href="/about.html" class="l-header__nav-link">会社紹介</a>
-        <a href="/service.html" class="l-header__nav-link">事業案内</a>
+        <div class="l-header__nav-item l-header__nav-item--has-sub">
+          <a href="/service.html" class="l-header__nav-link">事業案内</a>
+          <ul class="l-header__submenu">
+            <li><a href="/service/unsou.html">運送事業部</a></li>
+            <li><a href="/service/jinzai.html">人材派遣事業部</a></li>
+            <li><a href="/service/jidousha.html">自動車販売修理事業部</a></li>
+            <li><a href="/service/jyosetsu.html">除排雪事業部</a></li>
+          </ul>
+        </div>
         <a href="/news.html" class="l-header__nav-link">お知らせ</a>
         <a href="/recruit.html" class="l-header__nav-link">採用情報</a>
         <a href="/about.html#access" class="l-header__nav-link">アクセス</a>
@@ -43,6 +51,10 @@
   <nav class="p-drawer" id="js-drawer">
     <a href="/about.html" class="p-drawer__nav-link">会社紹介</a>
     <a href="/service.html" class="p-drawer__nav-link">事業案内</a>
+    <a href="/service/unsou.html" class="p-drawer__nav-link p-drawer__nav-link--sub">運送事業部</a>
+    <a href="/service/jinzai.html" class="p-drawer__nav-link p-drawer__nav-link--sub">人材派遣事業部</a>
+    <a href="/service/jidousha.html" class="p-drawer__nav-link p-drawer__nav-link--sub">自動車販売修理事業部</a>
+    <a href="/service/jyosetsu.html" class="p-drawer__nav-link p-drawer__nav-link--sub">除排雪事業部</a>
     <a href="/news.html" class="p-drawer__nav-link">お知らせ</a>
     <a href="/recruit.html" class="p-drawer__nav-link">採用情報</a>
     <a href="/about.html#access" class="p-drawer__nav-link">アクセス</a>
@@ -78,12 +90,10 @@
         <div class="p-jyosetsu-catch" data-animate>
           <span class="p-jyosetsu-catch__en">Snow Removal Service</span>
           <h2 class="p-jyosetsu-catch__main">北の冬を、<br>確かに動かす。</h2>
-          <p class="p-jyosetsu-catch__sub">企業契約で支える、冬季の安全と事業継続。</p>
+          <p class="p-jyosetsu-catch__sub">企業様から個人宅まで、冬季の安全と日々の暮らしを支えます。</p>
         </div>
-        <p class="p-service-detail__lead" data-lines style="margin-top: 4rem;">
-          <span style="display:block;">北海道で半世紀、物流を止めずにきた企業だからこその除排雪。</span>
-          <span style="display:block;">運送事業で培った重機運用ノウハウと機動力を活かし、</span>
-          <span style="display:block;">企業様の駐車場・通路・敷地内を冬季を通じて安全に保ちます。</span>
+        <p class="p-service-detail__lead" data-lines style="margin-top: 4rem; word-break: keep-all; overflow-wrap: anywhere; line-break: strict; text-wrap: balance;">
+          北海道で半世紀、物流を止めずにきた企業だからこその除排雪。運送事業で培った重機運用ノウハウと機動力を活かし、企業様から個人宅まで、駐車場・通路・敷地内を冬季を通じて安全に保ちます。
         </p>
       </div>
     </section>
@@ -97,12 +107,12 @@
           </div>
           <div class="p-service-detail__content" data-slide="right">
             <div class="p-section-header" style="text-align: left;">
-              <span class="p-section-header__en" style="font-size: clamp(0.7rem, 0.6rem + 0.5vw, 0.85rem);">01</span>
+              <span class="p-section-header__en" style="font-size: clamp(6rem, 4.5rem + 7vw, 14rem); font-weight: 300; line-height: 0.85; letter-spacing: -0.04em; opacity: 0.7; color: var(--color-gold);">01</span>
               <h2 class="p-section-header__ja" style="font-size: var(--text-lg);">敷地・通路の除雪</h2>
               <div class="p-section-header__line" style="margin: 1rem 0 0;"></div>
             </div>
             <p style="margin-top: 1.5rem; line-height: 2;">
-              企業様の駐車場、搬入動線、来客動線、従業員通路を、業務開始前までに確実に除雪。降雪状況に応じて出動回数を調整し、お客様のオペレーションを止めません。早朝対応を基本とし、開店・始業に間に合わせる体制を整えています。
+              企業様から個人宅まで、駐車場・通路・出入口・玄関前を確実に除雪。時間帯はご相談に応じます。降雪状況に応じて出動回数を調整し、お客様の日々の業務や暮らしを止めません。昼夜問わずご要望にお応えできるよう対応いたします。
             </p>
           </div>
         </div>
@@ -123,12 +133,12 @@
         <div class="p-service-detail__grid p-service-detail__grid--reverse">
           <div class="p-service-detail__content" data-slide="left">
             <div class="p-section-header" style="text-align: left;">
-              <span class="p-section-header__en" style="font-size: clamp(0.7rem, 0.6rem + 0.5vw, 0.85rem);">02</span>
+              <span class="p-section-header__en" style="font-size: clamp(6rem, 4.5rem + 7vw, 14rem); font-weight: 300; line-height: 0.85; letter-spacing: -0.04em; opacity: 0.7; color: var(--color-gold);">02</span>
               <h2 class="p-section-header__ja" style="font-size: var(--text-lg);">排雪・運搬</h2>
               <div class="p-section-header__line" style="margin: 1rem 0 0;"></div>
             </div>
             <p style="margin-top: 1.5rem; line-height: 2;">
-              敷地内に積み上がった堆雪をダンプトラックで搬出。運送事業で培った車両運用ノウハウと機動力で、大規模物流倉庫・工場・商業施設の広い敷地でもスピーディに排雪を完了させます。雪捨て場の手配まで一括対応。
+              敷地内に積み上がった堆雪をダンプトラックで搬出。運送事業で培った車両運用ノウハウと機動力で、大規模物流倉庫・工場・商業施設から個人宅まで、スピーディに排雪を完了させます。雪捨て場の手配まで一括対応。
             </p>
           </div>
           <div class="p-service-detail__image" data-slide="right">
@@ -138,49 +148,7 @@
       </div>
     </section>
 
-    <!-- ========== 7. SERVICE 03 — 凍結防止剤散布 ========== -->
-    <section class="p-page-section p-page-section--gray l-section">
-      <div class="l-inner">
-        <div class="p-service-detail__grid">
-          <div class="p-service-detail__image" data-slide="left">
-            <img src="/src/assets/images/photos/PhotoGrid_1570042818311.jpg" alt="凍結防止剤散布" loading="lazy" data-reveal>
-          </div>
-          <div class="p-service-detail__content" data-slide="right">
-            <div class="p-section-header" style="text-align: left;">
-              <span class="p-section-header__en" style="font-size: clamp(0.7rem, 0.6rem + 0.5vw, 0.85rem);">03</span>
-              <h2 class="p-section-header__ja" style="font-size: var(--text-lg);">凍結防止剤散布</h2>
-              <div class="p-section-header__line" style="margin: 1rem 0 0;"></div>
-            </div>
-            <p style="margin-top: 1.5rem; line-height: 2;">
-              来客者・従業員の転倒事故、車両のスリップ事故を未然に防止。気象状況を見ながら早朝に散布し、ブラックアイスバーン化しやすい箇所を重点的に対応します。融雪剤の選定もご相談ください。
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== 8. SERVICE 04 — 屋根の雪下ろし ========== -->
-    <section class="p-page-section l-section">
-      <div class="l-inner">
-        <div class="p-service-detail__grid p-service-detail__grid--reverse">
-          <div class="p-service-detail__content" data-slide="left">
-            <div class="p-section-header" style="text-align: left;">
-              <span class="p-section-header__en" style="font-size: clamp(0.7rem, 0.6rem + 0.5vw, 0.85rem);">04</span>
-              <h2 class="p-section-header__ja" style="font-size: var(--text-lg);">屋根の雪下ろし</h2>
-              <div class="p-section-header__line" style="margin: 1rem 0 0;"></div>
-            </div>
-            <p style="margin-top: 1.5rem; line-height: 2;">
-              倉庫・工場・店舗・カーポート等の屋根雪下ろしを、安全帯・ヘルメット完備の有資格者が実施。屋根の損傷や、軒先・周辺への落雪事故を防ぐため、計画的な作業をご提案します。雪庇（せっぴ）除去にも対応。
-            </p>
-          </div>
-          <div class="p-service-detail__image" data-slide="right">
-            <img src="/src/assets/images/photos/PhotoGrid_1570044468413.jpg" alt="屋根の雪下ろし" loading="lazy" data-reveal>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== 9. SERVICE 05 — 年間契約・スポット対応 ========== -->
+    <!-- ========== 7. SERVICE 03 — 年間契約・スポット対応 ========== -->
     <section class="p-page-section p-page-section--gray l-section">
       <div class="l-inner">
         <div class="p-service-detail__grid">
@@ -189,13 +157,34 @@
           </div>
           <div class="p-service-detail__content" data-slide="right">
             <div class="p-section-header" style="text-align: left;">
-              <span class="p-section-header__en" style="font-size: clamp(0.7rem, 0.6rem + 0.5vw, 0.85rem);">05</span>
+              <span class="p-section-header__en" style="font-size: clamp(6rem, 4.5rem + 7vw, 14rem); font-weight: 300; line-height: 0.85; letter-spacing: -0.04em; opacity: 0.7; color: var(--color-gold);">03</span>
               <h2 class="p-section-header__ja" style="font-size: var(--text-lg);">年間契約・スポット対応</h2>
               <div class="p-section-header__line" style="margin: 1rem 0 0;"></div>
             </div>
             <p style="margin-top: 1.5rem; line-height: 2;">
-              企業契約専門。冬季全期間を定額でカバーする年間契約から、大雪時のみのスポット対応まで、規模・ご予算・運用に合わせて柔軟にプランをご提案いたします。複数拠点まとめての契約も承ります。
+              企業・個人宅対応。冬季全期間を定額でカバーする年間契約から、大雪時のみのスポット対応まで、規模・ご予算・ご要望に合わせて柔軟にプランをご提案いたします。複数拠点や複数物件のまとめてのご契約も承ります。
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 8. SERVICE 04 — 重機・トラックの販売 ========== -->
+    <section class="p-page-section l-section">
+      <div class="l-inner">
+        <div class="p-service-detail__grid p-service-detail__grid--reverse">
+          <div class="p-service-detail__content" data-slide="left">
+            <div class="p-section-header" style="text-align: left;">
+              <span class="p-section-header__en" style="font-size: clamp(6rem, 4.5rem + 7vw, 14rem); font-weight: 300; line-height: 0.85; letter-spacing: -0.04em; opacity: 0.7; color: var(--color-gold);">04</span>
+              <h2 class="p-section-header__ja" style="font-size: var(--text-lg);">重機・トラックの販売</h2>
+              <div class="p-section-header__line" style="margin: 1rem 0 0;"></div>
+            </div>
+            <p style="margin-top: 1.5rem; line-height: 2;">
+              長年の運送・除排雪事業で培った車両運用ノウハウを活かし、ホイールローダーをはじめとする重機やトラックの販売もご対応いたします。用途・規模に合わせた車両選定から、整備・アフターサポートまで、グループ企業の自動車整備部門と連携してトータルにサポートします。
+            </p>
+          </div>
+          <div class="p-service-detail__image" data-slide="right">
+            <img src="/src/assets/images/img2/tyre.jpg" alt="重機・トラックの販売" loading="lazy" data-reveal>
           </div>
         </div>
       </div>
@@ -230,8 +219,8 @@
                 <polyline points="9 12 11 14 15 10"/>
               </svg>
             </div>
-            <h3 class="p-sub-feature-card__title">法人契約専門</h3>
-            <p class="p-sub-feature-card__text">企業様の駐車場・敷地・工場・物流拠点に特化した契約体制で安心</p>
+            <h3 class="p-sub-feature-card__title">幅広く対応</h3>
+            <p class="p-sub-feature-card__text">企業様の駐車場・工場・物流拠点から個人宅まで、規模・ご要望に合わせて柔軟に対応</p>
           </div>
 
           <!-- Card 3 -->
@@ -242,8 +231,8 @@
                 <polyline points="12 6 12 12 16 14"/>
               </svg>
             </div>
-            <h3 class="p-sub-feature-card__title">早朝出動体制</h3>
-            <p class="p-sub-feature-card__text">業務開始前に確実な除雪。降雪量に応じて出動判断を行い、確実に間に合わせる</p>
+            <h3 class="p-sub-feature-card__title">柔軟な時間帯対応</h3>
+            <p class="p-sub-feature-card__text">昼夜問わずご要望の時間に確実な除雪。降雪量に応じて出動判断を行い、確実に間に合わせる</p>
           </div>
 
         </div>
@@ -255,14 +244,14 @@
       <div class="l-inner">
         <div class="p-sub-numbers" data-stagger>
           <div class="p-sub-numbers__item">
-            <span class="p-sub-numbers__value p-sub-numbers__value--text">法人</span>
-            <span class="p-sub-numbers__unit">専門</span>
-            <span class="p-sub-numbers__label">企業契約に特化したサービス</span>
+            <span class="p-sub-numbers__value p-sub-numbers__value--text">幅広く</span>
+            <span class="p-sub-numbers__unit">対応</span>
+            <span class="p-sub-numbers__label">企業様から個人宅まで</span>
           </div>
           <div class="p-sub-numbers__item">
-            <span class="p-sub-numbers__value p-sub-numbers__value--text">早朝</span>
-            <span class="p-sub-numbers__unit">対応</span>
-            <span class="p-sub-numbers__label">業務開始前に除雪完了</span>
+            <span class="p-sub-numbers__value" data-count-to="24">0</span>
+            <span class="p-sub-numbers__unit">時間対応</span>
+            <span class="p-sub-numbers__label">ご要望の時間帯にお応え</span>
           </div>
           <div class="p-sub-numbers__item">
             <span class="p-sub-numbers__value" data-count-to="53">0</span>
@@ -283,8 +272,8 @@
         </div>
         <div class="p-sub-area" data-animate>
           <div class="p-sub-area__body" data-lines>
-            <p>札幌市内および近郊の企業様を中心にサービスを展開。物流倉庫・工場・商業施設・オフィスビル・店舗駐車場など、幅広い業種に対応しています。</p>
-            <p>規模や立地、運用スタイルに応じて最適なプランをご提案。複数拠点をお持ちの企業様には、まとめての年間契約もご相談いただけます。</p>
+            <p>札幌市内および近郊の企業様・個人宅にサービスを展開。物流倉庫・工場・商業施設・オフィスビル・店舗駐車場・住宅まで、幅広く対応しています。</p>
+            <p>規模や立地、ご要望に応じて最適なプランをご提案。複数拠点や複数物件をお持ちの方には、まとめての年間契約もご相談いただけます。</p>
           </div>
           <div class="p-sub-area__map" data-animate>
             <div class="p-sub-area__map-grid" data-stagger>
@@ -298,7 +287,7 @@
               </div>
               <div class="p-sub-area__map-item">
                 <span class="p-sub-area__map-region">対応規模</span>
-                <span class="p-sub-area__map-cities">物流倉庫・工場・商業施設・オフィス・店舗</span>
+                <span class="p-sub-area__map-cities">物流倉庫・工場・商業施設・オフィス・店舗・住宅</span>
               </div>
               <div class="p-sub-area__map-item">
                 <span class="p-sub-area__map-region">エリア外</span>
@@ -460,6 +449,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 2.5rem;
       margin-top: 3rem;
+      align-items: stretch;
     }
 
     @media (max-width: 767px) {
@@ -475,6 +465,14 @@
       text-align: center;
       box-shadow: 0 4px 24px rgba(10, 22, 40, 0.06);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .p-sub-feature-card__text {
+      margin-top: auto;
     }
 
     .p-sub-feature-card:hover {
@@ -528,6 +526,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: flex-end;
       gap: 0.5rem;
     }
 
@@ -537,6 +536,10 @@
       font-weight: 300;
       color: var(--color-gold, #b8963e);
       line-height: 1;
+      min-height: clamp(3.5rem, 3rem + 2vw, 5rem);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
     }
 
     .p-sub-numbers__value--text {

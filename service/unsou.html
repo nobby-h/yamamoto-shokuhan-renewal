@@ -24,7 +24,15 @@
       </a>
       <nav class="l-header__nav" id="js-header-nav">
         <a href="/about.html" class="l-header__nav-link">会社紹介</a>
-        <a href="/service.html" class="l-header__nav-link">事業案内</a>
+        <div class="l-header__nav-item l-header__nav-item--has-sub">
+          <a href="/service.html" class="l-header__nav-link">事業案内</a>
+          <ul class="l-header__submenu">
+            <li><a href="/service/unsou.html">運送事業部</a></li>
+            <li><a href="/service/jinzai.html">人材派遣事業部</a></li>
+            <li><a href="/service/jidousha.html">自動車販売修理事業部</a></li>
+            <li><a href="/service/jyosetsu.html">除排雪事業部</a></li>
+          </ul>
+        </div>
         <a href="/news.html" class="l-header__nav-link">お知らせ</a>
         <a href="/recruit.html" class="l-header__nav-link">採用情報</a>
         <a href="/about.html#access" class="l-header__nav-link">アクセス</a>
@@ -43,6 +51,10 @@
   <nav class="p-drawer" id="js-drawer">
     <a href="/about.html" class="p-drawer__nav-link">会社紹介</a>
     <a href="/service.html" class="p-drawer__nav-link">事業案内</a>
+    <a href="/service/unsou.html" class="p-drawer__nav-link p-drawer__nav-link--sub">運送事業部</a>
+    <a href="/service/jinzai.html" class="p-drawer__nav-link p-drawer__nav-link--sub">人材派遣事業部</a>
+    <a href="/service/jidousha.html" class="p-drawer__nav-link p-drawer__nav-link--sub">自動車販売修理事業部</a>
+    <a href="/service/jyosetsu.html" class="p-drawer__nav-link p-drawer__nav-link--sub">除排雪事業部</a>
     <a href="/news.html" class="p-drawer__nav-link">お知らせ</a>
     <a href="/recruit.html" class="p-drawer__nav-link">採用情報</a>
     <a href="/about.html#access" class="p-drawer__nav-link">アクセス</a>
@@ -75,10 +87,8 @@
     <!-- ========== 3. LEAD ========== -->
     <section class="p-page-section l-section">
       <div class="l-inner">
-        <p class="p-service-detail__lead" data-lines>
-          <span style="display:block;">札幌・旭川に拠点を置き、全道主要地域を網羅した配送体制。</span>
-          <span style="display:block;">食品の物流を通して地域社会に大きく貢献できることを</span>
-          <span style="display:block;">第一の目的としてサービスを続けております。</span>
+        <p class="p-service-detail__lead" data-lines style="word-break: keep-all; overflow-wrap: anywhere; line-break: strict; text-wrap: balance;">
+          札幌・旭川に拠点を置き、全道主要地域を網羅した配送体制。食品の物流を通して地域社会に大きく貢献できることを第一の目的としてサービスを続けております。
         </p>
       </div>
     </section>
@@ -88,11 +98,11 @@
       <div class="l-inner">
         <div class="p-service-detail__grid">
           <div class="p-service-detail__image" data-slide="left">
-            <img src="/src/assets/images/photos/PhotoGrid_1570042818311.jpg" alt="運送事業部 — 業務用車両" loading="lazy" data-reveal>
+            <img src="/src/assets/images/img2/53背景.jpg" alt="運送事業部 — 業務用車両" loading="lazy" data-reveal>
           </div>
           <div class="p-service-detail__content" data-slide="right">
             <div class="p-section-header" style="text-align: left;">
-              <span class="p-section-header__en" style="font-size: clamp(0.7rem, 0.6rem + 0.5vw, 0.85rem);">01</span>
+              <span class="p-section-header__en" style="font-size: clamp(6rem, 4.5rem + 7vw, 14rem); font-weight: 300; line-height: 0.85; letter-spacing: -0.04em; opacity: 0.7; color: var(--color-gold);">01</span>
               <h2 class="p-section-header__ja" style="font-size: var(--text-lg);">配送ネットワーク</h2>
               <div class="p-section-header__line" style="margin: 1rem 0 0;"></div>
             </div>
@@ -118,16 +128,16 @@
         <div class="p-service-detail__grid p-service-detail__grid--reverse">
           <div class="p-service-detail__content" data-slide="left">
             <div class="p-section-header" style="text-align: left;">
-              <span class="p-section-header__en" style="font-size: clamp(0.7rem, 0.6rem + 0.5vw, 0.85rem);">02</span>
+              <span class="p-section-header__en" style="font-size: clamp(6rem, 4.5rem + 7vw, 14rem); font-weight: 300; line-height: 0.85; letter-spacing: -0.04em; opacity: 0.7; color: var(--color-gold);">02</span>
               <h2 class="p-section-header__ja" style="font-size: var(--text-lg);">安全管理体制</h2>
               <div class="p-section-header__line" style="margin: 1rem 0 0;"></div>
             </div>
             <p style="margin-top: 1.5rem; line-height: 2;">
-              全車両にデジタルタコグラフ・ドライブレコーダーを装備。ドライバーの安全教育を定期的に実施し、事故ゼロを目指しています。車両の定期点検・整備はグループ企業の紺野自動車工業が担当。
+              全車両にデジタルタコグラフ・ドライブレコーダーを装備。ドライバーの安全教育を定期的に実施し、事故ゼロを目指しています。車両の定期点検・整備はグループ企業の車好人舎と紺野自動車工業が担当。
             </p>
           </div>
           <div class="p-service-detail__image" data-slide="right">
-            <img src="/src/assets/images/about/demo_1.jpg" alt="安全管理体制" loading="lazy" data-reveal>
+            <img src="/src/assets/images/photos/img_19.png" alt="安全管理体制" loading="lazy" data-reveal>
           </div>
         </div>
       </div>
@@ -362,6 +372,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 2.5rem;
       margin-top: 3rem;
+      align-items: stretch;
     }
 
     @media (max-width: 767px) {
@@ -377,6 +388,14 @@
       text-align: center;
       box-shadow: 0 4px 24px rgba(10, 22, 40, 0.06);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .p-sub-feature-card__text {
+      margin-top: auto;
     }
 
     .p-sub-feature-card:hover {
@@ -430,6 +449,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: flex-end;
       gap: 0.5rem;
     }
 
@@ -439,6 +459,10 @@
       font-weight: 300;
       color: var(--color-gold, #b8963e);
       line-height: 1;
+      min-height: clamp(3.5rem, 3rem + 2vw, 5rem);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
     }
 
     .p-sub-numbers__value--text {

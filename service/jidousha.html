@@ -24,7 +24,15 @@
       </a>
       <nav class="l-header__nav" id="js-header-nav">
         <a href="/about.html" class="l-header__nav-link">会社紹介</a>
-        <a href="/service.html" class="l-header__nav-link">事業案内</a>
+        <div class="l-header__nav-item l-header__nav-item--has-sub">
+          <a href="/service.html" class="l-header__nav-link">事業案内</a>
+          <ul class="l-header__submenu">
+            <li><a href="/service/unsou.html">運送事業部</a></li>
+            <li><a href="/service/jinzai.html">人材派遣事業部</a></li>
+            <li><a href="/service/jidousha.html">自動車販売修理事業部</a></li>
+            <li><a href="/service/jyosetsu.html">除排雪事業部</a></li>
+          </ul>
+        </div>
         <a href="/news.html" class="l-header__nav-link">お知らせ</a>
         <a href="/recruit.html" class="l-header__nav-link">採用情報</a>
         <a href="/about.html#access" class="l-header__nav-link">アクセス</a>
@@ -43,6 +51,10 @@
   <nav class="p-drawer" id="js-drawer">
     <a href="/about.html" class="p-drawer__nav-link">会社紹介</a>
     <a href="/service.html" class="p-drawer__nav-link">事業案内</a>
+    <a href="/service/unsou.html" class="p-drawer__nav-link p-drawer__nav-link--sub">運送事業部</a>
+    <a href="/service/jinzai.html" class="p-drawer__nav-link p-drawer__nav-link--sub">人材派遣事業部</a>
+    <a href="/service/jidousha.html" class="p-drawer__nav-link p-drawer__nav-link--sub">自動車販売修理事業部</a>
+    <a href="/service/jyosetsu.html" class="p-drawer__nav-link p-drawer__nav-link--sub">除排雪事業部</a>
     <a href="/news.html" class="p-drawer__nav-link">お知らせ</a>
     <a href="/recruit.html" class="p-drawer__nav-link">採用情報</a>
     <a href="/about.html#access" class="p-drawer__nav-link">アクセス</a>
@@ -92,7 +104,7 @@
           </div>
           <div class="p-service-detail__content" data-slide="right">
             <div class="p-section-header" style="text-align: left;">
-              <span class="p-section-header__en" style="font-size: clamp(0.7rem, 0.6rem + 0.5vw, 0.85rem);">01</span>
+              <span class="p-section-header__en" style="font-size: clamp(6rem, 4.5rem + 7vw, 14rem); font-weight: 300; line-height: 0.85; letter-spacing: -0.04em; opacity: 0.7; color: var(--color-gold);">01</span>
               <h2 class="p-section-header__ja" style="font-size: var(--text-lg);">車検・整備</h2>
               <div class="p-section-header__line" style="margin: 1rem 0 0;"></div>
             </div>
@@ -182,45 +194,75 @@
       <div class="l-inner">
         <div class="p-section-header" data-animate>
           <span class="p-section-header__en">Company</span>
-          <h2 class="p-section-header__ja">紺野自動車工業について</h2>
+          <h2 class="p-section-header__ja">会社情報</h2>
           <div class="p-section-header__line"></div>
         </div>
-        <div class="p-company-logos" data-animate style="display:flex; justify-content:center; align-items:center; gap:clamp(2rem, 5vw, 4rem); flex-wrap:wrap; margin: 0 auto 2.5rem; padding: 1.5rem; background: #fff; border: 1px solid var(--color-border); border-radius: 4px; max-width: 700px;">
-          <img src="/src/assets/images/logo/konno.png" alt="紺野自動車工業 ロゴ" loading="lazy" style="max-width:240px; max-height:90px; width:auto; height:auto; object-fit:contain;">
-          <img src="/src/assets/images/logo/shakohjinsha.png" alt="車好人舎 ロゴ" loading="lazy" style="max-width:180px; max-height:90px; width:auto; height:auto; object-fit:contain;">
+
+        <!-- 紺野自動車工業 -->
+        <div data-animate style="margin-bottom: 4rem;">
+          <div style="display:flex; justify-content:center; align-items:center; margin: 0 auto 2rem; padding: 1.5rem; background: #fff; border: 1px solid var(--color-border); border-radius: 4px; max-width: 480px;">
+            <img src="/src/assets/images/logo/konno.png" alt="紺野自動車工業 ロゴ" loading="lazy" style="max-width:280px; max-height:100px; width:auto; height:auto; object-fit:contain;">
+          </div>
+          <table class="p-company-table">
+            <tbody>
+              <tr>
+                <th>会社名</th>
+                <td>紺野自動車工業株式会社</td>
+              </tr>
+              <tr>
+                <th>所在地</th>
+                <td>北海道札幌市白石区菊水9条3丁目3番2号</td>
+              </tr>
+              <tr>
+                <th>TEL</th>
+                <td><a href="tel:011-841-1558">011-841-1558</a></td>
+              </tr>
+              <tr>
+                <th>認定</th>
+                <td>北海道運輸局指定工場（第1-143号）</td>
+              </tr>
+              <tr>
+                <th>事業内容</th>
+                <td>新車・中古車販売 / 車検 / 一般整備 / 修理 / 板金・塗装 / 買取り / 損害保険代理店</td>
+              </tr>
+              <tr>
+                <th>公式サイト</th>
+                <td><a href="https://www.konno-jikou.jp/" target="_blank" rel="noopener">https://www.konno-jikou.jp/</a></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <table class="p-company-table" data-animate>
-          <tbody>
-            <tr>
-              <th>会社名</th>
-              <td>紺野自動車工業株式会社</td>
-            </tr>
-            <tr>
-              <th>屋号</th>
-              <td>車好人舎</td>
-            </tr>
-            <tr>
-              <th>所在地</th>
-              <td>〒003-0809 北海道札幌市白石区菊水9条3丁目3番2号</td>
-            </tr>
-            <tr>
-              <th>TEL</th>
-              <td><a href="tel:011-841-1558">011-841-1558</a></td>
-            </tr>
-            <tr>
-              <th>認定</th>
-              <td>北海道運輸局指定工場（第1-143号）</td>
-            </tr>
-            <tr>
-              <th>事業内容</th>
-              <td>車検・整備、板金塗装、新車・中古車販売</td>
-            </tr>
-            <tr>
-              <th>公式サイト</th>
-              <td><a href="https://www.konno-jikou.jp/" target="_blank" rel="noopener">https://www.konno-jikou.jp/</a></td>
-            </tr>
-          </tbody>
-        </table>
+
+        <!-- 車好人舎 -->
+        <div data-animate>
+          <div style="display:flex; justify-content:center; align-items:center; margin: 0 auto 2rem; padding: 1.5rem; background: #fff; border: 1px solid var(--color-border); border-radius: 4px; max-width: 480px;">
+            <img src="/src/assets/images/logo/shakohjinsha.png" alt="車好人舎 ロゴ" loading="lazy" style="max-width:280px; max-height:100px; width:auto; height:auto; object-fit:contain;">
+          </div>
+          <table class="p-company-table">
+            <tbody>
+              <tr>
+                <th>会社名</th>
+                <td>車好人舎</td>
+              </tr>
+              <tr>
+                <th>所在地</th>
+                <td>〒006-0835 北海道札幌市手稲区曙5条4丁目2-1</td>
+              </tr>
+              <tr>
+                <th>TEL</th>
+                <td><a href="tel:011-686-7007">011-686-7007</a></td>
+              </tr>
+              <tr>
+                <th>事業内容</th>
+                <td>新車・中古車販売 / 車検 / 一般整備 / 修理 / 板金 / 買取り / 損害保険代理店</td>
+              </tr>
+              <tr>
+                <th>公式サイト</th>
+                <td><a href="https://shakohjinsha.com/" target="_blank" rel="noopener">https://shakohjinsha.com/</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 

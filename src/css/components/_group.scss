@@ -26,7 +26,7 @@
 
   &__card-visual {
     position: relative;
-    min-height: 250px;
+    height: 250px;
     display: flex;
     align-items: flex-end;
     padding: 2rem;
@@ -34,7 +34,7 @@
     background-position: center;
 
     @media (min-width: 768px) {
-      min-height: 400px;
+      height: 400px;
     }
 
     // Gradient overlay
@@ -67,7 +67,7 @@
     padding: 2.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 
     @media (min-width: 768px) {
       padding: 3rem;

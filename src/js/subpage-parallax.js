@@ -108,10 +108,11 @@ document.querySelectorAll('[data-stagger]').forEach((container) => {
   const items = container.children;
   gsap.from(items, {
     y: 60,
-    scale: 0.9,
+    opacity: 0,
     duration: 0.8,
     stagger: 0.15,
     ease: 'power3.out',
+    clearProps: 'transform,opacity',
     scrollTrigger: {
       trigger: container,
       start: 'top 82%',

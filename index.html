@@ -24,7 +24,15 @@
       </a>
       <nav class="l-header__nav" id="js-header-nav">
         <a href="/about.html" class="l-header__nav-link">会社紹介</a>
-        <a href="/service.html" class="l-header__nav-link">事業案内</a>
+        <div class="l-header__nav-item l-header__nav-item--has-sub">
+          <a href="/service.html" class="l-header__nav-link">事業案内</a>
+          <ul class="l-header__submenu">
+            <li><a href="/service/unsou.html">運送事業部</a></li>
+            <li><a href="/service/jinzai.html">人材派遣事業部</a></li>
+            <li><a href="/service/jidousha.html">自動車販売修理事業部</a></li>
+            <li><a href="/service/jyosetsu.html">除排雪事業部</a></li>
+          </ul>
+        </div>
         <a href="/news.html" class="l-header__nav-link">お知らせ</a>
         <a href="/recruit.html" class="l-header__nav-link">採用情報</a>
         <a href="/about.html#access" class="l-header__nav-link">アクセス</a>
@@ -43,6 +51,10 @@
   <nav class="p-drawer" id="js-drawer">
     <a href="/about.html" class="p-drawer__nav-link">会社紹介</a>
     <a href="/service.html" class="p-drawer__nav-link">事業案内</a>
+    <a href="/service/unsou.html" class="p-drawer__nav-link p-drawer__nav-link--sub">運送事業部</a>
+    <a href="/service/jinzai.html" class="p-drawer__nav-link p-drawer__nav-link--sub">人材派遣事業部</a>
+    <a href="/service/jidousha.html" class="p-drawer__nav-link p-drawer__nav-link--sub">自動車販売修理事業部</a>
+    <a href="/service/jyosetsu.html" class="p-drawer__nav-link p-drawer__nav-link--sub">除排雪事業部</a>
     <a href="/news.html" class="p-drawer__nav-link">お知らせ</a>
     <a href="/recruit.html" class="p-drawer__nav-link">採用情報</a>
     <a href="/about.html#access" class="p-drawer__nav-link">アクセス</a>
@@ -237,7 +249,7 @@
                   <span class="p-service-card__en">Staffing</span>
                 </div>
               </div>
-              <div class="p-service-card__back">
+              <div class="p-service-card__back" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/src/assets/images/photos/所長の背中.jpg'); background-size: cover; background-position: center;">
                 <h3>人材派遣事業部</h3>
                 <p>理想の仕事探しをお手伝いします。札幌市内及び近郊の企業様のニーズに応え、派遣事業を展開しております。</p>
                 <span class="p-service-card__link">View More</span>
@@ -255,7 +267,7 @@
                   <span class="p-service-card__en">Auto Service</span>
                 </div>
               </div>
-              <div class="p-service-card__back" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/src/assets/images/logo/yamamoto.png'); background-size: cover; background-position: center;">
+              <div class="p-service-card__back" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/src/assets/images/photos/img_19.png'); background-size: cover; background-position: center;">
                 <h3>自動車販売修理事業部</h3>
                 <p>『車好人舎』による新車・中古車販売と、『紺野自動車工業』による車検・整備・板金塗装。2社体制でお車をトータルサポート。</p>
                 <span class="p-service-card__link">View More</span>
@@ -266,14 +278,14 @@
             <a href="/service/jyosetsu.html">
               <div class="p-service-card__front">
                 <div class="p-service-card__img">
-                  <img src="/src/assets/images/img2/shakun.png" alt="除排雪事業部" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+                  <img src="/src/assets/images/photos/img_9.jpg" alt="除排雪事業部" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
                 </div>
                 <div class="p-service-card__body">
                   <h3 class="p-service-card__title">除排雪事業部</h3>
                   <span class="p-service-card__en">Snow Removal</span>
                 </div>
               </div>
-              <div class="p-service-card__back" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/src/assets/images/img2/shakun.png'); background-size: cover; background-position: center;">
+              <div class="p-service-card__back" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/src/assets/images/photos/img_9.jpg'); background-size: cover; background-position: center;">
                 <h3>除排雪事業部</h3>
                 <p>北の冬を、確かに動かす。法人契約による企業様向けの除排雪。駐車場・敷地・通路を冬季を通じて安全に保ちます。</p>
                 <span class="p-service-card__link">View More</span>
@@ -524,7 +536,7 @@
               <span class="p-group__card-badge">Group Company</span>
             </div>
             <div class="p-group__card-body">
-              <img src="/src/assets/images/img2/car_bumon.png" alt="車好人舎 ロゴ" class="p-group__card-logo" loading="lazy" style="max-width: 220px; height: auto; margin-bottom: 1.25rem;">
+              <img src="/src/assets/images/logo/shakohjinsha.png" alt="車好人舎 ロゴ" class="p-group__card-logo" loading="lazy" style="width: 100%; height: 110px; object-fit: contain; object-position: center; margin-bottom: 1.25rem;">
               <h3 class="p-group__card-name">車好人舎</h3>
               <p class="p-group__card-desc">札幌市手稲区を拠点に、新車・中古車販売から車検・整備・板金・買取り・損害保険代理店まで。お客様のカーライフをトータルにサポートいたします。</p>
               <dl class="p-group__card-info">
@@ -549,7 +561,7 @@
               <span class="p-group__card-badge">Group Company</span>
             </div>
             <div class="p-group__card-body">
-              <img src="/src/assets/images/logo/konno.png" alt="紺野自動車工業 ロゴ" class="p-group__card-logo" loading="lazy" style="max-width: 220px; height: auto; margin-bottom: 1.25rem;">
+              <img src="/src/assets/images/logo/konno.png" alt="紺野自動車工業 ロゴ" class="p-group__card-logo" loading="lazy" style="width: 100%; height: 110px; object-fit: contain; object-position: center; margin-bottom: 1.25rem;">
               <h3 class="p-group__card-name">紺野自動車工業株式会社</h3>
               <p class="p-group__card-desc">北海道運輸局指定工場（指定番号 第1-143号）。板金塗装、新車・中古車販売を手がけ、確かな技術力でお客様のカーライフを支えています。</p>
               <dl class="p-group__card-info">
@@ -560,6 +572,10 @@
                 <div>
                   <dt>電話番号</dt>
                   <dd><a href="tel:011-841-1558">011-841-1558</a></dd>
+                </div>
+                <div>
+                  <dt>事業内容</dt>
+                  <dd>新車・中古車販売 / 車検 / 一般整備 / 修理 / 板金・塗装 / 買取り / 損害保険代理店</dd>
                 </div>
               </dl>
               <a href="https://www.konno-jikou.jp/" class="c-btn c-btn--outline" target="_blank" rel="noopener">公式サイトを見る</a>
@@ -683,7 +699,7 @@
   </button>
 
   <a href="/" class="p-floating-logo" aria-label="ヤマモト食販株式会社 トップへ">
-    <img src="/src/assets/images/logo/footerlogo.png" alt="ヤマモト食販">
+    <img src="/src/assets/images/logo/shakun-new.png" alt="ヤマモト食販">
   </a>
 
 </body>

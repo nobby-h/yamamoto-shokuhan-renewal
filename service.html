@@ -24,7 +24,15 @@
       </a>
       <nav class="l-header__nav" id="js-header-nav">
         <a href="/about.html" class="l-header__nav-link">会社紹介</a>
-        <a href="/service.html" class="l-header__nav-link">事業案内</a>
+        <div class="l-header__nav-item l-header__nav-item--has-sub">
+          <a href="/service.html" class="l-header__nav-link">事業案内</a>
+          <ul class="l-header__submenu">
+            <li><a href="/service/unsou.html">運送事業部</a></li>
+            <li><a href="/service/jinzai.html">人材派遣事業部</a></li>
+            <li><a href="/service/jidousha.html">自動車販売修理事業部</a></li>
+            <li><a href="/service/jyosetsu.html">除排雪事業部</a></li>
+          </ul>
+        </div>
         <a href="/news.html" class="l-header__nav-link">お知らせ</a>
         <a href="/recruit.html" class="l-header__nav-link">採用情報</a>
         <a href="/about.html#access" class="l-header__nav-link">アクセス</a>
@@ -43,6 +51,10 @@
   <nav class="p-drawer" id="js-drawer">
     <a href="/about.html" class="p-drawer__nav-link">会社紹介</a>
     <a href="/service.html" class="p-drawer__nav-link">事業案内</a>
+    <a href="/service/unsou.html" class="p-drawer__nav-link p-drawer__nav-link--sub">運送事業部</a>
+    <a href="/service/jinzai.html" class="p-drawer__nav-link p-drawer__nav-link--sub">人材派遣事業部</a>
+    <a href="/service/jidousha.html" class="p-drawer__nav-link p-drawer__nav-link--sub">自動車販売修理事業部</a>
+    <a href="/service/jyosetsu.html" class="p-drawer__nav-link p-drawer__nav-link--sub">除排雪事業部</a>
     <a href="/news.html" class="p-drawer__nav-link">お知らせ</a>
     <a href="/recruit.html" class="p-drawer__nav-link">採用情報</a>
     <a href="/about.html#access" class="p-drawer__nav-link">アクセス</a>
@@ -98,7 +110,7 @@
         <div class="p-svc-block__grid">
           <div class="p-svc-block__image-wrap" data-slide="left">
             <div class="p-svc-block__image" data-reveal>
-              <img src="/src/assets/images/img2/back.png" alt="運送事業部 — 食品配送トラック" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+              <img src="/src/assets/images/img2/53背景.jpg" alt="運送事業部 — 食品配送トラック" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
             </div>
           </div>
           <div class="p-svc-block__body" data-slide="right">
@@ -169,7 +181,7 @@
         <div class="p-svc-block__grid p-svc-block__grid--reverse">
           <div class="p-svc-block__image-wrap" data-slide="right">
             <div class="p-svc-block__image" data-reveal>
-              <img src="/src/assets/images/about/about_photo_1.jpg" alt="人材派遣事業部 — 本社" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+              <img src="/src/assets/images/img2/service 運送事業部の写真.png" alt="人材派遣事業部 — 本社" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
             </div>
           </div>
           <div class="p-svc-block__body" data-slide="left">
@@ -285,12 +297,12 @@
         <div class="p-svc-block__grid p-svc-block__grid--reverse">
           <div class="p-svc-block__image-wrap" data-slide="right">
             <div class="p-svc-block__image" data-reveal>
-              <img src="/src/assets/images/img2/back.png" alt="除排雪事業部 — 法人契約の除排雪サービス" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+              <img src="/src/assets/images/photos/snow.jpg" alt="除排雪事業部 — 企業・個人宅対応の除排雪サービス" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
             </div>
           </div>
           <div class="p-svc-block__body" data-slide="left">
             <p class="p-svc-block__desc" data-animate>
-              北の冬を、確かに動かす。北海道で半世紀、物流を止めずにきた企業だからこその除排雪。法人契約により、企業様の駐車場・通路・敷地内を冬季を通じて安全に保ち、事業継続を支えます。
+              北の冬を、確かに動かす。北海道で半世紀、物流を止めずにきた企業だからこその除排雪。企業様から個人宅まで、駐車場・通路・敷地内を冬季を通じて安全に保ち、日々の暮らしと事業を支えます。
             </p>
             <div class="p-svc-block__features" data-stagger>
               <div class="p-svc-block__feature">
@@ -326,7 +338,7 @@
                   <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="10" width="36" height="32" rx="3"/><path d="M6 18h36M14 6v8M34 6v8"/><path d="M16 28h4M24 28h4M32 28h4M16 36h4M24 36h4"/></svg>
                 </div>
                 <h3 class="p-svc-block__feature-title">年間契約・スポット対応</h3>
-                <p class="p-svc-block__feature-text">企業契約専門。年間定額プランから単発対応まで、ご要望に合わせて柔軟に</p>
+                <p class="p-svc-block__feature-text">企業・個人宅対応。年間定額プランから単発対応まで、ご要望に合わせて柔軟に</p>
               </div>
             </div>
             <a href="/service/jyosetsu.html" class="p-svc-block__link" data-animate>
@@ -484,6 +496,10 @@
       letter-spacing: 0.08em;
       max-width: 800px;
       margin: 0 auto;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      line-break: strict;
+      text-wrap: balance;
     }
 
     /* --- Service Block (shared) --- */
@@ -512,7 +528,7 @@
 
     .p-svc-block__number {
       font-family: var(--font-heading-en, 'Cormorant Garamond', serif);
-      font-size: clamp(4rem, 3rem + 5vw, 9rem);
+      font-size: clamp(6rem, 4.5rem + 7vw, 14rem);
       font-weight: 300;
       line-height: 0.85;
       color: var(--color-gold, #b8963e);
