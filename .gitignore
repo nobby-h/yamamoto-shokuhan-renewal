@@ -5,6 +5,9 @@ node_modules/
 dist/
 .vite/
 
+# Deployment ZIPs (config / docs are committed; large artifacts are not)
+deploy/*.zip
+
 # Local env vars (never commit)
 .env
 .env.local
