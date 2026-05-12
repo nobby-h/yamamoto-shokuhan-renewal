@@ -16,6 +16,24 @@
     min-height: 420px;
   }
 
+  // Light variant: white surround, no dark overlay (for contained logos like 創意工夫)
+  &--light {
+    background: #fff;
+  }
+
+  &--light .p-parallax-band__bg::after {
+    display: none;
+  }
+
+  &--light .p-parallax-band__text {
+    color: var(--color-primary);
+  }
+
+  &--light .p-parallax-band__divider {
+    background: var(--color-primary);
+    opacity: 0.35;
+  }
+
   &__bg {
     position: absolute;
     inset: -60% 0;
