@@ -16,10 +16,12 @@ import Alpine from 'alpinejs';
 import { registerNewsArchive } from './js/news-archive.js';
 import { registerNewsDetail } from './js/news-detail.js';
 import { registerAdminNews } from './js/admin-news.js';
+import { registerAdminContacts } from './js/admin-contacts.js';
 window.Alpine = Alpine;
 registerNewsArchive(Alpine);
 registerNewsDetail(Alpine);
 registerAdminNews(Alpine);
+registerAdminContacts(Alpine);
 Alpine.start();
 
 // Modules

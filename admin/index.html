@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>お知らせ管理 | ヤマモト食販</title>
+  <title>サイト管理 | ヤマモト食販</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
   <style>
     body { font-family: 'Noto Sans JP', sans-serif; background: #f7f7f5; color: #1a1a1a; margin: 0; }
     .a-shell { max-width: 1100px; margin: 0 auto; padding: 2rem 1.25rem 6rem; }
-    .a-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #ddd; }
+    .a-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #ddd; }
     .a-header h1 { font-size: 1.4rem; margin: 0; letter-spacing: 0.05em; }
     .a-header__user { display: flex; align-items: center; gap: 1rem; font-size: 0.85rem; color: #666; }
     .a-btn { background: #b8924a; color: #fff; border: none; padding: 0.6rem 1.2rem; cursor: pointer; font-size: 0.9rem; letter-spacing: 0.05em; transition: background 0.2s; }
@@ -26,6 +26,48 @@
     .a-btn--danger:hover { background: #a83224; }
     .a-btn--sm { padding: 0.35rem 0.75rem; font-size: 0.8rem; }
     .a-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    /* Tabs */
+    .a-tabs {
+      display: flex;
+      gap: 0.25rem;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 1.5rem;
+    }
+    .a-tab {
+      background: transparent;
+      border: none;
+      padding: 0.85rem 1.5rem;
+      font-size: 0.95rem;
+      color: #666;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+      letter-spacing: 0.05em;
+      font-family: inherit;
+    }
+    .a-tab:hover { color: #1a1a1a; }
+    .a-tab.is-active { color: #1a1a1a; border-bottom-color: #b8924a; font-weight: 500; }
+    .a-tab__badge {
+      display: inline-block;
+      min-width: 1.4em;
+      padding: 0.1em 0.5em;
+      background: #c0392b;
+      color: #fff;
+      font-size: 0.7rem;
+      border-radius: 999px;
+      margin-left: 0.4em;
+      font-weight: 600;
+      vertical-align: middle;
+    }
+    .a-tab__count {
+      display: inline-block;
+      font-size: 0.75rem;
+      color: #999;
+      margin-left: 0.35em;
+      font-weight: 300;
+      vertical-align: middle;
+    }
 
     .a-login { max-width: 380px; margin: 6rem auto; background: #fff; padding: 2.5rem 2rem; border: 1px solid #ddd; }
     .a-login h1 { text-align: center; margin: 0 0 1.5rem; font-size: 1.2rem; letter-spacing: 0.1em; }
@@ -40,7 +82,7 @@
     .a-error { background: #fee; color: #c0392b; padding: 0.6rem 1rem; margin-bottom: 1rem; font-size: 0.85rem; border-left: 3px solid #c0392b; }
 
     .a-card { background: #fff; border: 1px solid #ddd; padding: 1.75rem; margin-bottom: 2rem; }
-    .a-card__head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; }
+    .a-card__head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem; }
     .a-card__head h2 { font-size: 1.05rem; margin: 0; letter-spacing: 0.05em; }
 
     .a-table { width: 100%; border-collapse: collapse; background: #fff; }
@@ -52,11 +94,63 @@
     .a-cat--press { background: #f5d6c7; color: #803020; }
     .a-status--on { color: #2c7a3a; font-weight: 500; }
     .a-status--off { color: #999; }
+    .a-status--new { display: inline-block; padding: 0.15rem 0.55rem; font-size: 0.7rem; background: #fdecec; color: #b13230; border-radius: 3px; font-weight: 500; }
+    .a-status--handled { display: inline-block; padding: 0.15rem 0.55rem; font-size: 0.7rem; background: #e8f4ea; color: #2c6b3a; border-radius: 3px; }
 
     .a-actions { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .a-filter { display: inline-flex; gap: 0.25rem; }
+    .a-filter button {
+      background: transparent;
+      border: 1px solid #ccc;
+      color: #666;
+      padding: 0.35rem 0.85rem;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-family: inherit;
+    }
+    .a-filter button.is-active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+    .a-filter button:hover:not(.is-active) { background: #f0eee8; }
 
     .a-loading { text-align: center; padding: 2rem; color: #999; }
     .a-empty { text-align: center; padding: 2rem; color: #999; font-size: 0.9rem; }
+
+    /* Detail modal */
+    .a-modal__backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 100;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 3rem 1rem;
+      overflow-y: auto;
+    }
+    .a-modal {
+      background: #fff;
+      max-width: 720px;
+      width: 100%;
+      padding: 2rem;
+      border-radius: 4px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .a-modal__head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; gap: 1rem; }
+    .a-modal__head h3 { margin: 0; font-size: 1.05rem; letter-spacing: 0.05em; }
+    .a-modal__close { background: transparent; border: none; cursor: pointer; font-size: 1.5rem; color: #999; line-height: 1; padding: 0 0.5rem; }
+    .a-modal__close:hover { color: #1a1a1a; }
+    .a-modal__row { display: grid; grid-template-columns: 130px 1fr; gap: 0.5rem 1rem; padding: 0.6rem 0; border-bottom: 1px solid #f0eee8; font-size: 0.88rem; }
+    .a-modal__row dt { color: #999; font-weight: 400; margin: 0; }
+    .a-modal__row dd { margin: 0; word-break: break-word; }
+    .a-modal__msg {
+      margin: 1rem 0;
+      padding: 1rem 1.25rem;
+      background: #f7f7f5;
+      border-radius: 4px;
+      white-space: pre-wrap;
+      line-height: 1.8;
+      font-size: 0.9rem;
+    }
+    .a-modal__actions { display: flex; gap: 0.5rem; flex-wrap: wrap; padding-top: 1rem; border-top: 1px solid #ddd; margin-top: 1rem; }
   </style>
 </head>
 <body x-data="adminNews">
@@ -64,7 +158,7 @@
   <!-- ===== ログイン画面 ===== -->
   <template x-if="!session">
     <div class="a-login">
-      <h1>お知らせ管理</h1>
+      <h1>サイト管理</h1>
       <form @submit.prevent="login()">
         <template x-if="authError">
           <div class="a-error" x-text="authError"></div>
@@ -87,154 +181,327 @@
 
   <!-- ===== 管理画面 ===== -->
   <template x-if="session">
-    <div class="a-shell">
+    <div class="a-shell" x-data="{ tab: 'news' }">
 
       <header class="a-header">
-        <h1>お知らせ管理</h1>
+        <h1>サイト管理</h1>
         <div class="a-header__user">
           <span x-text="session?.user?.email"></span>
           <button class="a-btn a-btn--ghost a-btn--sm" @click="logout()">ログアウト</button>
         </div>
       </header>
 
-      <!-- 投稿フォーム -->
-      <section class="a-card">
-        <div class="a-card__head">
-          <h2 x-text="editing ? '記事を編集' : '新規投稿'"></h2>
-          <button class="a-btn a-btn--ghost a-btn--sm" x-show="editing" @click="resetForm()">キャンセル</button>
-        </div>
+      <!-- ====== タブ切替 ====== -->
+      <div class="a-tabs">
+        <button class="a-tab" :class="{ 'is-active': tab === 'news' }" @click="tab = 'news'">
+          お知らせ管理<span class="a-tab__count" x-text="'('+items.length+')'"></span>
+        </button>
+        <button class="a-tab" :class="{ 'is-active': tab === 'contacts' }" @click="tab = 'contacts'"
+                x-data="{ newCount: 0 }"
+                @contacts-count.window="newCount = $event.detail">
+          お問い合わせ受信<template x-if="newCount > 0"><span class="a-tab__badge" x-text="newCount + '未対応'"></span></template>
+        </button>
+      </div>
 
-        <template x-if="formError">
-          <div class="a-error" x-text="formError"></div>
-        </template>
+      <!-- ====== お知らせ管理タブ ====== -->
+      <div x-show="tab === 'news'">
 
-        <form @submit.prevent="save()">
-          <div style="display:grid; grid-template-columns: 180px 200px 1fr; gap:1rem;">
-            <div class="a-field">
-              <label>公開日</label>
-              <input type="date" x-model="form.publish_date" required>
-            </div>
-            <div class="a-field">
-              <label>カテゴリ</label>
-              <select x-model="form.category">
-                <option value="info">お知らせ</option>
-                <option value="recruit">採用情報</option>
-                <option value="press">プレスリリース</option>
-              </select>
-            </div>
-            <div class="a-field a-field--check" style="align-self:end; padding-bottom:0.7rem;">
-              <input id="f-pub" type="checkbox" x-model="form.is_published">
-              <label for="f-pub" style="margin:0;">公開する</label>
-            </div>
+        <!-- 投稿フォーム -->
+        <section class="a-card">
+          <div class="a-card__head">
+            <h2 x-text="editing ? '記事を編集' : '新規投稿'"></h2>
+            <button class="a-btn a-btn--ghost a-btn--sm" x-show="editing" @click="resetForm()">キャンセル</button>
           </div>
-          <div class="a-field">
-            <label>タイトル</label>
-            <input type="text" x-model="form.title" required maxlength="200">
-          </div>
-          <div class="a-field">
-            <label>本文（任意）</label>
-            <textarea x-model="form.body" placeholder="記事本文。空欄でも投稿可。"></textarea>
-          </div>
-          <div class="a-field">
-            <label>画像（複数選択可・各5MB以下 / JPG/PNG/WebP/GIF）</label>
-            <input type="file" accept="image/*" multiple @change="uploadImages($event)" :disabled="uploading">
-            <template x-if="uploadProgress">
-              <div style="margin-top:0.5rem; font-size:0.8rem; color:#2c7a3a;" x-text="uploadProgress"></div>
-            </template>
-            <template x-if="form.images && form.images.length > 0">
-              <div style="margin-top:0.75rem; display:grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap:0.75rem;">
-                <template x-for="(url, idx) in form.images" :key="url">
-                  <div style="padding:0.5rem; background:#f7f7f5; border:1px solid #ddd;">
-                    <img :src="url" alt="" style="width:100%; height:100px; object-fit:cover; display:block;">
-                    <div style="display:flex; gap:0.25rem; margin-top:0.5rem; flex-wrap:wrap;">
-                      <button type="button" class="a-btn a-btn--ghost a-btn--sm" @click="moveImage(idx, -1)" :disabled="idx === 0" style="padding:0.2rem 0.4rem;">←</button>
-                      <button type="button" class="a-btn a-btn--ghost a-btn--sm" @click="moveImage(idx, 1)" :disabled="idx === form.images.length - 1" style="padding:0.2rem 0.4rem;">→</button>
-                      <button type="button" class="a-btn a-btn--danger a-btn--sm" @click="removeImageAt(idx)" style="padding:0.2rem 0.4rem;">削除</button>
-                    </div>
-                  </div>
-                </template>
+
+          <template x-if="formError">
+            <div class="a-error" x-text="formError"></div>
+          </template>
+
+          <form @submit.prevent="save()">
+            <div style="display:grid; grid-template-columns: 180px 200px 1fr; gap:1rem;">
+              <div class="a-field">
+                <label>公開日</label>
+                <input type="date" x-model="form.publish_date" required>
               </div>
-            </template>
+              <div class="a-field">
+                <label>カテゴリ</label>
+                <select x-model="form.category">
+                  <option value="info">お知らせ</option>
+                  <option value="recruit">採用情報</option>
+                  <option value="press">プレスリリース</option>
+                </select>
+              </div>
+              <div class="a-field a-field--check" style="align-self:end; padding-bottom:0.7rem;">
+                <input id="f-pub" type="checkbox" x-model="form.is_published">
+                <label for="f-pub" style="margin:0;">公開する</label>
+              </div>
+            </div>
+            <div class="a-field">
+              <label>タイトル</label>
+              <input type="text" x-model="form.title" required maxlength="200">
+            </div>
+            <div class="a-field">
+              <label>本文（任意）</label>
+              <textarea x-model="form.body" placeholder="記事本文。空欄でも投稿可。"></textarea>
+            </div>
+            <div class="a-field">
+              <label>画像（複数選択可・各5MB以下 / JPG/PNG/WebP/GIF）</label>
+              <input type="file" accept="image/*" multiple @change="uploadImages($event)" :disabled="uploading">
+              <template x-if="uploadProgress">
+                <div style="margin-top:0.5rem; font-size:0.8rem; color:#2c7a3a;" x-text="uploadProgress"></div>
+              </template>
+              <template x-if="form.images && form.images.length > 0">
+                <div style="margin-top:0.75rem; display:grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap:0.75rem;">
+                  <template x-for="(url, idx) in form.images" :key="url">
+                    <div style="padding:0.5rem; background:#f7f7f5; border:1px solid #ddd;">
+                      <img :src="url" alt="" style="width:100%; height:100px; object-fit:cover; display:block;">
+                      <div style="display:flex; gap:0.25rem; margin-top:0.5rem; flex-wrap:wrap;">
+                        <button type="button" class="a-btn a-btn--ghost a-btn--sm" @click="moveImage(idx, -1)" :disabled="idx === 0" style="padding:0.2rem 0.4rem;">←</button>
+                        <button type="button" class="a-btn a-btn--ghost a-btn--sm" @click="moveImage(idx, 1)" :disabled="idx === form.images.length - 1" style="padding:0.2rem 0.4rem;">→</button>
+                        <button type="button" class="a-btn a-btn--danger a-btn--sm" @click="removeImageAt(idx)" style="padding:0.2rem 0.4rem;">削除</button>
+                      </div>
+                    </div>
+                  </template>
+                </div>
+              </template>
+            </div>
+            <div class="a-field">
+              <label>外部リンク（任意）</label>
+              <input type="url" x-model="form.external_url" placeholder="https://... （指定するとクリックで外部ページを開きます）">
+            </div>
+            <button type="submit" class="a-btn" :disabled="saving">
+              <span x-show="!saving" x-text="editing ? '更新' : '投稿'"></span>
+              <span x-show="saving">保存中...</span>
+            </button>
+          </form>
+        </section>
+
+        <!-- 一覧 -->
+        <section class="a-card">
+          <div class="a-card__head">
+            <h2>投稿一覧 <span style="color:#999; font-weight:300; margin-left:0.5rem;" x-text="'(' + items.length + '件)'"></span></h2>
+            <button class="a-btn a-btn--ghost a-btn--sm" @click="refresh()" :disabled="loading">
+              <span x-show="!loading">再読み込み</span>
+              <span x-show="loading">読み込み中...</span>
+            </button>
           </div>
-          <div class="a-field">
-            <label>外部リンク（任意）</label>
-            <input type="url" x-model="form.external_url" placeholder="https://... （指定するとクリックで外部ページを開きます）">
-          </div>
-          <button type="submit" class="a-btn" :disabled="saving">
-            <span x-show="!saving" x-text="editing ? '更新' : '投稿'"></span>
-            <span x-show="saving">保存中...</span>
-          </button>
-        </form>
-      </section>
 
-      <!-- 一覧 -->
-      <section class="a-card">
-        <div class="a-card__head">
-          <h2>投稿一覧 <span style="color:#999; font-weight:300; margin-left:0.5rem;" x-text="'(' + items.length + '件)'"></span></h2>
-          <button class="a-btn a-btn--ghost a-btn--sm" @click="refresh()" :disabled="loading">
-            <span x-show="!loading">再読み込み</span>
-            <span x-show="loading">読み込み中...</span>
-          </button>
-        </div>
+          <template x-if="listError">
+            <div class="a-error" x-text="listError"></div>
+          </template>
 
-        <template x-if="listError">
-          <div class="a-error" x-text="listError"></div>
-        </template>
+          <template x-if="loading && items.length === 0">
+            <div class="a-loading">読み込み中...</div>
+          </template>
 
-        <template x-if="loading && items.length === 0">
-          <div class="a-loading">読み込み中...</div>
-        </template>
+          <template x-if="!loading && items.length === 0">
+            <div class="a-empty">まだ投稿がありません。上のフォームから追加してください。</div>
+          </template>
 
-        <template x-if="!loading && items.length === 0">
-          <div class="a-empty">まだ投稿がありません。上のフォームから追加してください。</div>
-        </template>
-
-        <table class="a-table" x-show="items.length > 0">
-          <thead>
-            <tr>
-              <th style="width: 110px;">公開日</th>
-              <th style="width: 120px;">カテゴリ</th>
-              <th>タイトル</th>
-              <th style="width: 90px;">公開</th>
-              <th style="width: 220px;">操作</th>
-            </tr>
-          </thead>
-          <tbody>
-            <template x-for="item in items" :key="item.id">
+          <table class="a-table" x-show="items.length > 0">
+            <thead>
               <tr>
-                <td x-text="item.publish_date"></td>
-                <td>
-                  <span class="a-cat" :class="'a-cat--' + item.category" x-text="labels[item.category]"></span>
-                </td>
-                <td>
-                  <strong x-text="item.title"></strong>
-                  <template x-if="item.images && item.images.length > 0">
-                    <span style="font-size:0.7rem; color:#888; margin-left:0.5rem;" x-text="'📷 ' + item.images.length + '枚'"></span>
-                  </template>
-                  <template x-if="item.body">
-                    <div style="font-size:0.78rem; color:#888; margin-top:0.25rem;" x-text="item.body.length > 80 ? item.body.slice(0, 80) + '...' : item.body"></div>
-                  </template>
-                  <template x-if="item.external_url">
-                    <div style="font-size:0.75rem; color:#1a4480; margin-top:0.25rem;">↗ <span x-text="item.external_url"></span></div>
-                  </template>
-                </td>
-                <td>
-                  <button @click="togglePublished(item)" :class="item.is_published ? 'a-status--on' : 'a-status--off'" style="background:none; border:none; cursor:pointer; font-size:0.85rem;" x-text="item.is_published ? '公開中' : '非公開'"></button>
-                </td>
-                <td>
-                  <div class="a-actions">
-                    <button class="a-btn a-btn--ghost a-btn--sm" @click="startEdit(item)">編集</button>
-                    <button class="a-btn a-btn--danger a-btn--sm" @click="remove(item)" :disabled="deletingId === item.id">
-                      <span x-show="deletingId !== item.id">削除</span>
-                      <span x-show="deletingId === item.id">削除中...</span>
-                    </button>
-                  </div>
-                </td>
+                <th style="width: 110px;">公開日</th>
+                <th style="width: 120px;">カテゴリ</th>
+                <th>タイトル</th>
+                <th style="width: 90px;">公開</th>
+                <th style="width: 220px;">操作</th>
               </tr>
-            </template>
-          </tbody>
-        </table>
-      </section>
+            </thead>
+            <tbody>
+              <template x-for="item in items" :key="item.id">
+                <tr>
+                  <td x-text="item.publish_date"></td>
+                  <td>
+                    <span class="a-cat" :class="'a-cat--' + item.category" x-text="labels[item.category]"></span>
+                  </td>
+                  <td>
+                    <strong x-text="item.title"></strong>
+                    <template x-if="item.images && item.images.length > 0">
+                      <span style="font-size:0.7rem; color:#888; margin-left:0.5rem;" x-text="'📷 ' + item.images.length + '枚'"></span>
+                    </template>
+                    <template x-if="item.body">
+                      <div style="font-size:0.78rem; color:#888; margin-top:0.25rem;" x-text="item.body.length > 80 ? item.body.slice(0, 80) + '...' : item.body"></div>
+                    </template>
+                    <template x-if="item.external_url">
+                      <div style="font-size:0.75rem; color:#1a4480; margin-top:0.25rem;">↗ <span x-text="item.external_url"></span></div>
+                    </template>
+                  </td>
+                  <td>
+                    <button @click="togglePublished(item)" :class="item.is_published ? 'a-status--on' : 'a-status--off'" style="background:none; border:none; cursor:pointer; font-size:0.85rem;" x-text="item.is_published ? '公開中' : '非公開'"></button>
+                  </td>
+                  <td>
+                    <div class="a-actions">
+                      <button class="a-btn a-btn--ghost a-btn--sm" @click="startEdit(item)">編集</button>
+                      <button class="a-btn a-btn--danger a-btn--sm" @click="remove(item)" :disabled="deletingId === item.id">
+                        <span x-show="deletingId !== item.id">削除</span>
+                        <span x-show="deletingId === item.id">削除中...</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </section>
+
+      </div>
+
+      <!-- ====== お問い合わせ受信タブ ====== -->
+      <div x-show="tab === 'contacts'" x-data="adminContacts"
+           x-init="load(); $watch('newCount', v => $dispatch('contacts-count', v))">
+
+        <section class="a-card">
+          <div class="a-card__head">
+            <h2>お問い合わせ受信一覧
+              <span style="color:#999; font-weight:300; margin-left:0.5rem;" x-text="'(' + items.length + '件)'"></span>
+            </h2>
+            <div style="display:flex; gap:0.75rem; align-items:center;">
+              <div class="a-filter">
+                <button :class="{ 'is-active': filter === 'all' }" @click="filter = 'all'">すべて</button>
+                <button :class="{ 'is-active': filter === 'new' }" @click="filter = 'new'">
+                  未対応<span x-show="newCount > 0" x-text="' (' + newCount + ')'"></span>
+                </button>
+                <button :class="{ 'is-active': filter === 'handled' }" @click="filter = 'handled'">対応済</button>
+              </div>
+              <button class="a-btn a-btn--ghost a-btn--sm" @click="load()" :disabled="loading">
+                <span x-show="!loading">再読み込み</span>
+                <span x-show="loading">読み込み中...</span>
+              </button>
+            </div>
+          </div>
+
+          <template x-if="listError">
+            <div class="a-error" x-text="listError"></div>
+          </template>
+
+          <template x-if="loading && items.length === 0">
+            <div class="a-loading">読み込み中...</div>
+          </template>
+
+          <template x-if="!loading && filteredItems.length === 0">
+            <div class="a-empty">該当するお問い合わせはありません。</div>
+          </template>
+
+          <table class="a-table" x-show="filteredItems.length > 0">
+            <thead>
+              <tr>
+                <th style="width:150px;">受信日時</th>
+                <th style="width:90px;">状態</th>
+                <th style="width:130px;">種別</th>
+                <th>お名前 / 会社</th>
+                <th>メール</th>
+                <th style="width:200px;">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <template x-for="item in filteredItems" :key="item.id">
+                <tr>
+                  <td x-text="formatDate(item.created_at)"></td>
+                  <td>
+                    <span :class="item.status === 'new' ? 'a-status--new' : 'a-status--handled'"
+                          x-text="item.status === 'new' ? '未対応' : '対応済'"></span>
+                  </td>
+                  <td x-text="categoryLabel(item.category)"></td>
+                  <td>
+                    <strong x-text="item.name"></strong>
+                    <template x-if="item.company">
+                      <div style="font-size:0.78rem; color:#888;" x-text="item.company"></div>
+                    </template>
+                    <div style="font-size:0.78rem; color:#666; margin-top:0.25rem;"
+                         x-text="(item.message || '').slice(0, 60) + ((item.message || '').length > 60 ? '...' : '')"></div>
+                  </td>
+                  <td style="font-size:0.8rem; word-break:break-all;" x-text="item.email"></td>
+                  <td>
+                    <div class="a-actions">
+                      <button class="a-btn a-btn--ghost a-btn--sm" @click="openDetail(item)">詳細</button>
+                      <button class="a-btn a-btn--sm" @click="toggleHandled(item)" :disabled="savingId === item.id">
+                        <span x-show="item.status === 'new'">対応済に</span>
+                        <span x-show="item.status === 'handled'">未対応に戻す</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- ====== 詳細モーダル ====== -->
+        <template x-if="selected">
+          <div class="a-modal__backdrop" @click.self="closeDetail()">
+            <div class="a-modal">
+              <div class="a-modal__head">
+                <h3>お問い合わせ詳細 <span style="color:#999; font-size:0.85rem; margin-left:0.5rem;" x-text="'#' + selected.id"></span></h3>
+                <button class="a-modal__close" @click="closeDetail()" aria-label="閉じる">×</button>
+              </div>
+
+              <dl style="margin:0;">
+                <div class="a-modal__row">
+                  <dt>受信日時</dt><dd x-text="formatDate(selected.created_at)"></dd>
+                </div>
+                <div class="a-modal__row">
+                  <dt>状態</dt>
+                  <dd>
+                    <span :class="selected.status === 'new' ? 'a-status--new' : 'a-status--handled'"
+                          x-text="selected.status === 'new' ? '未対応' : '対応済'"></span>
+                    <template x-if="selected.handled_at">
+                      <span style="font-size:0.78rem; color:#888; margin-left:0.5rem;"
+                            x-text="'(' + formatDate(selected.handled_at) + ')'"></span>
+                    </template>
+                  </dd>
+                </div>
+                <div class="a-modal__row">
+                  <dt>お名前</dt><dd x-text="selected.name"></dd>
+                </div>
+                <template x-if="selected.furigana">
+                  <div class="a-modal__row"><dt>ふりがな</dt><dd x-text="selected.furigana"></dd></div>
+                </template>
+                <template x-if="selected.company">
+                  <div class="a-modal__row"><dt>会社・団体</dt><dd x-text="selected.company"></dd></div>
+                </template>
+                <div class="a-modal__row">
+                  <dt>メール</dt>
+                  <dd><a :href="'mailto:' + selected.email" x-text="selected.email"></a></dd>
+                </div>
+                <template x-if="selected.tel">
+                  <div class="a-modal__row"><dt>電話番号</dt><dd><a :href="'tel:' + selected.tel" x-text="selected.tel"></a></dd></div>
+                </template>
+                <div class="a-modal__row">
+                  <dt>種別</dt><dd x-text="categoryLabel(selected.category)"></dd>
+                </div>
+              </dl>
+
+              <h4 style="margin:1.5rem 0 0.5rem; font-size:0.85rem; color:#666; letter-spacing:0.05em;">お問い合わせ内容</h4>
+              <div class="a-modal__msg" x-text="selected.message"></div>
+
+              <h4 style="margin:1.5rem 0 0.5rem; font-size:0.85rem; color:#666; letter-spacing:0.05em;">管理メモ（社内用）</h4>
+              <textarea x-model="detailNote" placeholder="対応状況・備考などを記録できます" style="width:100%; min-height:100px; padding:0.65rem; border:1px solid #ccc; font-family:inherit;"></textarea>
+
+              <template x-if="selected.email_sent === false && selected.email_error">
+                <div class="a-error" style="margin-top:1rem;">
+                  メール通知未送信: <span x-text="selected.email_error"></span>
+                </div>
+              </template>
+
+              <div class="a-modal__actions">
+                <a :href="mailtoHref(selected)" class="a-btn">メールで返信</a>
+                <button class="a-btn a-btn--ghost" @click="saveNote()" :disabled="savingId === selected.id">
+                  <span x-show="savingId !== selected.id">メモを保存</span>
+                  <span x-show="savingId === selected.id">保存中...</span>
+                </button>
+                <button class="a-btn" @click="toggleHandled(selected)" :disabled="savingId === selected.id">
+                  <span x-show="selected.status === 'new'">対応済にする</span>
+                  <span x-show="selected.status === 'handled'">未対応に戻す</span>
+                </button>
+                <button class="a-btn a-btn--danger" @click="remove(selected); $event.target.blur()" :disabled="deletingId === selected.id">削除</button>
+                <button class="a-btn a-btn--ghost" @click="closeDetail()">閉じる</button>
+              </div>
+            </div>
+          </div>
+        </template>
+
+      </div>
 
     </div>
   </template>
