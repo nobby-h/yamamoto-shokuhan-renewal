@@ -116,7 +116,41 @@ sudo mv /var/www/<旧WordPressディレクトリ> /var/backups/old-yamamoto-word
 | 旧URL リダイレクトされない | Nginx 設定をリロードしたか（`sudo systemctl reload nginx`） |
 | お問い合わせフォーム送信失敗 | Contact Form 7 から Netlify Forms 等に切り替えが必要。別途相談。 |
 
-## 注意事項
+## 運用関連
 
-- **お問い合わせフォーム**: 旧サイトは Contact Form 7（PHP）でしたが、新サイトは静的HTMLのため Contact Form 7 は動作しません。フォーム送信先の切替が必要です（Formspree / Getform / Cloudflare Workers / Netlify Forms など）。現状は `/contact.html` のフォームが**実際には送信できない可能性**があります。事前にテスト送信して動作を確認してください。
-- **ニュース管理画面**: `/admin/` 配下に Supabase 連携のニュース管理画面があります。これは Supabase に依存しているため、Supabase の URL / API キー（環境変数）が正しく埋め込まれた状態でビルドする必要があります。
+### お問い合わせフォーム（Supabase + Resend で稼働）
+
+- **保存先**: Supabase `public.contact_messages` テーブル（送信のたびに自動INSERT）
+- **メール通知先**: 環境変数 `CONTACT_NOTIFICATION_TO`（デフォルト `nobby.h@gmail.com`）
+- **送信エンジン**: Supabase Edge Function `send-contact` から Resend API 経由
+- **メール送信を有効化するには**: Supabase ダッシュボード → Project Settings → Edge Functions → Secrets で以下を設定:
+  - `RESEND_API_KEY` … [Resend](https://resend.com/) で無料アカウント発行（月100通まで無料）
+  - `CONTACT_NOTIFICATION_TO` … 本番の受信先メールアドレス（任意。未設定なら `nobby.h@gmail.com`）
+  - `CONTACT_NOTIFICATION_FROM` … 差出人（独自ドメインを Resend で認証後に変更推奨。例 `お問い合わせ <contact@yamamoto-shokuhan.com>`）
+- **Resend API キー未設定でも DB には残ります**: 送信内容は必ず `contact_messages` テーブルに保存されるため、Supabase Studio で閲覧できます。メール送信のみベストエフォート。
+- **取りこぼし確認**: Supabase Studio → Table editor → `contact_messages` で `email_sent = false` のレコードを定期確認。
+
+### ニュース管理画面（`/admin/`）
+
+- **アクセス先**: `https://new.yamamoto-shokuhan.com/admin/`
+- **認証**: Supabase Auth（既に管理者ユーザ1名登録済み）。ログイン後、お知らせの作成・編集・削除・画像アップロード・公開トグルが可能
+- **DB**: `public.news` テーブル（122件の既存データあり）
+- **画像保存先**: `news-images` ストレージバケット（5MB / 1ファイル）
+- **管理者追加方法**: Supabase ダッシュボード → Authentication → Users → "Add user" で追加（メール+パスワードで作成可能）
+- **`/admin/` の公開保護**（任意 - Nginx Basic 認証で二重ロック）:
+  ```nginx
+  location = /admin/ {
+      auth_basic "Admin Area";
+      auth_basic_user_file /etc/nginx/.htpasswd-admin;
+      try_files $uri $uri/ /admin/index.html;
+  }
+  ```
+  `.htpasswd-admin` は `sudo htpasswd -c /etc/nginx/.htpasswd-admin admin` で作成。
+
+### サイトの再ビルド・再アップロード
+
+CMS（Supabase）に保存されるニュース・お問い合わせは VPS の再アップなしで反映されます。
+HTML/CSS/JS や画像素材を変更した場合のみ:
+1. ローカルで `npm run build`
+2. `dist/` の内容を SFTP で VPS の `/var/www/yamamoto-shokuhan/` に上書きアップ
+3. Nginx リロードは不要（静的ファイルのみ）

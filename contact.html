@@ -192,6 +192,32 @@
       text-align: center;
       margin-top: 2.5rem;
     }
+    /* Honeypot — visually hidden but accessible-name kept off bots' way */
+    .p-form__honey {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    /* Status (success / error) */
+    .p-form__status {
+      padding: 1rem 1.25rem;
+      border-radius: 6px;
+      font-size: var(--text-sm);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .p-form__status--success {
+      background: #e8f4ea;
+      color: #2c6b3a;
+      border-left: 3px solid #2c6b3a;
+    }
+    .p-form__status--error {
+      background: #fdecec;
+      color: #b13230;
+      border-left: 3px solid #b13230;
+    }
 
     /* --- Access / Map section --- */
     .p-access-grid {
@@ -398,11 +424,20 @@
           <div class="p-section-header__line"></div>
         </div>
 
-        <form action="#" method="post" class="p-form">
+        <form id="js-contact-form" class="p-form" novalidate>
+          <!-- 送信結果ステータス -->
+          <div id="js-contact-status" class="p-form__status" hidden role="status" aria-live="polite"></div>
+
+          <!-- Honeypot — bot対策（人間には非表示） -->
+          <div class="p-form__honey" aria-hidden="true">
+            <label for="website">ご自身のWebサイト（送信しないでください）</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
           <!-- Name -->
           <div class="p-form__row" data-animate>
             <label for="name" class="p-form__label">お名前 <span class="required">必須</span></label>
-            <input type="text" id="name" name="name" class="p-form__input" placeholder="山本 太郎" required>
+            <input type="text" id="name" name="name" class="p-form__input" placeholder="山本 太郎" required autocomplete="name">
           </div>
 
           <!-- Furigana -->
@@ -414,19 +449,19 @@
           <!-- Company -->
           <div class="p-form__row" data-animate>
             <label for="company" class="p-form__label">会社名・団体名</label>
-            <input type="text" id="company" name="company" class="p-form__input" placeholder="株式会社サンプル">
+            <input type="text" id="company" name="company" class="p-form__input" placeholder="株式会社サンプル" autocomplete="organization">
           </div>
 
           <!-- Email -->
           <div class="p-form__row" data-animate>
             <label for="email" class="p-form__label">メールアドレス <span class="required">必須</span></label>
-            <input type="email" id="email" name="email" class="p-form__input" placeholder="example@email.com" required>
+            <input type="email" id="email" name="email" class="p-form__input" placeholder="example@email.com" required autocomplete="email">
           </div>
 
           <!-- Phone -->
           <div class="p-form__row" data-animate>
             <label for="tel" class="p-form__label">電話番号</label>
-            <input type="tel" id="tel" name="tel" class="p-form__input" placeholder="011-000-0000">
+            <input type="tel" id="tel" name="tel" class="p-form__input" placeholder="011-000-0000" autocomplete="tel">
           </div>
 
           <!-- Category -->

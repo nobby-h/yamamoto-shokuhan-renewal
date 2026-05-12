@@ -36,3 +36,6 @@ import './js/smooth-scroll.js';
 
 // Subpage parallax (works on all pages via data attributes)
 import './js/subpage-parallax.js';
+
+// Contact form submission (only fires when #js-contact-form exists)
+import './js/contact-form.js';
