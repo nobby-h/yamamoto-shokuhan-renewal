@@ -110,7 +110,7 @@
         <div class="p-svc-block__grid">
           <div class="p-svc-block__image-wrap" data-slide="left">
             <div class="p-svc-block__image" data-reveal>
-              <img src="/src/assets/images/img2/53背景.jpg" alt="運送事業部 — 食品配送トラック" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+              <img src="/src/assets/images/img2/syugou.png" alt="運送事業部 — 集合写真" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
             </div>
           </div>
           <div class="p-svc-block__body" data-slide="right">
@@ -181,7 +181,7 @@
         <div class="p-svc-block__grid p-svc-block__grid--reverse">
           <div class="p-svc-block__image-wrap" data-slide="right">
             <div class="p-svc-block__image" data-reveal>
-              <img src="/src/assets/images/img2/service 運送事業部の写真.png" alt="人材派遣事業部 — 本社" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+              <img src="/src/assets/images/img2/事務所.jpg" alt="人材派遣事業部 — 社屋" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
             </div>
           </div>
           <div class="p-svc-block__body" data-slide="left">
@@ -321,24 +321,17 @@
               </div>
               <div class="p-svc-block__feature">
                 <div class="p-svc-block__feature-icon">
-                  <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 6c-6 8-10 14-10 20a10 10 0 0020 0c0-6-4-12-10-20z"/><path d="M20 30a4 4 0 008 0"/></svg>
-                </div>
-                <h3 class="p-svc-block__feature-title">凍結防止剤散布</h3>
-                <p class="p-svc-block__feature-text">来店者・従業員の転倒事故を未然に防止。早朝散布で安全を確保</p>
-              </div>
-              <div class="p-svc-block__feature">
-                <div class="p-svc-block__feature-icon">
-                  <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 26L24 8l20 18M8 24v18h32V24"/><path d="M18 42V30h12v12"/></svg>
-                </div>
-                <h3 class="p-svc-block__feature-title">屋根の雪下ろし</h3>
-                <p class="p-svc-block__feature-text">建物・カーポートの雪下ろしを安全装備の有資格者が実施</p>
-              </div>
-              <div class="p-svc-block__feature">
-                <div class="p-svc-block__feature-icon">
                   <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="10" width="36" height="32" rx="3"/><path d="M6 18h36M14 6v8M34 6v8"/><path d="M16 28h4M24 28h4M32 28h4M16 36h4M24 36h4"/></svg>
                 </div>
                 <h3 class="p-svc-block__feature-title">年間契約・スポット対応</h3>
                 <p class="p-svc-block__feature-text">企業・個人宅対応。年間定額プランから単発対応まで、ご要望に合わせて柔軟に</p>
+              </div>
+              <div class="p-svc-block__feature">
+                <div class="p-svc-block__feature-icon">
+                  <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="20" r="8"/><path d="M10 42c0-7 6-12 14-12s14 5 14 12"/></svg>
+                </div>
+                <h3 class="p-svc-block__feature-title">重機・トラックの販売</h3>
+                <p class="p-svc-block__feature-text">運送・除排雪で培った車両運用ノウハウを活かし、ホイールローダー等の重機やトラックを販売</p>
               </div>
             </div>
             <a href="/service/jyosetsu.html" class="p-svc-block__link" data-animate>
@@ -681,35 +674,49 @@
       letter-spacing: 0.02em;
     }
 
-    /* View More link */
+    /* View More link — emphasized */
     .p-svc-block__link {
       display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 1rem;
       font-family: var(--font-heading-en, 'Cormorant Garamond', serif);
-      font-size: 1rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
+      font-size: clamp(1.35rem, 1.1rem + 0.8vw, 1.85rem);
+      font-weight: 600;
+      font-style: italic;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
       color: var(--color-primary, #0a1628);
       text-decoration: none;
       position: relative;
-      transition: color 0.3s ease, gap 0.3s ease;
+      padding: 0.85rem 0 0.45rem;
+      transition: color 0.3s ease, gap 0.3s ease, letter-spacing 0.3s ease;
+    }
+
+    .p-svc-block__link::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: rgba(184, 150, 62, 0.35);
     }
 
     .p-svc-block__link::after {
       content: "";
       position: absolute;
-      bottom: -4px;
+      bottom: 0;
       left: 0;
       width: 0;
-      height: 1px;
+      height: 2px;
       background: var(--color-gold, #b8963e);
       transition: width 0.4s ease;
     }
 
     .p-svc-block__link:hover {
       color: var(--color-gold, #b8963e);
-      gap: 1.25rem;
+      gap: 1.5rem;
+      letter-spacing: 0.22em;
     }
 
     .p-svc-block__link:hover::after {
@@ -717,11 +724,14 @@
     }
 
     .p-svc-block__link svg {
+      width: 32px;
+      height: 32px;
+      stroke-width: 1.8;
       transition: transform 0.3s ease;
     }
 
     .p-svc-block__link:hover svg {
-      transform: translateX(4px);
+      transform: translateX(6px);
     }
 
     /* --- Numbers Section --- */

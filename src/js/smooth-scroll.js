@@ -2,13 +2,24 @@ import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
 const pagetopBtn = document.getElementById('js-pagetop');
+const floatingLogo = document.querySelector('.p-floating-logo');
+
+// Toggle visibility of pagetop button and floating logo based on scroll
+if (pagetopBtn || floatingLogo) {
+  const PAGETOP_THRESHOLD = 400;
+  const FLOATING_LOGO_THRESHOLD = 600;
+
+  const onScroll = () => {
+    const y = window.scrollY;
+    if (pagetopBtn) pagetopBtn.classList.toggle('is-visible', y > PAGETOP_THRESHOLD);
+    if (floatingLogo) floatingLogo.classList.toggle('is-visible', y > FLOATING_LOGO_THRESHOLD);
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
 
 if (pagetopBtn) {
-  // Show/hide based on scroll position
-  window.addEventListener('scroll', () => {
-    pagetopBtn.classList.toggle('is-visible', window.scrollY > 400);
-  }, { passive: true });
-
   // Scroll to top
   pagetopBtn.addEventListener('click', () => {
     gsap.to(window, { scrollTo: 0, duration: 0.8, ease: 'power2.inOut' });

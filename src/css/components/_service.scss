@@ -118,12 +118,33 @@
   }
 
   &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
     font-family: var(--font-heading-en);
-    font-size: var(--text-xs);
-    letter-spacing: 0.15em;
+    font-size: clamp(1.1rem, 0.9rem + 0.6vw, 1.5rem);
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-    padding-bottom: 0.25rem;
+    border-bottom: 2px solid var(--color-gold);
+    padding: 0.55rem 0.25rem 0.45rem;
+    margin-top: 0.5rem;
+    color: var(--color-gold);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+
+    &::after {
+      content: "→";
+      font-style: normal;
+      font-weight: 500;
+      transform: translateY(-1px);
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &:hover &__link::after,
+  a:hover &__link::after {
+    transform: translate(4px, -1px);
   }
 
   // Premium muted tones

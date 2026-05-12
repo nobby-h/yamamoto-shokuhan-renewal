@@ -2,20 +2,27 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-// ─── Vision: deep multi-layer parallax ───
+// Honor reduced motion — skip all scrub parallax for users who prefer reduced motion
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Smooth out scrub animations to reduce micro-jitter at small scroll deltas
+gsap.defaults({ overwrite: 'auto' });
+ScrollTrigger.config({ ignoreMobileResize: true });
+
+// ─── Vision: gentler parallax (no scale to avoid wobble) ───
 const visionBg = document.querySelector('.p-vision__bg');
-if (visionBg) {
+if (visionBg && !prefersReducedMotion) {
   gsap.fromTo(visionBg,
-    { yPercent: 20, scale: 1.15 },
+    { yPercent: 12 },
     {
-      yPercent: -50,
-      scale: 1,
+      yPercent: -22,
       ease: 'none',
+      force3D: true,
       scrollTrigger: {
         trigger: '.p-vision',
         start: 'top bottom',
         end: 'bottom top',
-        scrub: 0.6,
+        scrub: 1.2,
       },
     }
   );
@@ -53,58 +60,28 @@ if (visionValues.length) {
   });
 }
 
-// ─── Parallax bands: background depth ───
-document.querySelectorAll('.p-parallax-band__bg').forEach((bg) => {
-  gsap.fromTo(bg,
-    { yPercent: 25, scale: 1.2 },
-    {
-      yPercent: -45,
-      scale: 1.05,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: bg.parentElement,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 0.4,
-      },
-    }
-  );
-});
+// ─── Parallax bands: gentle vertical drift only (no scale) ───
+if (!prefersReducedMotion) {
+  document.querySelectorAll('.p-parallax-band__bg').forEach((bg) => {
+    gsap.fromTo(bg,
+      { yPercent: 15 },
+      {
+        yPercent: -25,
+        ease: 'none',
+        force3D: true,
+        scrollTrigger: {
+          trigger: bg.parentElement,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1,
+        },
+      }
+    );
+  });
+}
 
-// Parallax band text — opposite direction
-document.querySelectorAll('.p-parallax-band__content').forEach((content) => {
-  gsap.fromTo(content,
-    { yPercent: -30 },
-    {
-      yPercent: 30,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: content.parentElement,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 0.4,
-      },
-    }
-  );
-});
-
-// ─── Section headers: en title drift (position only, no opacity) ───
-document.querySelectorAll('.p-section-header__en').forEach((el) => {
-  gsap.fromTo(el,
-    { yPercent: 40, xPercent: -10 },
-    {
-      yPercent: -60,
-      xPercent: 10,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: el.closest('section') || el.parentElement,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 0.6,
-      },
-    }
-  );
-});
+// Section header English title — drift disabled to prevent perceived shake while scrolling.
+// (Previously animated yPercent/xPercent on every scroll, which caused visible jitter.)
 
 // ─── Service cards: stagger entry ───
 const serviceGrid = document.querySelector('.p-service__grid');
@@ -123,19 +100,20 @@ if (serviceGrid) {
   });
 }
 
-// ─── Numbers: background text sweep (decorative only) ───
+// ─── Numbers: background text sweep (smoothed) ───
 const numbersBgText = document.querySelector('.p-numbers__bg-text');
-if (numbersBgText) {
+if (numbersBgText && !prefersReducedMotion) {
   gsap.fromTo(numbersBgText,
-    { xPercent: 90 },
+    { xPercent: 60 },
     {
-      xPercent: -50,
+      xPercent: -30,
       ease: 'none',
+      force3D: true,
       scrollTrigger: {
         trigger: '.p-numbers',
         start: 'top bottom',
         end: 'bottom top',
-        scrub: 0.6,
+        scrub: 1,
       },
     }
   );
@@ -171,38 +149,39 @@ if (gallerySection) {
   });
 }
 
-// Gallery overlay text — parallax
+// Gallery overlay text — reduced parallax range for smoother scroll
 const galleryText = document.querySelector('.p-gallery__text');
-if (galleryText) {
+if (galleryText && !prefersReducedMotion) {
   gsap.fromTo(galleryText,
-    { yPercent: 60 },
+    { yPercent: 30 },
     {
-      yPercent: -60,
+      yPercent: -30,
       ease: 'none',
+      force3D: true,
       scrollTrigger: {
         trigger: '.p-gallery',
         start: 'top bottom',
         end: 'bottom top',
-        scrub: 0.5,
+        scrub: 1,
       },
     }
   );
 }
 
-// ─── Recruit CTA: background zoom ───
+// ─── Recruit CTA: subtle vertical drift (no rotate — was causing perceived wobble) ───
 const recruitBg = document.querySelector('.p-recruit-cta__bg');
-if (recruitBg) {
+if (recruitBg && !prefersReducedMotion) {
   gsap.fromTo(recruitBg,
-    { scale: 1, rotate: -1 },
+    { yPercent: 10 },
     {
-      scale: 1.35,
-      rotate: 1,
+      yPercent: -20,
       ease: 'none',
+      force3D: true,
       scrollTrigger: {
         trigger: '.p-recruit-cta',
         start: 'top bottom',
         end: 'bottom top',
-        scrub: 0.6,
+        scrub: 1,
       },
     }
   );
